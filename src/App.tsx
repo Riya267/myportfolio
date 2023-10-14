@@ -1,11 +1,11 @@
-import Footer from "./components/Footer";
+import Footer from './components/Footer'
 
-function App() {
+function App (): JSX.Element {
   return (
     <div className="App">
-      <Footer />
+      <Footer isDarkMode={false}/>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
