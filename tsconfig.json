@@ -1,11 +1,7 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "target": "es6", // You can target ES6 to support modern JavaScript features
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -16,11 +12,9 @@
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react-jsx"
+    "isolatedModules": false, // Set this to false if your project isn't isolated
+    "noEmit": true, // You may set this to true for a pure TypeScript project, but false if you have other files (e.g., JavaScript)
+    "jsx": "react-jsx", // Use "react" for React projects
   },
-  "include": [
-    "src"
-  ]
+  "include": ["src"]
 }
