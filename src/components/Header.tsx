@@ -54,8 +54,8 @@ const Header: React.FC<HeaderProps> = ({toggleDarkMode, isDarkMode}) => {
     </li>
   ))
 
-  const darkModeStyles = 'bg-black-200 text-white-100'
-  const lightModeStyles = 'bg-white-200 text-black-200'
+  const darkModeStyles = 'bg-primary-500 text-white-100 shadow-white'
+  const lightModeStyles = 'bg-white-200 text-black-200 shadow-black'
   const spring = {
     type: "spring",
     stiffness: 700,
@@ -63,13 +63,14 @@ const Header: React.FC<HeaderProps> = ({toggleDarkMode, isDarkMode}) => {
   }
 
   return (
-  <header className={`${isDarkMode ? darkModeStyles : lightModeStyles} font-inter`}>
+  <header className={`${isDarkMode ? darkModeStyles : lightModeStyles} font-inter shadow-lg`}>
     <div className={`container ${isResponsive ? 'relative py-4' : 'py-2'}`}>
-      <div>
-        <div className="flex justify-between items-center mb-4">
+      <div className="lg:flex lg:justify-between">
+        <div className="flex justify-between items-center">
           <button className="text-white text-xl cursor-pointer lg:hidden" onClick={toggleResponsive}>
             {!isResponsive ? <BiMenuAltLeft fontSize={40}/> : <AiOutlineClose fontSize={40}/> }
           </button>
+          <img src="/logo.png" className="hidden lg:block h-16 w-[7rem]"/>
         </div>
         <ul
           className={`${isResponsive ? 'flex' : 'hidden'} flex-col lg:flex-row lg:items-center lg:flex justify-end`}
@@ -86,8 +87,8 @@ const Header: React.FC<HeaderProps> = ({toggleDarkMode, isDarkMode}) => {
             <div className="social-icons">
                 <ul className='flex text-white-200 m-4 mt-5'>{renderSocialLinks}</ul>
             </div>
-            <div className={`relative m-4 mr-0 w-20 h-10 bg-white-200 border-2 flex items-center justify-between rounded-full cursor-pointer py-1 px-2`} data-isOn={isDarkMode} onClick={toggleDarkMode}>
-                {!isDarkMode ? <MdDarkMode /> : null}<motion.div className="w-8 h-8 bg-primary-400 rounded-full" layout transition={spring} />{!isDarkMode ? null: <MdLightMode color="black"/>}
+            <div className={`relative m-4 mr-0 w-20 h-10 bg-white-200 border-2 ${isDarkMode ? 'border-primary-200' : 'border-primary-500'} flex items-center justify-between rounded-full cursor-pointer py-1 px-2`} data-isOn={isDarkMode} onClick={toggleDarkMode}>
+                {!isDarkMode ? <MdDarkMode /> : null}<motion.div className={`w-8 h-8 ${isDarkMode ? 'bg-primary-200' : 'bg-primary-500'} bg-primary-400 rounded-full`} layout transition={spring} />{!isDarkMode ? null: <MdLightMode color="black"/>}
             </div>
         </ul>
       </div>
