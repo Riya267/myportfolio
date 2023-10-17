@@ -47,7 +47,7 @@ const Header: React.FC<HeaderProps> = ({toggleDarkMode, isDarkMode}) => {
   ]
 
   const renderSocialLinks = socialLinks.map((link, index) => (
-    <li key={index} className={`mr-3 border-2 rounded-full bg-white-200 p-2`}>
+    <li key={index} className={`mr-3 border-2 rounded-full p-2 bg-white-200`}> 
       <a href={link.url} target='_blank'>
         {link.icon}
       </a>
@@ -78,6 +78,9 @@ const Header: React.FC<HeaderProps> = ({toggleDarkMode, isDarkMode}) => {
             <NavItem active={activeLink === 'home'} to="home" onClick={() => onUpdateActiveLink('home')}>
                 Home
             </NavItem>
+            <NavItem active={activeLink === 'about'} to="about" onClick={() => onUpdateActiveLink('about')}>
+                About
+            </NavItem>
             <NavItem active={activeLink === 'skills'} to="skills" onClick={() => onUpdateActiveLink('skills')}>
                 Skills
             </NavItem>
@@ -88,7 +91,7 @@ const Header: React.FC<HeaderProps> = ({toggleDarkMode, isDarkMode}) => {
                 <ul className='flex text-white-200 m-4 mt-5'>{renderSocialLinks}</ul>
             </div>
             <div className={`relative m-4 mr-0 w-20 h-10 bg-white-200 border-2 ${isDarkMode ? 'border-primary-200' : 'border-primary-500'} flex items-center justify-between rounded-full cursor-pointer py-1 px-2`} data-isOn={isDarkMode} onClick={toggleDarkMode}>
-                {!isDarkMode ? <MdDarkMode /> : null}<motion.div className={`w-8 h-8 ${isDarkMode ? 'bg-primary-200' : 'bg-primary-500'} bg-primary-400 rounded-full`} layout transition={spring} />{!isDarkMode ? null: <MdLightMode color="black"/>}
+                {!isDarkMode && <MdLightMode color="black"/>}<motion.div className={`w-8 h-8 ${isDarkMode ? 'bg-primary-200' : 'bg-primary-500'} bg-primary-400 rounded-full`} layout transition={spring} />{isDarkMode && <MdDarkMode color="black"/>}
             </div>
         </ul>
       </div>

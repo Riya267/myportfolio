@@ -18,6 +18,7 @@ module.exports = {
                 white: {
                     100: '#ffffff',
                     200: '#fefcfc',
+                    300: '#c7c7c7',
                 },
                 black: {
                     100: '#000000',
@@ -30,6 +31,7 @@ module.exports = {
                     300: '#4D3C77',
                     400: '#3F1D38',
                     500: '#1e0f1b',
+                    600: '#190215',
                 },
                 secondary: {
                     100: '#D4E8ED',
