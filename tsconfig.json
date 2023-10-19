@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
-    "target": "es6", // You can target ES6 to support modern JavaScript features
+    "declaration": true,
+    "target": "es6",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
@@ -16,5 +17,9 @@
     "noEmit": true, // You may set this to true for a pure TypeScript project, but false if you have other files (e.g., JavaScript)
     "jsx": "react-jsx", // Use "react" for React projects
   },
-  "include": ["src"]
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.d.ts"
+  ]
 }
