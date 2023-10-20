@@ -1,26 +1,24 @@
 import { motion } from 'framer-motion';
-import React from 'react';
+import React, { useRef } from 'react';
 import { useForm, Controller } from 'react-hook-form';
+import sendEmail from '../utils/sendEmail';
 
-interface ContactProps {
-    isDarkMode: boolean
-}
-
-type FormData = {
+export type FormData = {
     name: string;
     email: string;
     message: string;
 };
 
-const ContactForm: React.FC<ContactProps> = ({isDarkMode}) => {
+const ContactForm: React.FC = () => {
     const { handleSubmit, control, formState: { errors } } = useForm<FormData>();
+    const formRef = useRef<HTMLFormElement | null>(null);
 
-  const onSubmit = (data: FormData) => {
-    console.log(data);
+  const onSubmit = () => {
+    sendEmail(formRef)
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(onSubmit)} ref={formRef}>
         <label htmlFor="name" className='hidden'>Name</label>
         <Controller
           name="name"

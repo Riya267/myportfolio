@@ -16,8 +16,8 @@ const Contact: React.FC<ContactProps> = ({isDarkMode}) => {
             <p className={`text-3xl lg:text-5xl font-bold ${isDarkMode ? 'text-tertiary-200': 'text-primary-200'}`}>If Not Now, When? <br /> Lets Work Together!</p>
             <p className={`font-bold lg:w-96 mt-8 ${isDarkMode ? 'text-white-300': 'text-tertiary-400'}`}>Ready to elevate your digital presence? I'm a full stack developer specializing in dynamic web solutions that merge technology with design. Let's bring your vision to life – contact me today.</p>    
       </div>
-      <div className="lg:w-[40%] p-4">
-        <ContactForm isDarkMode={isDarkMode}/>
+      <div className="lg:w-[40%] p-4 text-black-200">
+        <ContactForm />
       </div>
   </section>
   )
