@@ -3,6 +3,7 @@ import Header from './components/Header'
 import { useState } from 'react'
 import About from './components/About'
 import Contact from './components/Contact'
+import Projects from './components/Projects'
 
 function App (): JSX.Element {
   const [isDarkMode, setDarkMode] = useState(true)
@@ -14,6 +15,7 @@ function App (): JSX.Element {
         <Header toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode}/>
         <main id="home">
           <About isDarkMode={isDarkMode}/>
+          <Projects />
           <Contact isDarkMode={isDarkMode}/>
         </main>
         <Footer isDarkMode={isDarkMode}/>

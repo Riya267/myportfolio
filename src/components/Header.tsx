@@ -21,7 +21,7 @@ interface HeaderProps {
 const NavItem: React.FC<NavItemProps> = ({ active, to, children, onClick }) => {
     return (
       <li className={`nav-item ${active ? 'active' : ''} p-4`}>
-        <HashLink to={`#${to}`} onClick={onClick} className="nav-link">
+        <HashLink to={`#${to}`} onClick={onClick} className={`nav-link ${active ? 'border-b-2 border-primary-700' : ''}`}>
           {children}
         </HashLink>
       </li>
@@ -63,7 +63,7 @@ const Header: React.FC<HeaderProps> = ({toggleDarkMode, isDarkMode}) => {
   }
 
   return (
-  <header className={`${isDarkMode ? darkModeStyles : lightModeStyles} font-inter shadow-lg`}>
+  <header className={`${isDarkMode ? darkModeStyles : lightModeStyles} font-inter shadow-lg fixed top-0 left-0 w-full z-100`}>
     <div className={`container ${isResponsive ? 'relative py-4' : 'py-2'}`}>
       <div className="lg:flex lg:justify-between">
         <div className="flex justify-between items-center">

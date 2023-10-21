@@ -15,8 +15,8 @@ const About: React.FC<AboutProps> = ({isDarkMode}) => {
     link.click();
   };
   return (
-  <section id="about" className={`${isDarkMode ? darkModeStyles : lightModeStyles} font-inter h-screen`}>
-      <div className="flex justify-center items-center h-[80%] mx-[1.5rem]">
+  <section id="about" className={`${isDarkMode ? darkModeStyles : lightModeStyles} font-inter h-screen lg:pt-40`}>
+      <div className="container flex justify-center items-center h-[80%]">
             <div className="flex flex-col justify-center items-start">
                 <p className="text-2xl lg:text-3xl font-bold">Hi there, <br/> I'm Riya <span className="text-primary-200">Dhawan</span></p>
                 <p className="text-5xl lg:text-7xl font-bold text-tertiary-200">Full Stack Developer</p>
