@@ -11,7 +11,7 @@ const Contact: React.FC<ContactProps> = ({isDarkMode}) => {
   const lightModeStyles = 'bg-white-200 text-black-200 shadow-black'
 
   return (
-  <section className={`${isDarkMode ? darkModeStyles : lightModeStyles} font-inter lg:h-screen flex flex-col lg:flex-row justify-evenly`}>
+  <section id="contact" className={`${isDarkMode ? darkModeStyles : lightModeStyles} font-inter lg:h-screen flex flex-col lg:flex-row justify-evenly`}>
       <div className="p-4">
             <p className={`text-3xl lg:text-5xl font-bold ${isDarkMode ? 'text-tertiary-200': 'text-primary-200'}`}>If Not Now, When? <br /> Lets Work Together!</p>
             <p className={`font-bold lg:w-96 mt-8 ${isDarkMode ? 'text-white-300': 'text-tertiary-400'}`}>Ready to elevate your digital presence? I'm a full stack developer specializing in dynamic web solutions that merge technology with design. Let's bring your vision to life – contact me today.</p>    

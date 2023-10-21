@@ -26,10 +26,9 @@ const socialInfo = [
   { label: 'Follow', info: null, list: socialLinks },
 ]
 
-
 const Footer: React.FC<FooterProps> = ({ isDarkMode }) => {
-  const darkModeStyles = 'bg-primary-500 text-white-100 mt-12';
-  const lightModeStyles = 'bg-white-200 text-black-200 mt-12';
+  const darkModeStyles = 'bg-primary-500 text-white-100';
+  const lightModeStyles = 'bg-white-200 text-black-200';
   const genericStyles = 'container flex justify-between flex-wrap p-4';
 
   const renderContactInfo = contactInfo.map((item, index) => (

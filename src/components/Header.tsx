@@ -70,7 +70,9 @@ const Header: React.FC<HeaderProps> = ({toggleDarkMode, isDarkMode}) => {
           <button className="text-white text-xl cursor-pointer lg:hidden" onClick={toggleResponsive}>
             {!isResponsive ? <BiMenuAltLeft fontSize={40}/> : <AiOutlineClose fontSize={40}/> }
           </button>
-          <img src="/logo.png" className="hidden lg:block h-16 w-[7rem]"/>
+          <a className="hidden lg:block" href="#home">
+            <img src="/logo.png" className="h-16 w-[7rem]"/>
+          </a>
         </div>
         <ul
           className={`${isResponsive ? 'flex' : 'hidden'} flex-col lg:flex-row lg:items-center lg:flex justify-end`}
@@ -86,6 +88,9 @@ const Header: React.FC<HeaderProps> = ({toggleDarkMode, isDarkMode}) => {
             </NavItem>
             <NavItem active={activeLink === 'projects'} to="projects" onClick={() => onUpdateActiveLink('projects')}>
                 Projects
+            </NavItem>
+            <NavItem active={activeLink === 'contact'} to="contact" onClick={() => onUpdateActiveLink('contact')}>
+                Contact
             </NavItem>
             <div className="social-icons">
                 <ul className='flex text-white-200 m-4 mt-5'>{renderSocialLinks}</ul>

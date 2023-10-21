@@ -12,7 +12,7 @@ function App (): JSX.Element {
   return (
       <div className="App">
         <Header toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode}/>
-        <main>
+        <main id="home">
           <About isDarkMode={isDarkMode}/>
           <Contact isDarkMode={isDarkMode}/>
         </main>
