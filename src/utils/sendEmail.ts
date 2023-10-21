@@ -2,24 +2,23 @@ import emailjs from "@emailjs/browser";
 import { RefObject } from "react";
 
 
-const sendEmail = async (formRef: RefObject<HTMLFormElement>) => {
+const sendEmail = async (formRef: RefObject<HTMLFormElement>, notify: (message:string, type:string)=>void) => {
     if(formRef.current){
         emailjs
         .sendForm(
-            process.env.EMAIL_SERVICE_KEY,
-            process.env.EMAIL_TEMPLATE_KEY,
+            process.env.REACT_APP_EMAIL_SERVICE_KEY,
+            process.env.REACT_APP_EMAIL_TEMPLATE_KEY,
             formRef.current,
-            process.env.EMAIL_PUBLIC_KEY,
+            process.env.REACT_APP_EMAIL_PUBLIC_KEY,
         )
         .then(
-            (result:any) => {
-            console.log(result.text);
-            console.log("message sent");
+            () => {
+              notify("Message sent successfully","success");
             },
-            (error:any) => {
-            console.log("error.text", error.text);
+            () => {
+              notify("Something went wrong, Please Retry","error");
             }
-        );
+        )
     }
 };
 
