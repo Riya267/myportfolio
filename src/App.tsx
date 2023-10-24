@@ -15,7 +15,7 @@ function App (): JSX.Element {
         <Header toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode}/>
         <main id="home">
           <About isDarkMode={isDarkMode}/>
-          <Projects />
+          <Projects isDarkMode={isDarkMode}/>
           <Contact isDarkMode={isDarkMode}/>
         </main>
         <Footer isDarkMode={isDarkMode}/>

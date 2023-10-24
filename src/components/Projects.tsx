@@ -1,146 +1,60 @@
+import { motion } from 'framer-motion';
 import React, { useState } from 'react';
-const projects = [
-    {
-      "name": "Project 1",
-      "githubLink": "https://github.com/project1",
-      "image": "project1.jpg",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac metus eget nunc.",
-      "techStack": ["HTML", "CSS", "JavaScript"],
-      "viewCodeButton": {
-        "text": "View Code",
-        "url": "https://github.com/project1"
-      },
-      "viewProjectButton": {
-        "text": "View Project",
-        "url": "https://project1.com"
-      }
-    },
-    {
-      "name": "Project 2",
-      "githubLink": "https://github.com/project2",
-      "image": "project2.jpg",
-      "description": "Nullam nec leo id libero volutpat rhoncus. Sed ac metus eget nunc.",
-      "techStack": ["Python", "Django", "React"],
-      "viewCodeButton": {
-        "text": "View Code",
-        "url": "https://github.com/project2"
-      },
-      "viewProjectButton": {
-        "text": "View Project",
-        "url": "https://project2.com"
-      }
-    },
-    {
-      "name": "Project 3",
-      "githubLink": "https://github.com/project3",
-      "image": "project3.jpg",
-      "description": "Praesent sagittis tellus eget ex blandit, et fringilla purus interdum.",
-      "techStack": ["Java", "Spring Boot", "Angular"],
-      "viewCodeButton": {
-        "text": "View Code",
-        "url": "https://github.com/project3"
-      },
-      "viewProjectButton": {
-        "text": "View Project",
-        "url": "https://project3.com"
-      }
-    },
-    {
-        "name": "Project 1",
-        "githubLink": "https://github.com/project1",
-        "image": "project1.jpg",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac metus eget nunc.",
-        "techStack": ["HTML", "CSS", "JavaScript"],
-        "viewCodeButton": {
-          "text": "View Code",
-          "url": "https://github.com/project1"
-        },
-        "viewProjectButton": {
-          "text": "View Project",
-          "url": "https://project1.com"
-        }
-      },
-      {
-        "name": "Project 2",
-        "githubLink": "https://github.com/project2",
-        "image": "project2.jpg",
-        "description": "Nullam nec leo id libero volutpat rhoncus. Sed ac metus eget nunc.",
-        "techStack": ["Python", "Django", "React"],
-        "viewCodeButton": {
-          "text": "View Code",
-          "url": "https://github.com/project2"
-        },
-        "viewProjectButton": {
-          "text": "View Project",
-          "url": "https://project2.com"
-        }
-      },
-      {
-        "name": "Project 3",
-        "githubLink": "https://github.com/project3",
-        "image": "project3.jpg",
-        "description": "Praesent sagittis tellus eget ex blandit, et fringilla purus interdum.",
-        "techStack": ["Java", "Spring Boot", "Angular"],
-        "viewCodeButton": {
-          "text": "View Code",
-          "url": "https://github.com/project3"
-        },
-        "viewProjectButton": {
-          "text": "View Project",
-          "url": "https://project3.com"
-        }
-      }
-  ]
-const Grid = () => {
+const projects: any[] = []
+
+interface ProjectsProps {
+  isDarkMode: boolean
+}
+
+const ProjectsGrid: React.FC<ProjectsProps> = ({isDarkMode}) => {
   const [itemsToShow, setItemsToShow] = useState(6);
 
   const loadMore = () => {
     setItemsToShow(itemsToShow + 6);
   };
 
+  const darkModeStyles = 'bg-primary-500 text-white-100 shadow-white'
+  const lightModeStyles = 'bg-white-200 text-black-200 shadow-black'
+  const gridClasses = `${projects.length < 3 ? 'flex flex-col lg:flex-row justify-between lg:w-[60%]' : 'grid grid-cols-1 lg:grid-cols-3 gap-4'}`;
+
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-      {projects.slice(0, itemsToShow).map((project, index) => (
-        <div key={index} className="p-4 border rounded shadow-md">
-          <img src={project.image} alt={project.name} className="w-full h-48 object-cover" />
-          <h3 className="text-xl font-semibold mt-2">{project.name}</h3>
-          <p className="text-gray-600">{project.description}</p>
-          <ul className="mt-2">
-            {project.techStack.map((tech, techIndex) => (
-              <li key={techIndex} className="bg-blue-500 text-white rounded-full p-1 text-xs mr-2">
-                {tech}
-              </li>
-            ))}
-          </ul>
-          <div className="mt-4">
-            <a
-              href={project.githubLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-primary"
-            >
-              View Code
-            </a>
-            <a
-              href={project.viewProjectButton.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-secondary ml-2"
-            >
-              View Project
-            </a>
-          </div>
-        </div>
-      ))}
+    <section id="projects" className={`${isDarkMode ? darkModeStyles : lightModeStyles} container font-inter flex flex-col items-center lg:p-10`}>
+      <p className='mb-6 border-b-2 border-primary-700'>
+        PROJECTS
+      </p>
+      <div className={`${gridClasses}`}>
+          {projects.slice(0, itemsToShow).map((project, index) => (
+            <div key={index} className={`p-4 border rounded shadow-md ${projects.length < 3 ?'my-5 lg:mx-5':''}`}>
+              <img src={project.image} alt={project.name} className="w-full h-40 object-cover" />
+              <h3 className="text-xl font-semibold mt-2">{project.name}</h3>
+              <p className="text-gray-600 text-sm">{project.description}</p>
+              <ul className="mt-2 flex">
+                {project.techStack.map((tech:string, techIndex:number) => (
+                  <li key={techIndex} className={`bg-primary-200 text-white-200 rounded-full p-1 text-xs mr-2`}>
+                    {tech}
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-4 flex flex-col justify-start items-start">
+                <motion.a href={project.viewCodeButton.url} target="_blank"
+                  rel="noopener noreferrer" className={`mr-4 p-3 px-5 mt-4 border-b-2 border-primary-700 font-bold ${isDarkMode ? 'text-white-200': 'text-black-200'} rounded-[100px] font-russonOne text-sm`} whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.9 }}>
+                    View Code
+                </motion.a>
+                <motion.a href={project.viewProjectButton.url} target="_blank"
+                  rel="noopener noreferrer" className={`mr-4 p-3 px-5 mt-4 border-b-2 border-primary-700 font-bold ${isDarkMode ? 'text-white-200': 'text-black-200'} rounded-[100px] font-russonOne text-sm`} whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.9 }}>
+                    View Project
+                </motion.a>
+              </div>
+            </div>
+          ))}
+      </div>
       {itemsToShow <= projects.length && (
-        <div className="mt-4 text-center">
-          <button onClick={loadMore} className="btn btn-primary">
-            Load More
-          </button>
-        </div>
+        <motion.button onClick={loadMore} className={`border-2 mr-4 p-3 px-5 my-8 ${isDarkMode ? 'border-primary-200': 'border-primary-500'} rounded-[100px] font-russonOne`} whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.9 }}>
+                Load More
+        </motion.button>
       )}
-    </div>
+    </section>
   );
 };
 
-export default Grid;
+export default ProjectsGrid;
