@@ -7,7 +7,7 @@ import Projects from './components/Projects'
 
 function App (): JSX.Element {
   const [isDarkMode, setDarkMode] = useState(true)
-  const toggleDarkMode = () => {
+  const toggleDarkMode = (): void => {
     setDarkMode(!isDarkMode)
   }
   return (
