@@ -16,10 +16,10 @@ const About: React.FC<AboutProps> = ({ isDarkMode }) => {
   }
   return (
   <section id="about" className={`${isDarkMode ? darkModeStyles : lightModeStyles} font-inter py-40 lg:pt-40`}>
-      <div className="container flex justify-center items-center h-[80%]">
+      <div className="container flex flex-col lg:flex-row justify-center items-center h-[80%]">
             <div className="flex flex-col justify-center items-start">
                 <p className="text-2xl lg:text-3xl font-bold">Hi there, <br/> I'm Riya <span className="text-primary-200">Dhawan</span></p>
-                <p className="text-5xl lg:text-7xl font-bold text-tertiary-200">Full Stack Developer</p>
+                <p className="text-2xl lg:text-3xl font-bold text-tertiary-200">Full Stack Developer</p>
                 <p className={`font-bold lg:w-96 mt-2 ${isDarkMode ? 'text-white-300' : 'text-primary-600'}`}>3+ years of experience in full stack development. My mission is to develop a website which you and your audience love.</p>
                 <div className="flex justify-between">
                     <motion.a href="https://github.com/Riya267" className={'border-2 mr-4 p-3 px-5 mt-4 bg-primary-700 text-white-200 rounded-[100px] font-russonOne'} whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.9 }}>
@@ -30,6 +30,7 @@ const About: React.FC<AboutProps> = ({ isDarkMode }) => {
                     </motion.button>
                 </div>
             </div>
+            <img src='about.png'/>
       </div>
   </section>
   )
