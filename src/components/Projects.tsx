@@ -18,7 +18,7 @@ const ProjectsGrid: React.FC<ProjectsProps> = ({ isDarkMode }) => {
   const gridClasses = `${projects.length < 3 ? 'flex flex-col lg:flex-row justify-between lg:w-[60%]' : 'grid grid-cols-1 lg:grid-cols-3 gap-4'}`
 
   return (
-    <section id="projects" className={`${isDarkMode ? darkModeStyles : lightModeStyles}`}>
+    ((projects?.length) !== 0) && <section id="projects" className={`${isDarkMode ? darkModeStyles : lightModeStyles}`}>
       <div className='container font-inter flex flex-col items-center lg:p-10'>
         <p className='mb-6 border-b-2 border-primary-700'>
           PROJECTS
