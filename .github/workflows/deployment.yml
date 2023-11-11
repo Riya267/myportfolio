@@ -34,9 +34,13 @@ jobs:
           echo "GitHub Token: ${{ secrets.GITHUB_TOKEN }}"
           npx vercel --version
 
+      - name: Install Vercel CLI
+        run: |
+          npm install -g vercel@latest
+
       - name: Deploy to Vercel
         run: |
-          npx vercel --token ${{ secrets.VERCEL_TOKEN }}
+          vercel --token ${{ secrets.VERCEL_TOKEN }} -v
 
       - name: After Deployment
         run: |
