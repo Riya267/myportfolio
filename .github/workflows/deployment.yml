@@ -27,6 +27,17 @@ jobs:
     needs: build
 
     steps:
+      - name: Debug Info
+        run: |
+          echo "Before Vercel Deployment"
+          echo "VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}"
+          echo "GitHub Token: ${{ secrets.GITHUB_TOKEN }}"
+          npx vercel --version
+
       - name: Deploy to Vercel
         run: |
           npx vercel --token ${{ secrets.VERCEL_TOKEN }}
+
+      - name: After Deployment
+        run: |
+          echo "After Vercel Deployment"
