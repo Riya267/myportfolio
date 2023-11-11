@@ -86,7 +86,7 @@ const Header: React.FC<HeaderProps> = ({ toggleDarkMode, isDarkMode }) => {
           </a>
         </div>
         <ul
-          className={`${openMenu ? 'flex' : 'hidden'} flex-col lg:flex-row lg:items-center lg:flex justify-end`}
+          className={`${openMenu ? 'flex' : 'hidden'} flex-col lg:flex-row lg:items-center lg:flex justify-end mt-6 lg:mt-0`}
         >
             <NavItem active={activeLink === 'home'} to="home" onClick={() => { onUpdateActiveLink('home') }}>
                 Home
