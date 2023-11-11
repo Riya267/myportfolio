@@ -6,7 +6,7 @@ interface ProjectsProps {
   isDarkMode: boolean
 }
 
-const ProjectsGrid: React.FC<ProjectsProps> | boolean = ({ isDarkMode }) => {
+const ProjectsGrid: React.FC<ProjectsProps> = ({ isDarkMode }) => {
   const [itemsToShow, setItemsToShow] = useState(6)
 
   const loadMore = (): void => {
@@ -18,7 +18,8 @@ const ProjectsGrid: React.FC<ProjectsProps> | boolean = ({ isDarkMode }) => {
   const gridClasses = `${projects.length < 3 ? 'flex flex-col lg:flex-row justify-between lg:w-[60%]' : 'grid grid-cols-1 lg:grid-cols-3 gap-4'}`
 
   return (
-    ((projects?.length) !== 0) && <section id="projects" className={`${isDarkMode ? darkModeStyles : lightModeStyles}`}>
+    projects?.length !== 0
+      ? <section id="projects" className={`${isDarkMode ? darkModeStyles : lightModeStyles}`}>
       <div className='container font-inter flex flex-col items-center lg:p-10'>
         <p className='mb-6 border-b-2 border-primary-700'>
           PROJECTS
@@ -56,6 +57,7 @@ const ProjectsGrid: React.FC<ProjectsProps> | boolean = ({ isDarkMode }) => {
         )}
         </div>
     </section>
+      : null
   )
 }
 
