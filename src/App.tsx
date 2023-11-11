@@ -7,12 +7,14 @@ import Projects from './components/Projects'
 
 function App (): JSX.Element {
   const [isDarkMode, setDarkMode] = useState(true)
+
   const toggleDarkMode = (): void => {
     setDarkMode(!isDarkMode)
   }
+
   return (
       <div className="App">
-        <Header toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode}/>
+        <Header toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode} />
         <main id="home">
           <About isDarkMode={isDarkMode}/>
           <Projects isDarkMode={isDarkMode}/>

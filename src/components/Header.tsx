@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { HashLink } from 'react-router-hash-link'
 import { BsGithub, BsLinkedin, BsTwitter } from 'react-icons/bs'
@@ -30,15 +30,26 @@ const NavItem: React.FC<NavItemProps> = ({ active, to, children, onClick }) => {
 
 const Header: React.FC<HeaderProps> = ({ toggleDarkMode, isDarkMode }) => {
   const [activeLink, setActiveLink] = useState('home')
-  const [isResponsive, setIsResponsive] = useState(false)
-
+  const [openMenu, setOpenMenu] = useState(false)
   const onUpdateActiveLink = (value: any): void => {
     setActiveLink(value)
   }
 
-  const toggleResponsive = (): void => {
-    setIsResponsive(!isResponsive)
+  const toggleMenu = (): void => {
+    setOpenMenu(!openMenu)
   }
+
+  useEffect(() => {
+    const handleScroll = (): void => {
+      setOpenMenu(false)
+    }
+
+    window.addEventListener('scroll', handleScroll)
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
 
   const socialLinks = [
     { name: 'LinkedIn', icon: <BsLinkedin color="black" fontSize={20} />, url: 'https://www.linkedin.com/in/riya-dhawan-592ab921a' },
@@ -64,18 +75,18 @@ const Header: React.FC<HeaderProps> = ({ toggleDarkMode, isDarkMode }) => {
 
   return (
   <header className={`${isDarkMode ? darkModeStyles : lightModeStyles} font-montserrat shadow-lg fixed top-0 left-0 w-full z-100`}>
-    <div className={`container ${isResponsive ? 'relative py-4' : 'py-2'}`}>
+    <div className={`container ${openMenu ? 'relative py-4' : 'py-2'}`}>
       <div className="lg:flex lg:justify-between">
         <div className="flex justify-between items-center">
-          <button className="text-white text-xl cursor-pointer lg:hidden" onClick={toggleResponsive}>
-            {!isResponsive ? <BiMenuAltLeft fontSize={40}/> : <AiOutlineClose fontSize={40}/> }
+          <button className="text-white text-xl cursor-pointer lg:hidden" onClick={toggleMenu}>
+            {!openMenu ? <BiMenuAltLeft fontSize={40}/> : <AiOutlineClose fontSize={40}/> }
           </button>
           <a className="hidden lg:block" href="#home">
             <img src="/logo.png" className="h-16 w-[7rem]"/>
           </a>
         </div>
         <ul
-          className={`${isResponsive ? 'flex' : 'hidden'} flex-col lg:flex-row lg:items-center lg:flex justify-end`}
+          className={`${openMenu ? 'flex' : 'hidden'} flex-col lg:flex-row lg:items-center lg:flex justify-end`}
         >
             <NavItem active={activeLink === 'home'} to="home" onClick={() => { onUpdateActiveLink('home') }}>
                 Home

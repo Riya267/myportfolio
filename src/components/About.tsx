@@ -15,8 +15,8 @@ const About: React.FC<AboutProps> = ({ isDarkMode }) => {
     link.click()
   }
   return (
-  <section id="about" className={`${isDarkMode ? darkModeStyles : lightModeStyles} font-montserrat py-40 lg:pt-40`}>
-      <div className="container flex flex-col-reverse lg:flex-row justify-center items-center h-[80%]">
+  <section id="about" className={`${isDarkMode ? darkModeStyles : lightModeStyles} font-montserrat py-30 pt-40`}>
+      <div className="container flex flex-col-reverse lg:flex-row justify-center items-center">
             <div className="flex flex-col justify-center items-center text-center lg:text-left lg:items-start">
                 <p className="text-2xl lg:text-3xl font-bold">Hi there, <br/> I'm Riya <span className="text-primary-200">Dhawan</span></p>
                 <p className="text-2xl lg:text-3xl font-bold text-tertiary-200">Full Stack Developer</p>
