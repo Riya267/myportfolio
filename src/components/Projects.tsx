@@ -6,7 +6,7 @@ interface ProjectsProps {
   isDarkMode: boolean
 }
 
-const ProjectsGrid: React.FC<ProjectsProps> = ({ isDarkMode }) => {
+const ProjectsGrid: React.FC<ProjectsProps> | boolean = ({ isDarkMode }) => {
   const [itemsToShow, setItemsToShow] = useState(6)
 
   const loadMore = (): void => {
