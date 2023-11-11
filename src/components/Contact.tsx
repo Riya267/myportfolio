@@ -10,8 +10,8 @@ const Contact: React.FC<ContactProps> = ({ isDarkMode }) => {
   const lightModeStyles = 'bg-white-200 text-black-200 shadow-black'
 
   return (
-  <section id="contact" className={`${isDarkMode ? darkModeStyles : lightModeStyles}`}>
-     <div className="container font-montserrat lg:h-screen flex flex-col items-center">
+  <section id="contact" className={`${isDarkMode ? darkModeStyles : lightModeStyles} py-40`}>
+     <div className="container font-montserrat flex flex-col items-center">
         <p className='mb-6 text-xl border-b-2 border-primary-700'>
             CONTACT
           </p>

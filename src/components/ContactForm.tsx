@@ -62,7 +62,7 @@ const ContactForm: React.FC = () => {
           placeholder="Your Message" className='w-full h-52 mt-4 p-4 rounded-br-lg border-2 border-tertiary-100' />} />
       <p className='text-error-600 mt-1'>{errors.message?.message}</p>
 
-      <motion.button type="submit" className={'border-2 mr-4 p-3 px-5 mt-4 bg-primary-700 text-white-200 rounded-[100px] font-openSans'} whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.9 }}>
+      <motion.button type="submit" className={'font-bold border-2 mr-4 p-3 px-5 mt-4 bg-primary-700 text-white-200 rounded-[100px] font-openSans'} whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.9 }}>
         Send Message
       </motion.button>
     </form><ToastContainer theme="colored"/></>

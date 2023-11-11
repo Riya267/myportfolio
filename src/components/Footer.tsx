@@ -50,9 +50,9 @@ const Footer: React.FC<FooterProps> = ({ isDarkMode }) => {
   return (
     <footer className={`${isDarkMode ? darkModeStyles : lightModeStyles} font-montserrat`}>
       <div className={`${genericStyles}`}>
-        <div className='bg-red'>
+        <div>
           <p className="text-2xl font-auto font-bold">{labels.heading}</p>
-          <motion.button className={`border-2 p-3 px-5 mt-4 ${isDarkMode ? 'border-primary-200' : 'border-primary-500'} rounded-[100px] font-openSans`} whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.9 }}>
+          <motion.button className={`font-bold border-2 p-3 px-5 mt-4 ${isDarkMode ? 'border-primary-200' : 'border-primary-500'} rounded-[100px] font-openSans`} whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.9 }}>
             {labels.contactMeButton}
           </motion.button>
         </div>
