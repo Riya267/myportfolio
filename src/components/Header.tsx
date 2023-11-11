@@ -63,7 +63,7 @@ const Header: React.FC<HeaderProps> = ({ toggleDarkMode, isDarkMode }) => {
   }
 
   return (
-  <header className={`${isDarkMode ? darkModeStyles : lightModeStyles} font-inter shadow-lg fixed top-0 left-0 w-full z-100`}>
+  <header className={`${isDarkMode ? darkModeStyles : lightModeStyles} font-montserrat shadow-lg fixed top-0 left-0 w-full z-100`}>
     <div className={`container ${isResponsive ? 'relative py-4' : 'py-2'}`}>
       <div className="lg:flex lg:justify-between">
         <div className="flex justify-between items-center">

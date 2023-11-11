@@ -20,8 +20,8 @@ const ProjectsGrid: React.FC<ProjectsProps> = ({ isDarkMode }) => {
   return (
     projects?.length !== 0
       ? <section id="projects" className={`${isDarkMode ? darkModeStyles : lightModeStyles}`}>
-      <div className='container font-inter flex flex-col items-center lg:p-10'>
-        <p className='mb-6 border-b-2 border-primary-700'>
+      <div className='container font-montserrat flex flex-col items-center lg:p-10'>
+        <p className='mb-6 text-xl border-b-2 border-primary-700'>
           PROJECTS
         </p>
         <div className={`${gridClasses}`}>
@@ -39,11 +39,11 @@ const ProjectsGrid: React.FC<ProjectsProps> = ({ isDarkMode }) => {
                 </ul>
                 <div className="mt-4 flex flex-col justify-start items-start">
                   <motion.a href={project.viewCodeButton.url} target="_blank"
-                    rel="noopener noreferrer" className={`mr-4 p-3 px-5 mt-4 border-b-2 border-primary-700 font-bold ${isDarkMode ? 'text-white-200' : 'text-black-200'} rounded-[100px] font-russonOne text-sm`} whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.9 }}>
+                    rel="noopener noreferrer" className={`mr-4 p-3 px-5 mt-4 border-b-2 border-primary-700 font-bold ${isDarkMode ? 'text-white-200' : 'text-black-200'} rounded-[100px] font-openSans text-sm`} whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.9 }}>
                       View Code
                   </motion.a>
                   <motion.a href={project.viewProjectButton.url} target="_blank"
-                    rel="noopener noreferrer" className={`mr-4 p-3 px-5 mt-4 border-b-2 border-primary-700 font-bold ${isDarkMode ? 'text-white-200' : 'text-black-200'} rounded-[100px] font-russonOne text-sm`} whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.9 }}>
+                    rel="noopener noreferrer" className={`mr-4 p-3 px-5 mt-4 border-b-2 border-primary-700 font-bold ${isDarkMode ? 'text-white-200' : 'text-black-200'} rounded-[100px] font-openSans text-sm`} whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.9 }}>
                       View Project
                   </motion.a>
                 </div>
@@ -51,7 +51,7 @@ const ProjectsGrid: React.FC<ProjectsProps> = ({ isDarkMode }) => {
             ))}
         </div>
         {itemsToShow <= projects.length && (
-          <motion.button onClick={loadMore} className={`border-2 mr-4 p-3 px-5 my-8 ${isDarkMode ? 'border-primary-200' : 'border-primary-500'} rounded-[100px] font-russonOne`} whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.9 }}>
+          <motion.button onClick={loadMore} className={`border-2 mr-4 p-3 px-5 my-8 ${isDarkMode ? 'border-primary-200' : 'border-primary-500'} rounded-[100px] font-openSans`} whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.9 }}>
                   Load More
           </motion.button>
         )}

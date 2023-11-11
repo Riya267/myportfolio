@@ -73,9 +73,9 @@ module.exports = {
                 },
             },
             fontFamily: {
-                inter: ["Inter"],
-                petitFormal: ["Petit Formal Script"],
-                russonOne: ["Russon One"],
+                montserrat: ["Montserrat"],
+                robotoSlab: ["Roboto Slab"],
+                openSans: ["Open Sans"],
             },
             fontWeight: {
                 light: 300,
