@@ -21,9 +21,8 @@ const ContactForm: React.FC = () => {
     reset,
   } = useForm<FormData>()
   const formRef = useRef<HTMLFormElement | null>(null)
-
-  const onSubmit = (): void => {
-    sendEmail(formRef, notify)
+  const onSubmit = async (): Promise<void> => {
+    await sendEmail(formRef, notify)
     reset()
   }
 
