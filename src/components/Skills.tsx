@@ -1,88 +1,125 @@
-import React from 'react'
-import { CgWebsite } from 'react-icons/cg'
-import { ImMobile2 } from 'react-icons/im'
-import { FaGraduationCap } from 'react-icons/fa'
+import React from 'react';
+import { CgWebsite } from 'react-icons/cg';
+import { ImMobile2 } from 'react-icons/im';
+import { FaGraduationCap } from 'react-icons/fa';
 interface SkillsProps {
-  isDarkMode: boolean
+  isDarkMode: boolean;
 }
 
 const Skills: React.FC<SkillsProps> = ({ isDarkMode }) => {
-  const darkModeStyles = 'bg-primary-500 text-white-100 shadow-white'
-  const lightModeStyles = 'bg-white-200 text-black-200 shadow-black'
+  const darkModeStyles = 'bg-primary-500 text-white-100 shadow-white';
+  const lightModeStyles = 'bg-white-200 text-black-200 shadow-black';
 
-  const skillsInfo: Array<{ label: string, icon: React.ReactNode }> = [
-    { label: 'Developing blazing fast web applications for seamless user interaction.', icon: <CgWebsite size={20}/> },
-    { label: 'Mobile-first, responsive design layout for all devices is a top priority.', icon: <ImMobile2 size={20}/> },
-    { label: 'Constantly continues to learn new technologies and keeping up-to-date with the freshest trends.', icon: <FaGraduationCap size={20}/> }
-  ]
-  const skillBadges: Array<{ label: string, iconPath: string }> = [
+  const skillsInfo: Array<{ label: string; icon: React.ReactNode }> = [
     {
-      label: 'HTML5', iconPath: '/html.png'
+      label:
+        'Developing blazing fast web applications for seamless user interaction.',
+      icon: <CgWebsite size={20} />,
     },
     {
-      label: 'CSS3', iconPath: '/css.png'
+      label:
+        'Mobile-first, responsive design layout for all devices is a top priority.',
+      icon: <ImMobile2 size={20} />,
     },
     {
-      label: 'javascript', iconPath: '/js.png'
+      label:
+        'Constantly continues to learn new technologies and keeping up-to-date with the freshest trends.',
+      icon: <FaGraduationCap size={20} />,
+    },
+  ];
+  const skillBadges: Array<{ label: string; iconPath: string }> = [
+    {
+      label: 'HTML5',
+      iconPath: '/html.png',
     },
     {
-      label: 'typescript', iconPath: '/typescript.png'
+      label: 'CSS3',
+      iconPath: '/css.png',
     },
     {
-      label: 'React', iconPath: '/react.png'
+      label: 'javascript',
+      iconPath: '/js.png',
     },
     {
-      label: 'git', iconPath: '/git.png'
+      label: 'typescript',
+      iconPath: '/typescript.png',
     },
     {
-      label: 'node', iconPath: '/nodejs.png'
+      label: 'React',
+      iconPath: '/react.png',
     },
     {
-      label: 'express', iconPath: '/expressjs.png'
+      label: 'git',
+      iconPath: '/git.png',
     },
     {
-      label: 'nextjs', iconPath: '/nextjs.png'
+      label: 'node',
+      iconPath: '/nodejs.png',
     },
     {
-      label: 'graphql', iconPath: '/graphql.png'
+      label: 'express',
+      iconPath: '/expressjs.png',
     },
     {
-      label: 'redux', iconPath: '/redux.png'
+      label: 'nextjs',
+      iconPath: '/nextjs.png',
     },
     {
-      label: 'jest', iconPath: '/jest.png'
+      label: 'graphql',
+      iconPath: '/graphql.png',
     },
     {
-      label: 'Vtex', iconPath: '/vtex.png'
+      label: 'redux',
+      iconPath: '/redux.png',
     },
     {
-      label: 'react testing library', iconPath: '/rtl.png'
-    }
-  ]
+      label: 'jest',
+      iconPath: '/jest.png',
+    },
+    {
+      label: 'Vtex',
+      iconPath: '/vtex.png',
+    },
+    {
+      label: 'react testing library',
+      iconPath: '/rtl.png',
+    },
+  ];
   return (
-  <section id="skills" className={`${isDarkMode ? darkModeStyles : lightModeStyles} font-montserrat py-40`}>
-     <div className="container font-montserrat flex flex-col items-center">
-        <p className='mb-6 text-xl border-b-2 border-primary-700'>
-            SKILLS
-        </p>
-        <div className='flex flex-col lg:flex-row justify-evenly'>
+    <section
+      id="skills"
+      className={`${
+        isDarkMode ? darkModeStyles : lightModeStyles
+      } font-montserrat py-40`}
+    >
+      <div className="container font-montserrat flex flex-col items-center">
+        <p className="mb-6 text-xl border-b-2 border-primary-700">SKILLS</p>
+        <div className="flex flex-col lg:flex-row justify-evenly">
           {skillsInfo.map((item) => {
-            return <div className='flex justify-evenly lg:w-[35%] mb-4'>
+            return (
+              <div className="flex justify-evenly lg:w-[35%] mb-4">
                 <span>{item.icon}</span>
-                <span className='w-[80%]'>{item.label}</span>
-            </div>
+                <span className="w-[80%]">{item.label}</span>
+              </div>
+            );
           })}
         </div>
-        <div className='grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4'>
-        {skillBadges.map((item) => {
-          return <div className='flex justify-evenly w-24 h-24 mb-4 border-2 rounded-full p-2 bg-white-200'>
-                <img src={item.iconPath} alt={item.label} className='object-contain'/>
-            </div>
-        })}
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
+          {skillBadges.map((item) => {
+            return (
+              <div className="flex justify-evenly w-24 h-24 mb-4 border-2 rounded-full p-2 bg-white-200">
+                <img
+                  src={item.iconPath}
+                  alt={item.label}
+                  className="object-contain"
+                />
+              </div>
+            );
+          })}
         </div>
-     </div>
-  </section>
-  )
-}
+      </div>
+    </section>
+  );
+};
 
-export default Skills
+export default Skills;
