@@ -30,7 +30,22 @@ const About: React.FC<AboutProps> = ({ isDarkMode }) => {
                     </motion.button>
                 </div>
             </div>
-            <img src='about.png' className='max-w-[50%] max-h-[50%]'/>
+            <motion.div
+            className='max-w-[50%] max-h-[50%]'
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{
+              duration: 0.3,
+              ease: [0, 0.71, 0.2, 1.01],
+              scale: {
+                type: 'spring',
+                damping: 5,
+                stiffness: 100,
+                restDelta: 0.001
+              }
+            }}>
+            <img src='about.png'/>
+            </motion.div>
       </div>
   </section>
   )
