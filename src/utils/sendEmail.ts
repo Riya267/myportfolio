@@ -1,5 +1,5 @@
-import emailjs from '@emailjs/browser';
-import { type RefObject } from 'react';
+import emailjs from '@emailjs/browser'
+import { type RefObject } from 'react'
 
 const sendEmail = async (
   formRef: RefObject<HTMLFormElement>,
@@ -15,13 +15,13 @@ const sendEmail = async (
       )
       .then(
         () => {
-          notify('Message sent successfully', 'success');
+          notify('Message sent successfully', 'success')
         },
         () => {
-          notify('Something went wrong, Please Retry', 'error');
+          notify('Something went wrong, Please Retry', 'error')
         },
-      );
+      )
   }
-};
+}
 
-export default sendEmail;
+export default sendEmail

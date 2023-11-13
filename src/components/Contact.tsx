@@ -1,13 +1,13 @@
-import React from 'react';
-import ContactForm from './ContactForm';
+import React from 'react'
+import ContactForm from './ContactForm'
 
 interface ContactProps {
-  isDarkMode: boolean;
+  isDarkMode: boolean
 }
 
 const Contact: React.FC<ContactProps> = ({ isDarkMode }) => {
-  const darkModeStyles = 'bg-primary-500 text-white-100 shadow-white';
-  const lightModeStyles = 'bg-white-200 text-black-200 shadow-black';
+  const darkModeStyles = 'bg-primary-500 text-white-100 shadow-white'
+  const lightModeStyles = 'bg-white-200 text-black-200 shadow-black'
 
   return (
     <section
@@ -41,7 +41,7 @@ const Contact: React.FC<ContactProps> = ({ isDarkMode }) => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Contact;
+export default Contact

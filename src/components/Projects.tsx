@@ -1,5 +1,5 @@
-import { motion } from 'framer-motion';
-import React, { useState } from 'react';
+import { motion } from 'framer-motion'
+import React, { useState } from 'react'
 const projects: any[] = [
   {
     name: 'Project 1',
@@ -31,26 +31,26 @@ const projects: any[] = [
       url: 'https://project1.com',
     },
   },
-];
+]
 
 interface ProjectsProps {
-  isDarkMode: boolean;
+  isDarkMode: boolean
 }
 
 const ProjectsGrid: React.FC<ProjectsProps> = ({ isDarkMode }) => {
-  const [itemsToShow, setItemsToShow] = useState(6);
+  const [itemsToShow, setItemsToShow] = useState(6)
 
   const loadMore = (): void => {
-    setItemsToShow(itemsToShow + 6);
-  };
+    setItemsToShow(itemsToShow + 6)
+  }
 
-  const darkModeStyles = 'bg-primary-500 text-white-100 shadow-white';
-  const lightModeStyles = 'bg-white-200 text-black-200 shadow-black';
+  const darkModeStyles = 'bg-primary-500 text-white-100 shadow-white'
+  const lightModeStyles = 'bg-white-200 text-black-200 shadow-black'
   const gridClasses = `${
     projects.length < 3
       ? 'flex flex-col lg:flex-row justify-between'
       : 'grid grid-cols-1 lg:grid-cols-3 gap-4'
-  }`;
+  }`
 
   return projects?.length !== 0 ? (
     <section
@@ -129,7 +129,7 @@ const ProjectsGrid: React.FC<ProjectsProps> = ({ isDarkMode }) => {
         )}
       </div>
     </section>
-  ) : null;
-};
+  ) : null
+}
 
-export default ProjectsGrid;
+export default ProjectsGrid

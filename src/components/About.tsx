@@ -1,19 +1,19 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React from 'react'
+import { motion } from 'framer-motion'
 
 interface AboutProps {
-  isDarkMode: boolean;
+  isDarkMode: boolean
 }
 
 const About: React.FC<AboutProps> = ({ isDarkMode }) => {
-  const darkModeStyles = 'bg-primary-500 text-white-100 shadow-white';
-  const lightModeStyles = 'bg-white-200 text-black-200 shadow-black';
+  const darkModeStyles = 'bg-primary-500 text-white-100 shadow-white'
+  const lightModeStyles = 'bg-white-200 text-black-200 shadow-black'
   const handleCVDownload = (): void => {
-    const link = document.createElement('a');
-    link.href = '/RiyaCV.pdf';
-    link.download = 'RiyaCV.pdf';
-    link.click();
-  };
+    const link = document.createElement('a')
+    link.href = '/RiyaCV.pdf'
+    link.download = 'RiyaCV.pdf'
+    link.click()
+  }
   return (
     <section
       id="about"
@@ -80,7 +80,7 @@ const About: React.FC<AboutProps> = ({ isDarkMode }) => {
         </motion.div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default About;
+export default About

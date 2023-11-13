@@ -1,20 +1,20 @@
 /* eslint-disable @typescript-eslint/strict-boolean-expressions */
-import { motion } from 'framer-motion';
-import { BsGithub, BsLinkedin, BsTwitter } from 'react-icons/bs';
+import { motion } from 'framer-motion'
+import { BsGithub, BsLinkedin, BsTwitter } from 'react-icons/bs'
 
 interface FooterProps {
-  isDarkMode: boolean;
+  isDarkMode: boolean
 }
 
 const labels = {
   heading: "Let's explore the next big thing.",
   contactMeButton: 'Contact Me',
-};
+}
 
 const contactInfo = [
   { label: 'Contact', info: '+91 6239550341' },
   { label: 'Address', info: 'Punjab, India' },
-];
+]
 
 const socialLinks = [
   {
@@ -28,17 +28,17 @@ const socialLinks = [
     url: 'https://twitter.com/riyacec05',
   },
   { name: 'GitHub', icon: <BsGithub />, url: 'https://github.com/Riya267' },
-];
+]
 
 const socialInfo = [
   { label: 'Email', info: 'riyacec05@gmail.com', list: null },
   { label: 'Follow', info: null, list: socialLinks },
-];
+]
 
 const Footer: React.FC<FooterProps> = ({ isDarkMode }) => {
-  const darkModeStyles = 'bg-primary-500 text-white-100';
-  const lightModeStyles = 'bg-white-200 text-black-200';
-  const genericStyles = 'container flex justify-between flex-wrap p-4';
+  const darkModeStyles = 'bg-primary-500 text-white-100'
+  const lightModeStyles = 'bg-white-200 text-black-200'
+  const genericStyles = 'container flex justify-between flex-wrap p-4'
 
   const renderContactInfo = contactInfo.map((item, index) => (
     <div
@@ -48,7 +48,7 @@ const Footer: React.FC<FooterProps> = ({ isDarkMode }) => {
       <p className="font-bold font-robotoSlab">{item.label}</p>
       <p className="text-tertiary-300">{item.info}</p>
     </div>
-  ));
+  ))
 
   const renderSocialLinks = socialLinks.map((link, index) => (
     <li key={index} className="mr-3">
@@ -56,7 +56,7 @@ const Footer: React.FC<FooterProps> = ({ isDarkMode }) => {
         {link.icon}
       </a>
     </li>
-  ));
+  ))
 
   return (
     <footer
@@ -95,13 +95,13 @@ const Footer: React.FC<FooterProps> = ({ isDarkMode }) => {
                     </ul>
                   )}
                 </div>
-              );
+              )
             })}
           </div>
         </div>
       </div>
     </footer>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer

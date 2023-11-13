@@ -1,14 +1,14 @@
-import React from 'react';
-import { CgWebsite } from 'react-icons/cg';
-import { ImMobile2 } from 'react-icons/im';
-import { FaGraduationCap } from 'react-icons/fa';
+import React from 'react'
+import { CgWebsite } from 'react-icons/cg'
+import { ImMobile2 } from 'react-icons/im'
+import { FaGraduationCap } from 'react-icons/fa'
 interface SkillsProps {
-  isDarkMode: boolean;
+  isDarkMode: boolean
 }
 
 const Skills: React.FC<SkillsProps> = ({ isDarkMode }) => {
-  const darkModeStyles = 'bg-primary-500 text-white-100 shadow-white';
-  const lightModeStyles = 'bg-white-200 text-black-200 shadow-black';
+  const darkModeStyles = 'bg-primary-500 text-white-100 shadow-white'
+  const lightModeStyles = 'bg-white-200 text-black-200 shadow-black'
 
   const skillsInfo: Array<{ label: string; icon: React.ReactNode }> = [
     {
@@ -26,7 +26,7 @@ const Skills: React.FC<SkillsProps> = ({ isDarkMode }) => {
         'Constantly continues to learn new technologies and keeping up-to-date with the freshest trends.',
       icon: <FaGraduationCap size={20} />,
     },
-  ];
+  ]
   const skillBadges: Array<{ label: string; iconPath: string }> = [
     {
       label: 'HTML5',
@@ -84,7 +84,7 @@ const Skills: React.FC<SkillsProps> = ({ isDarkMode }) => {
       label: 'react testing library',
       iconPath: '/rtl.png',
     },
-  ];
+  ]
   return (
     <section
       id="skills"
@@ -101,7 +101,7 @@ const Skills: React.FC<SkillsProps> = ({ isDarkMode }) => {
                 <span>{item.icon}</span>
                 <span className="w-[80%]">{item.label}</span>
               </div>
-            );
+            )
           })}
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
@@ -114,12 +114,12 @@ const Skills: React.FC<SkillsProps> = ({ isDarkMode }) => {
                   className="object-contain"
                 />
               </div>
-            );
+            )
           })}
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Skills;
+export default Skills

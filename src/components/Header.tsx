@@ -1,21 +1,21 @@
-import React, { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
-import { HashLink } from 'react-router-hash-link';
-import { BsGithub, BsLinkedin, BsTwitter } from 'react-icons/bs';
-import { BiMenuAltLeft } from 'react-icons/bi';
-import { AiOutlineClose } from 'react-icons/ai';
-import { MdDarkMode, MdLightMode } from 'react-icons/md';
+import React, { useEffect, useState } from 'react'
+import { motion } from 'framer-motion'
+import { HashLink } from 'react-router-hash-link'
+import { BsGithub, BsLinkedin, BsTwitter } from 'react-icons/bs'
+import { BiMenuAltLeft } from 'react-icons/bi'
+import { AiOutlineClose } from 'react-icons/ai'
+import { MdDarkMode, MdLightMode } from 'react-icons/md'
 
 interface NavItemProps {
-  active: boolean;
-  to: string;
-  children: React.ReactNode;
-  onClick: () => void;
+  active: boolean
+  to: string
+  children: React.ReactNode
+  onClick: () => void
 }
 
 interface HeaderProps {
-  toggleDarkMode: () => void;
-  isDarkMode: boolean;
+  toggleDarkMode: () => void
+  isDarkMode: boolean
 }
 
 const NavItem: React.FC<NavItemProps> = ({ active, to, children, onClick }) => {
@@ -29,31 +29,31 @@ const NavItem: React.FC<NavItemProps> = ({ active, to, children, onClick }) => {
         {children}
       </HashLink>
     </li>
-  );
-};
+  )
+}
 
 const Header: React.FC<HeaderProps> = ({ toggleDarkMode, isDarkMode }) => {
-  const [activeLink, setActiveLink] = useState('home');
-  const [openMenu, setOpenMenu] = useState(false);
+  const [activeLink, setActiveLink] = useState('home')
+  const [openMenu, setOpenMenu] = useState(false)
   const onUpdateActiveLink = (value: any): void => {
-    setActiveLink(value);
-  };
+    setActiveLink(value)
+  }
 
   const toggleMenu = (): void => {
-    setOpenMenu(!openMenu);
-  };
+    setOpenMenu(!openMenu)
+  }
 
   useEffect(() => {
     const handleScroll = (): void => {
-      setOpenMenu(false);
-    };
+      setOpenMenu(false)
+    }
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll)
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
 
   const socialLinks = [
     {
@@ -71,7 +71,7 @@ const Header: React.FC<HeaderProps> = ({ toggleDarkMode, isDarkMode }) => {
       icon: <BsGithub color="black" fontSize={20} />,
       url: 'https://github.com/Riya267',
     },
-  ];
+  ]
 
   const renderSocialLinks = socialLinks.map((link, index) => (
     <li key={index} className={'mr-3 border-2 rounded-full p-2 bg-white-200'}>
@@ -79,15 +79,15 @@ const Header: React.FC<HeaderProps> = ({ toggleDarkMode, isDarkMode }) => {
         {link.icon}
       </a>
     </li>
-  ));
+  ))
 
-  const darkModeStyles = 'bg-primary-500 text-white-100 shadow-white';
-  const lightModeStyles = 'bg-white-200 text-black-200 shadow-black';
+  const darkModeStyles = 'bg-primary-500 text-white-100 shadow-white'
+  const lightModeStyles = 'bg-white-200 text-black-200 shadow-black'
   const spring = {
     type: 'spring',
     stiffness: 700,
     damping: 30,
-  };
+  }
 
   return (
     <header
@@ -121,7 +121,7 @@ const Header: React.FC<HeaderProps> = ({ toggleDarkMode, isDarkMode }) => {
               active={activeLink === 'home'}
               to="home"
               onClick={() => {
-                onUpdateActiveLink('home');
+                onUpdateActiveLink('home')
               }}
             >
               Home
@@ -130,7 +130,7 @@ const Header: React.FC<HeaderProps> = ({ toggleDarkMode, isDarkMode }) => {
               active={activeLink === 'about'}
               to="about"
               onClick={() => {
-                onUpdateActiveLink('about');
+                onUpdateActiveLink('about')
               }}
             >
               About
@@ -139,7 +139,7 @@ const Header: React.FC<HeaderProps> = ({ toggleDarkMode, isDarkMode }) => {
               active={activeLink === 'skills'}
               to="skills"
               onClick={() => {
-                onUpdateActiveLink('skills');
+                onUpdateActiveLink('skills')
               }}
             >
               Skills
@@ -148,7 +148,7 @@ const Header: React.FC<HeaderProps> = ({ toggleDarkMode, isDarkMode }) => {
               active={activeLink === 'projects'}
               to="projects"
               onClick={() => {
-                onUpdateActiveLink('projects');
+                onUpdateActiveLink('projects')
               }}
             >
               Projects
@@ -157,7 +157,7 @@ const Header: React.FC<HeaderProps> = ({ toggleDarkMode, isDarkMode }) => {
               active={activeLink === 'contact'}
               to="contact"
               onClick={() => {
-                onUpdateActiveLink('contact');
+                onUpdateActiveLink('contact')
               }}
             >
               Contact
@@ -188,7 +188,7 @@ const Header: React.FC<HeaderProps> = ({ toggleDarkMode, isDarkMode }) => {
         </div>
       </div>
     </header>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

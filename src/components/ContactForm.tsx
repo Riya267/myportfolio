@@ -1,16 +1,16 @@
 /* eslint-disable @typescript-eslint/no-misused-promises */
 /* eslint-disable @typescript-eslint/no-floating-promises */
-import { motion } from 'framer-motion';
-import React, { useRef } from 'react';
-import { useForm, Controller } from 'react-hook-form';
-import sendEmail from '../utils/sendEmail';
-import { ToastContainer } from 'react-toastify';
-import notify from '../utils/toastMessage';
+import { motion } from 'framer-motion'
+import React, { useRef } from 'react'
+import { useForm, Controller } from 'react-hook-form'
+import sendEmail from '../utils/sendEmail'
+import { ToastContainer } from 'react-toastify'
+import notify from '../utils/toastMessage'
 
 export interface FormData {
-  name: string;
-  email: string;
-  message: string;
+  name: string
+  email: string
+  message: string
 }
 
 const ContactForm: React.FC = () => {
@@ -19,13 +19,13 @@ const ContactForm: React.FC = () => {
     control,
     formState: { errors },
     reset,
-  } = useForm<FormData>();
-  const formRef = useRef<HTMLFormElement | null>(null);
+  } = useForm<FormData>()
+  const formRef = useRef<HTMLFormElement | null>(null)
 
   const onSubmit = (): void => {
-    sendEmail(formRef, notify);
-    reset();
-  };
+    sendEmail(formRef, notify)
+    reset()
+  }
 
   return (
     <>
@@ -108,7 +108,7 @@ const ContactForm: React.FC = () => {
       </form>
       <ToastContainer theme="colored" />
     </>
-  );
-};
+  )
+}
 
-export default ContactForm;
+export default ContactForm
