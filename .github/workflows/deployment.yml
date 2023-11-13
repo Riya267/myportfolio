@@ -2,6 +2,9 @@ name: Vercel Production Deployment
 env:
   VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
   VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+  REACT_APP_EMAIL_SERVICE_KEY: ${{ secrets.REACT_APP_EMAIL_SERVICE_KEY }}
+  REACT_APP_EMAIL_TEMPLATE_KEY: ${{ secrets.REACT_APP_EMAIL_TEMPLATE_KEY }}
+  REACT_APP_EMAIL_PUBLIC_KEY: ${{ secrets.REACT_APP_EMAIL_PUBLIC_KEY }}
 on:
   push:
     branches:

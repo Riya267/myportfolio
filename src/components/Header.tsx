@@ -59,18 +59,18 @@ const Header: React.FC<HeaderProps> = ({ toggleDarkMode, isDarkMode }) => {
     {
       name: 'LinkedIn',
       icon: <BsLinkedin color="black" fontSize={20} />,
-      url: 'https://www.linkedin.com/in/riya-dhawan-592ab921a',
+      url: 'https://www.linkedin.com/in/riya-dhawan-592ab921a'
     },
     {
       name: 'Twitter',
       icon: <BsTwitter color="black" fontSize={20} />,
-      url: 'https://twitter.com/riyacec05',
+      url: 'https://twitter.com/riyacec05'
     },
     {
       name: 'GitHub',
       icon: <BsGithub color="black" fontSize={20} />,
-      url: 'https://github.com/Riya267',
-    },
+      url: 'https://github.com/Riya267'
+    }
   ]
 
   const renderSocialLinks = socialLinks.map((link, index) => (
@@ -86,7 +86,7 @@ const Header: React.FC<HeaderProps> = ({ toggleDarkMode, isDarkMode }) => {
   const spring = {
     type: 'spring',
     stiffness: 700,
-    damping: 30,
+    damping: 30
   }
 
   return (
@@ -102,11 +102,13 @@ const Header: React.FC<HeaderProps> = ({ toggleDarkMode, isDarkMode }) => {
               className="text-white text-xl cursor-pointer lg:hidden"
               onClick={toggleMenu}
             >
-              {!openMenu ? (
+              {!openMenu
+                ? (
                 <BiMenuAltLeft fontSize={40} />
-              ) : (
+                  )
+                : (
                 <AiOutlineClose fontSize={40} />
-              )}
+                  )}
             </button>
             <a className="hidden lg:block" href="#home">
               <img src="/logo.png" className="h-16 w-[7rem]" />
