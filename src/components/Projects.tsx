@@ -1,6 +1,33 @@
 import { motion } from 'framer-motion'
 import React, { useState } from 'react'
-const projects: any[] = []
+const projects: any[] = [
+  {
+    name: 'Project 1',
+    githubLink: 'https://github.com/project1',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeXApycX_aO8gvsIAtPimv5q59XlCLTqo974u2LF8adFSs7IVSYQp5mof7zxSOAAwARbo&usqp=CAU',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac metus eget nunc. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac metus eget nunc.',
+    techStack: ['HTML', 'CSS', 'JavaScript'],
+    viewCodeButton: {
+      url: 'https://github.com/project1'
+    },
+    viewProjectButton: {
+      url: 'https://project1.com'
+    }
+  },
+  {
+    name: 'Project 1',
+    githubLink: 'https://github.com/project1',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeXApycX_aO8gvsIAtPimv5q59XlCLTqo974u2LF8adFSs7IVSYQp5mof7zxSOAAwARbo&usqp=CAU',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac metus eget nunc. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac metus eget nunc.',
+    techStack: ['HTML', 'CSS', 'JavaScript'],
+    viewCodeButton: {
+      url: 'https://github.com/project1'
+    },
+    viewProjectButton: {
+      url: 'https://project1.com'
+    }
+  }
+]
 
 interface ProjectsProps {
   isDarkMode: boolean
@@ -15,7 +42,7 @@ const ProjectsGrid: React.FC<ProjectsProps> = ({ isDarkMode }) => {
 
   const darkModeStyles = 'bg-primary-500 text-white-100 shadow-white'
   const lightModeStyles = 'bg-white-200 text-black-200 shadow-black'
-  const gridClasses = `${projects.length < 3 ? 'flex flex-col lg:flex-row justify-between lg:w-[60%]' : 'grid grid-cols-1 lg:grid-cols-3 gap-4'}`
+  const gridClasses = `${projects.length < 3 ? 'flex flex-col lg:flex-row justify-between' : 'grid grid-cols-1 lg:grid-cols-3 gap-4'}`
 
   return (
     projects?.length !== 0

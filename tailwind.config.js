@@ -12,7 +12,8 @@ module.exports = {
             },
             screens: {
                 sm: '640px',
-                lg: '1024px',
+                md: '768px',      
+                lg: '1024px'
             },
             colors: {
                 white: {
