@@ -1,11 +1,9 @@
 import React from 'react'
 import ContactForm from './ContactForm'
+import { useTheme } from '../contexts/themeProvider'
 
-interface ContactProps {
-  isDarkMode: boolean
-}
-
-const Contact: React.FC<ContactProps> = ({ isDarkMode }) => {
+const Contact: React.FC = () => {
+  const { isDarkMode } = useTheme()
   const darkModeStyles = 'bg-primary-500 text-white-100 shadow-white'
   const lightModeStyles = 'bg-white-200 text-black-200 shadow-black'
 

@@ -5,17 +5,13 @@ import { BsGithub, BsLinkedin, BsTwitter } from 'react-icons/bs'
 import { BiMenuAltLeft } from 'react-icons/bi'
 import { AiOutlineClose } from 'react-icons/ai'
 import { MdDarkMode, MdLightMode } from 'react-icons/md'
+import { useTheme } from '../contexts/themeProvider'
 
 interface NavItemProps {
   active: boolean
   to: string
   children: React.ReactNode
   onClick: () => void
-}
-
-interface HeaderProps {
-  toggleDarkMode: () => void
-  isDarkMode: boolean
 }
 
 const NavItem: React.FC<NavItemProps> = ({ active, to, children, onClick }) => {
@@ -32,7 +28,8 @@ const NavItem: React.FC<NavItemProps> = ({ active, to, children, onClick }) => {
   )
 }
 
-const Header: React.FC<HeaderProps> = ({ toggleDarkMode, isDarkMode }) => {
+const Header: React.FC = () => {
+  const { isDarkMode, toggleDarkMode } = useTheme();
   const [activeLink, setActiveLink] = useState('home')
   const [openMenu, setOpenMenu] = useState(false)
   const onUpdateActiveLink = (value: any): void => {

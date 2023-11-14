@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import React, { useState } from 'react'
+import { useTheme } from '../contexts/themeProvider';
 const projects: any[] = [
   {
     name: 'Project 1',
@@ -33,11 +34,8 @@ const projects: any[] = [
   },
 ]
 
-interface ProjectsProps {
-  isDarkMode: boolean
-}
-
-const ProjectsGrid: React.FC<ProjectsProps> = ({ isDarkMode }) => {
+const ProjectsGrid: React.FC = () => {
+  const { isDarkMode } = useTheme();
   const [itemsToShow, setItemsToShow] = useState(6)
 
   const loadMore = (): void => {

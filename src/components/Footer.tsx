@@ -1,10 +1,7 @@
 /* eslint-disable @typescript-eslint/strict-boolean-expressions */
 import { motion } from 'framer-motion'
 import { BsGithub, BsLinkedin, BsTwitter } from 'react-icons/bs'
-
-interface FooterProps {
-  isDarkMode: boolean
-}
+import { useTheme } from '../contexts/themeProvider'
 
 const labels = {
   heading: "Let's explore the next big thing.",
@@ -35,7 +32,8 @@ const socialInfo = [
   { label: 'Follow', info: null, list: socialLinks },
 ]
 
-const Footer: React.FC<FooterProps> = ({ isDarkMode }) => {
+const Footer: React.FC = () => {
+  const { isDarkMode } = useTheme()
   const darkModeStyles = 'bg-primary-500 text-white-100'
   const lightModeStyles = 'bg-white-200 text-black-200'
   const genericStyles = 'container flex justify-between flex-wrap p-4'

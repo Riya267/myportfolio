@@ -1,11 +1,10 @@
 import React from 'react'
 import { motion } from 'framer-motion'
+import { useTheme } from '../contexts/themeProvider'
 
-interface AboutProps {
-  isDarkMode: boolean
-}
 
-const About: React.FC<AboutProps> = ({ isDarkMode }) => {
+const About: React.FC = () => {
+  const { isDarkMode } = useTheme()
   const darkModeStyles = 'bg-primary-500 text-white-100 shadow-white'
   const lightModeStyles = 'bg-white-200 text-black-200 shadow-black'
   const handleCVDownload = (): void => {

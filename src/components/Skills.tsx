@@ -2,11 +2,10 @@ import React from 'react'
 import { CgWebsite } from 'react-icons/cg'
 import { ImMobile2 } from 'react-icons/im'
 import { FaGraduationCap } from 'react-icons/fa'
-interface SkillsProps {
-  isDarkMode: boolean
-}
+import { useTheme } from '../contexts/themeProvider'
 
-const Skills: React.FC<SkillsProps> = ({ isDarkMode }) => {
+const Skills: React.FC = () => {
+  const { isDarkMode } = useTheme();
   const darkModeStyles = 'bg-primary-500 text-white-100 shadow-white'
   const lightModeStyles = 'bg-white-200 text-black-200 shadow-black'
 
