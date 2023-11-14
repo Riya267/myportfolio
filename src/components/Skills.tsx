@@ -84,6 +84,12 @@ const Skills: React.FC = () => {
       iconPath: '/rtl.png',
     },
   ]
+
+  const handleColorChange = (): void => {
+    const randomColor = Math.floor(Math.random()*16777215).toString(16);
+    document.body.style.setProperty("--changeTextColor", "#" + randomColor);
+  }
+
   return (
     <section
       id="skills"
@@ -106,7 +112,9 @@ const Skills: React.FC = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
           {skillBadges.map((item) => {
             return (
-              <div className="flex justify-evenly w-24 h-24 mb-4 border-2 rounded-full p-2 bg-white-200">
+              <div className='flex justify-evenly w-24 h-24 mb-4 hover:border-2 rounded-full p-2 bg-white-200 hover:border-[var(--changeTextColor,black)]'
+              onMouseOver={handleColorChange}
+              >
                 <img
                   src={item.iconPath}
                   alt={item.label}
