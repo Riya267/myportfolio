@@ -34,7 +34,7 @@ const socialInfo = [
 
 const Footer: React.FC = () => {
   const { isDarkMode } = useTheme()
-  const darkModeStyles = 'bg-primary-500 text-white-100'
+  const darkModeStyles = 'bg-primary-600 text-white-100'
   const lightModeStyles = 'bg-white-200 text-black-200'
   const genericStyles = 'container flex justify-between flex-wrap p-4'
 

@@ -42,7 +42,7 @@ const ProjectsGrid: React.FC = () => {
     setItemsToShow(itemsToShow + 6)
   }
 
-  const darkModeStyles = 'bg-primary-500 text-white-100 shadow-white'
+  const darkModeStyles = 'bg-primary-600 text-white-100 shadow-white'
   const lightModeStyles = 'bg-white-200 text-black-200 shadow-black'
   const gridClasses = `${
     projects.length < 3
@@ -56,7 +56,7 @@ const ProjectsGrid: React.FC = () => {
       className={`${isDarkMode ? darkModeStyles : lightModeStyles}`}
     >
       <div className="container font-montserrat flex flex-col items-center lg:p-10">
-        <p className="mb-6 text-xl border-b-2 border-primary-700">PROJECTS</p>
+        <p className="mb-6 text-xl border-b-2 border-primary-500">PROJECTS</p>
         <div className={`${gridClasses}`}>
           {projects.slice(0, itemsToShow).map((project, index) => (
             <div
@@ -89,7 +89,7 @@ const ProjectsGrid: React.FC = () => {
                   href={project.viewCodeButton.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`mr-4 p-3 px-5 mt-4 border-b-2 border-primary-700 font-bold ${
+                  className={`mr-4 p-3 px-5 mt-4 border-b-2 border-primary-500 font-bold ${
                     isDarkMode ? 'text-white-200' : 'text-black-200'
                   } rounded-[100px] font-openSans text-sm`}
                   whileHover={{ scale: 1.2 }}
@@ -101,7 +101,7 @@ const ProjectsGrid: React.FC = () => {
                   href={project.viewProjectButton.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`mr-4 p-3 px-5 mt-4 border-b-2 border-primary-700 font-bold ${
+                  className={`mr-4 p-3 px-5 mt-4 border-b-2 border-primary-500 font-bold ${
                     isDarkMode ? 'text-white-200' : 'text-black-200'
                   } rounded-[100px] font-openSans text-sm`}
                   whileHover={{ scale: 1.2 }}

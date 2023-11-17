@@ -20,7 +20,7 @@ const NavItem: React.FC<NavItemProps> = ({ active, to, children, onClick }) => {
       <HashLink
         to={`#${to}`}
         onClick={onClick}
-        className={`nav-link ${active ? 'border-b-2 border-primary-700' : ''}`}
+        className={`nav-link ${active ? 'border-b-2 border-primary-500 text-primary-200' : ''}`}
       >
         {children}
       </HashLink>
@@ -78,7 +78,7 @@ const Header: React.FC = () => {
     </li>
   ))
 
-  const darkModeStyles = 'bg-primary-500 text-white-100 shadow-white'
+  const darkModeStyles = 'bg-primary-600 text-white-100 shadow-white'
   const lightModeStyles = 'bg-white-200 text-black-200 shadow-black'
   const spring = {
     type: 'spring',
@@ -90,7 +90,7 @@ const Header: React.FC = () => {
     <header
       className={`${
         isDarkMode ? darkModeStyles : lightModeStyles
-      } font-montserrat shadow-lg fixed top-0 left-0 w-full z-100`}
+      } font-montserrat shadow-lg fixed top-0 w-full z-100`}
     >
       <div className={`container ${openMenu ? 'relative py-4' : 'py-2'}`}>
         <div className="lg:flex lg:justify-between">
@@ -177,7 +177,7 @@ const Header: React.FC = () => {
               <motion.div
                 className={`w-8 h-8 ${
                   isDarkMode ? 'bg-primary-200' : 'bg-primary-500'
-                } bg-primary-400 rounded-full`}
+                } bg-primary-500 rounded-full`}
                 layout
                 transition={spring}
               />

@@ -97,7 +97,7 @@ const ContactForm: React.FC = () => {
         <motion.button
           type="submit"
           className={
-            'font-bold border-2 mr-4 p-3 px-5 mt-4 bg-primary-700 text-white-200 rounded-[100px] font-openSans'
+            'font-bold border-2 mr-4 p-3 px-5 mt-4 bg-primary-500 text-white-200 rounded-[100px] font-openSans'
           }
           whileHover={{ scale: 1.2 }}
           whileTap={{ scale: 0.9 }}

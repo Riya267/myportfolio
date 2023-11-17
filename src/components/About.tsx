@@ -5,7 +5,7 @@ import { useTheme } from '../contexts/themeProvider'
 
 const About: React.FC = () => {
   const { isDarkMode } = useTheme()
-  const darkModeStyles = 'bg-primary-500 text-white-100 shadow-white'
+  const darkModeStyles = 'bg-primary-600 text-white-100 shadow-white'
   const lightModeStyles = 'bg-white-200 text-black-200 shadow-black'
   const handleCVDownload = (): void => {
     const link = document.createElement('a')
@@ -18,7 +18,7 @@ const About: React.FC = () => {
       id="about"
       className={`${
         isDarkMode ? darkModeStyles : lightModeStyles
-      } font-montserrat py-30 pt-40`}
+      } font-montserrat py-30 pt-[7rem] lg:pt-40`}
     >
       <div className="container flex flex-col-reverse lg:flex-row justify-center items-center">
         <div className="flex flex-col justify-center items-center text-center lg:text-left lg:items-start">
@@ -41,7 +41,7 @@ const About: React.FC = () => {
             <motion.a
               href="https://github.com/Riya267"
               className={
-                'font-bold border-2 mr-4 p-3 px-5 mt-4 bg-primary-700 text-white-200 rounded-[100px] font-openSans'
+                'font-bold border-2 mr-4 p-3 px-5 mt-4 bg-primary-500 text-white-200 rounded-[100px] font-openSans'
               }
               whileHover={{ scale: 1.2 }}
               whileTap={{ scale: 0.9 }}

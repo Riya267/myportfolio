@@ -6,7 +6,7 @@ import { useTheme } from '../contexts/themeProvider'
 
 const Skills: React.FC = () => {
   const { isDarkMode } = useTheme();
-  const darkModeStyles = 'bg-primary-500 text-white-100 shadow-white'
+  const darkModeStyles = 'bg-primary-600 text-white-100 shadow-white'
   const lightModeStyles = 'bg-white-200 text-black-200 shadow-black'
 
   const skillsInfo: Array<{ label: string; icon: React.ReactNode }> = [
@@ -98,7 +98,7 @@ const Skills: React.FC = () => {
       } font-montserrat py-40`}
     >
       <div className="container font-montserrat flex flex-col items-center">
-        <p className="mb-6 text-xl border-b-2 border-primary-700">SKILLS</p>
+        <p className="mb-6 text-xl border-b-2 border-primary-500">SKILLS</p>
         <div className="flex flex-col lg:flex-row justify-evenly">
           {skillsInfo.map((item) => {
             return (

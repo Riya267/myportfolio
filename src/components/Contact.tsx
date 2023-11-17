@@ -4,7 +4,7 @@ import { useTheme } from '../contexts/themeProvider'
 
 const Contact: React.FC = () => {
   const { isDarkMode } = useTheme()
-  const darkModeStyles = 'bg-primary-500 text-white-100 shadow-white'
+  const darkModeStyles = 'bg-primary-600 text-white-100 shadow-white'
   const lightModeStyles = 'bg-white-200 text-black-200 shadow-black'
 
   return (
@@ -13,7 +13,7 @@ const Contact: React.FC = () => {
       className={`${isDarkMode ? darkModeStyles : lightModeStyles} py-40`}
     >
       <div className="container font-montserrat flex flex-col items-center">
-        <p className="mb-6 text-xl border-b-2 border-primary-700">CONTACT</p>
+        <p className="mb-6 text-xl border-b-2 border-primary-500">CONTACT</p>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
           <div className="p-4">
             <p
