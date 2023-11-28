@@ -5,10 +5,10 @@ interface ThemeContextProps {
   toggleDarkMode: () => void;
 }
 
-const ThemeContext = createContext<ThemeContextProps>({ isDarkMode: false, toggleDarkMode: () => {} });
+const ThemeContext = createContext<ThemeContextProps>({ isDarkMode: true, toggleDarkMode: () => {} });
 
 export const ThemeProvider: FC<{ children: ReactNode }> = ({ children }) => {
-  const [isDarkMode, setDarkMode] = useState(false);
+  const [isDarkMode, setDarkMode] = useState(true);
 
   const toggleDarkMode = ():void => {
     setDarkMode((prevMode) => !prevMode);

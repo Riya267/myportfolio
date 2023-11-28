@@ -7,12 +7,14 @@ const About: React.FC = () => {
   const { isDarkMode } = useTheme()
   const darkModeStyles = 'bg-primary-600 text-white-100 shadow-white'
   const lightModeStyles = 'bg-white-200 text-black-200 shadow-black'
+
   const handleCVDownload = (): void => {
     const link = document.createElement('a')
     link.href = '/RiyaCV.pdf'
     link.download = 'RiyaCV.pdf'
     link.click()
   }
+
   return (
     <section
       id="about"
@@ -23,12 +25,16 @@ const About: React.FC = () => {
       <div className="container flex flex-col-reverse lg:flex-row justify-center items-center">
         <div className="flex flex-col justify-center items-center text-center lg:text-left lg:items-start">
           <p className="text-2xl lg:text-3xl font-bold">
-            Hi there, <br /> I'm Riya{' '}
-            <span className="text-primary-200">Dhawan</span>
+            Hi there,
           </p>
-          <p className="text-2xl lg:text-3xl font-bold text-tertiary-200">
-            Full Stack Developer
+          <p className="text-2xl lg:text-3xl font-bold typing">
+            I'm Riya <span className="text-primary-200">Dhawan</span>
           </p>
+        <p
+          className="text-2xl lg:text-3xl font-bold text-tertiary-200"
+        >
+          Full Stack Developer
+        </p>
           <p
             className={`font-bold w-[90%] lg:w-96 mt-2 ${
               isDarkMode ? 'text-white-300' : 'text-primary-600'
@@ -61,19 +67,13 @@ const About: React.FC = () => {
           </div>
         </div>
         <motion.div
-          className="max-w-[50%] max-h-[50%]"
-          initial={{ opacity: 0, scale: 0.5 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{
-            duration: 0.3,
-            ease: [0, 0.71, 0.2, 1.01],
-            scale: {
-              type: 'spring',
-              damping: 5,
-              stiffness: 100,
-              restDelta: 0.001,
-            },
-          }}
+            className="max-w-[50%] max-h-[50%]"
+            animate={{ y: [0, 20, 0] }}
+            transition={{
+                duration: 2,
+                repeat: Infinity,
+                repeatType: "reverse"
+            }}
         >
           <img src="about.png" />
         </motion.div>

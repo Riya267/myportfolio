@@ -20,7 +20,7 @@ const NavItem: React.FC<NavItemProps> = ({ active, to, children, onClick }) => {
       <HashLink
         to={`#${to}`}
         onClick={onClick}
-        className={`nav-link ${active ? 'border-b-2 border-primary-500 text-primary-200' : ''}`}
+        className={`nav-link ${active ? `text-pink-400` : ''}`}
       >
         {children}
       </HashLink>
@@ -90,7 +90,7 @@ const Header: React.FC = () => {
     <header
       className={`${
         isDarkMode ? darkModeStyles : lightModeStyles
-      } font-montserrat shadow-lg fixed top-0 w-full z-100`}
+      } font-montserrat shadow-lg fixed top-0 w-full z-10`}
     >
       <div className={`container ${openMenu ? 'relative py-4' : 'py-2'}`}>
         <div className="lg:flex lg:justify-between">
