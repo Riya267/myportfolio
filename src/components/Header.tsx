@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useMemo, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import { HashLink } from 'react-router-hash-link'
 import { BsGithub, BsLinkedin, BsTwitter } from 'react-icons/bs'
@@ -21,6 +21,7 @@ const NavItem: React.FC<NavItemProps> = ({ active, to, children, onClick }) => {
       <HashLink
         to={`#${to}`}
         onClick={onClick}
+        smooth
         className={`nav-link ${active ? `text-pink-400` : ''}`}
       >
         {children}
@@ -33,6 +34,33 @@ const Header: React.FC = () => {
   const { isDarkMode, toggleDarkMode } = useTheme();
   const [activeLink, setActiveLink] = useState('home')
   const [openMenu, setOpenMenu] = useState(false)
+  const observer = useRef<IntersectionObserver | null>(null);
+
+  const handleScroll = (entries: IntersectionObserverEntry[]): void => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        setActiveLink(entry.target.id);
+      }
+    });
+  };
+
+  useEffect(() => {
+    observer.current = new IntersectionObserver(handleScroll, {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.5,
+    });
+
+    // Observe sections
+    document.querySelectorAll('section').forEach((section) => {
+      observer.current?.observe(section);
+    });
+
+    return () => {
+      observer.current?.disconnect();
+    };
+  }, []);
+
   const onUpdateActiveLink = (value: any): void => {
     setActiveLink(value)
   }
@@ -53,31 +81,44 @@ const Header: React.FC = () => {
     }
   }, [])
 
-  const socialLinks = [
-    {
-      name: 'LinkedIn',
-      icon: <BsLinkedin color="black" fontSize={20} />,
-      url: 'https://www.linkedin.com/in/riya-dhawan-592ab921a'
-    },
-    {
-      name: 'Twitter',
-      icon: <BsTwitter color="black" fontSize={20} />,
-      url: 'https://twitter.com/riyacec05'
-    },
-    {
-      name: 'GitHub',
-      icon: <BsGithub color="black" fontSize={20} />,
-      url: 'https://github.com/Riya267'
-    }
-  ]
+    const socialLinks = useMemo(
+    () => [
+      {
+        name: 'LinkedIn',
+        icon: <BsLinkedin color="black" fontSize={20} />,
+        url: 'https://www.linkedin.com/in/riya-dhawan-592ab921a',
+      },
+      {
+        name: 'Twitter',
+        icon: <BsTwitter color="black" fontSize={20} />,
+        url: 'https://twitter.com/riyacec05',
+      },
+      {
+        name: 'GitHub',
+        icon: <BsGithub color="black" fontSize={20} />,
+        url: 'https://github.com/Riya267',
+      },
+    ],
+    []
+  );
 
-  const renderSocialLinks = socialLinks.map((link, index) => (
-    <li key={`${link.url}_${index}`} className={'mr-3 border-2 rounded-full p-2 bg-white-200 hover:border-3 hover:border-[var(--changeColor,black)] '} onMouseOver={()=>{ handleColorChange('changeColor'); }}>
-      <a href={link.url} target="_blank">
-        {link.icon}
-      </a>
-    </li>
-  ))
+  const renderSocialLinks = useMemo(
+    () =>
+      socialLinks.map((link, index) => (
+        <li
+          key={`${link.url}_${index}`}
+          className={'mr-3 border-2 rounded-full p-2 bg-white-200 hover:border-3 hover:border-[var(--changeColor,black)] '}
+          onMouseOver={() => {
+            handleColorChange('changeColor');
+          }}
+        >
+          <a href={link.url} target="_blank">
+            {link.icon}
+          </a>
+        </li>
+      )),
+    [socialLinks]
+  );
 
   const darkModeStyles = 'bg-primary-600 text-white-100 shadow-white'
   const lightModeStyles = 'bg-white-200 text-black-200 shadow-black'

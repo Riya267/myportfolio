@@ -94,7 +94,7 @@ const Skills: React.FC = () => {
       } font-montserrat py-40`}
     >
       <div className="container font-montserrat flex flex-col items-center">
-        <p className="mb-6 text-xl border-b-2 border-primary-500">SKILLS</p>
+        <p className="mb-6 text-xl border-b-2 border-primary-500">MY <span className="text-primary-200">SKILLS</span></p>
         <div className="flex flex-col lg:flex-row justify-evenly">
           {skillsInfo.map((item,index) => {
             return (

@@ -40,6 +40,7 @@ const ContactForm: React.FC = () => {
           render={({ field }) => (
             <input
               {...field}
+              autoComplete="true"
               id="name"
               type="text"
               placeholder="Full Name"
@@ -66,6 +67,7 @@ const ContactForm: React.FC = () => {
           render={({ field }) => (
             <input
               {...field}
+              autoComplete="true"
               id="email"
               type="email"
               placeholder="Email Address"

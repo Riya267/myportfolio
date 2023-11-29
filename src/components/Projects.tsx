@@ -56,7 +56,7 @@ const ProjectsGrid: React.FC = () => {
       className={`${isDarkMode ? darkModeStyles : lightModeStyles}`}
     >
       <div className="container font-montserrat flex flex-col items-center lg:p-10">
-        <p className="mb-6 text-xl border-b-2 border-primary-500">PROJECTS</p>
+        <p className="mb-6 text-xl border-b-2 border-primary-500">My <span className="text-primary-200">PROJECTS</span></p>
         <div className={`${gridClasses}`}>
           {projects.slice(0, itemsToShow).map((project, index) => (
             <div

@@ -13,7 +13,7 @@ const Contact: React.FC = () => {
       className={`${isDarkMode ? darkModeStyles : lightModeStyles} py-40`}
     >
       <div className="container font-montserrat flex flex-col items-center">
-        <p className="mb-6 text-xl border-b-2 border-primary-500">CONTACT</p>
+        <p className="mb-6 text-xl border-b-2 border-primary-500">CONTACT <span className="text-primary-200">ME</span></p>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
           <div className="p-4">
             <p
