@@ -6,6 +6,7 @@ import { BiMenuAltLeft } from 'react-icons/bi'
 import { AiOutlineClose } from 'react-icons/ai'
 import { MdDarkMode, MdLightMode } from 'react-icons/md'
 import { useTheme } from '../contexts/themeProvider'
+import handleColorChange from '../utils/setRandomColor'
 
 interface NavItemProps {
   active: boolean
@@ -71,7 +72,7 @@ const Header: React.FC = () => {
   ]
 
   const renderSocialLinks = socialLinks.map((link, index) => (
-    <li key={`${link.url}_${index}`} className={'mr-3 border-2 rounded-full p-2 bg-white-200'}>
+    <li key={`${link.url}_${index}`} className={'mr-3 border-2 rounded-full p-2 bg-white-200 hover:border-3 hover:border-[var(--changeColor,black)] '} onMouseOver={()=>{ handleColorChange('changeColor'); }}>
       <a href={link.url} target="_blank">
         {link.icon}
       </a>

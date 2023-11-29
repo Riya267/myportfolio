@@ -3,6 +3,7 @@ import { CgWebsite } from 'react-icons/cg'
 import { ImMobile2 } from 'react-icons/im'
 import { FaGraduationCap } from 'react-icons/fa'
 import { useTheme } from '../contexts/themeProvider'
+import handleColorChange from '../utils/setRandomColor'
 
 const Skills: React.FC = () => {
   const { isDarkMode } = useTheme();
@@ -85,11 +86,6 @@ const Skills: React.FC = () => {
     },
   ]
 
-  const handleColorChange = (): void => {
-    const randomColor = Math.floor(Math.random()*16777215).toString(16);
-    document.body.style.setProperty("--changeTextColor", "#" + randomColor);
-  }
-
   return (
     <section
       id="skills"
@@ -113,7 +109,7 @@ const Skills: React.FC = () => {
           {skillBadges.map((item,index) => {
             return (
               <div className='flex justify-evenly w-24 h-24 mb-4 hover:border-2 rounded-full p-2 bg-white-200 hover:border-[var(--changeTextColor,black)]'
-              onMouseOver={handleColorChange}
+              onMouseOver={()=>{ handleColorChange('changeTextColor'); }}
               key={`${item.label}_${index}`}
               >
                 <img
