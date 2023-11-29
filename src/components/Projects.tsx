@@ -60,7 +60,7 @@ const ProjectsGrid: React.FC = () => {
         <div className={`${gridClasses}`}>
           {projects.slice(0, itemsToShow).map((project, index) => (
             <div
-              key={index}
+              key={`${project.name}_${index}`}
               className={`p-4 border rounded shadow-md ${
                 projects.length < 3 ? 'my-5 lg:mx-5' : ''
               }`}
@@ -75,7 +75,7 @@ const ProjectsGrid: React.FC = () => {
               <ul className="mt-2 flex">
                 {project.techStack.map((tech: string, techIndex: number) => (
                   <li
-                    key={techIndex}
+                    key={`${tech}_${techIndex}`}
                     className={
                       'bg-primary-200 text-white-200 rounded-full p-1 text-xs mr-2'
                     }

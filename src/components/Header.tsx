@@ -71,7 +71,7 @@ const Header: React.FC = () => {
   ]
 
   const renderSocialLinks = socialLinks.map((link, index) => (
-    <li key={index} className={'mr-3 border-2 rounded-full p-2 bg-white-200'}>
+    <li key={`${link.url}_${index}`} className={'mr-3 border-2 rounded-full p-2 bg-white-200'}>
       <a href={link.url} target="_blank">
         {link.icon}
       </a>
@@ -170,7 +170,6 @@ const Header: React.FC = () => {
               className={`relative m-4 mr-0 w-20 h-10 bg-white-200 border-2 ${
                 isDarkMode ? 'border-primary-200' : 'border-primary-500'
               } flex items-center justify-between rounded-full cursor-pointer py-1 px-2`}
-              data-isOn={isDarkMode}
               onClick={toggleDarkMode}
             >
               {!isDarkMode && <MdLightMode color="black" />}

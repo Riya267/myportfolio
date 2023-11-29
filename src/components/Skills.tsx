@@ -100,9 +100,9 @@ const Skills: React.FC = () => {
       <div className="container font-montserrat flex flex-col items-center">
         <p className="mb-6 text-xl border-b-2 border-primary-500">SKILLS</p>
         <div className="flex flex-col lg:flex-row justify-evenly">
-          {skillsInfo.map((item) => {
+          {skillsInfo.map((item,index) => {
             return (
-              <div className="flex justify-evenly lg:w-[35%] mb-4">
+              <div className="flex justify-evenly lg:w-[35%] mb-4" key={`${item.label}_${index}`}>
                 <span>{item.icon}</span>
                 <span className="w-[80%]">{item.label}</span>
               </div>
@@ -110,10 +110,11 @@ const Skills: React.FC = () => {
           })}
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
-          {skillBadges.map((item) => {
+          {skillBadges.map((item,index) => {
             return (
               <div className='flex justify-evenly w-24 h-24 mb-4 hover:border-2 rounded-full p-2 bg-white-200 hover:border-[var(--changeTextColor,black)]'
               onMouseOver={handleColorChange}
+              key={`${item.label}_${index}`}
               >
                 <img
                   src={item.iconPath}

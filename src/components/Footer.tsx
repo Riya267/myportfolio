@@ -40,7 +40,7 @@ const Footer: React.FC = () => {
 
   const renderContactInfo = contactInfo.map((item, index) => (
     <div
-      key={index}
+      key={`${item.label}_${index}`}
       className={`lg:border-r p-2 lg:p-4 ${index % 2 === 1 ? 'mt-6' : ''}`}
     >
       <p className="font-bold font-robotoSlab">{item.label}</p>
@@ -49,7 +49,7 @@ const Footer: React.FC = () => {
   ))
 
   const renderSocialLinks = socialLinks.map((link, index) => (
-    <li key={index} className="mr-3">
+    <li key={`${link.url}_${index}`} className="mr-3">
       <a href={link.url} target="_blank">
         {link.icon}
       </a>
@@ -63,17 +63,18 @@ const Footer: React.FC = () => {
       } font-montserrat`}
     >
       <div className={`${genericStyles}`}>
-        <div>
+        <div className='flex flex-col items-baseline'>
           <p className="text-2xl font-auto font-bold">{labels.heading}</p>
-          <motion.button
-            className={`font-bold border-2 p-3 px-5 mt-4 ${
+          <motion.a
+            className={`font-bold border-2 p-3 px-5 mt-6 ${
               isDarkMode ? 'border-primary-200' : 'border-primary-500'
             } rounded-[100px] font-openSans`}
             whileHover={{ scale: 1.2 }}
             whileTap={{ scale: 0.9 }}
+            href="#contact"
           >
             {labels.contactMeButton}
-          </motion.button>
+          </motion.a>
         </div>
         <div className="flex justify-between flex-wrap mt-4 lg:w-[50%]">
           <div className="p-2 lg:p-4 pl-0 lg:pl-0 lg:w-[50%]">
@@ -82,7 +83,7 @@ const Footer: React.FC = () => {
           <div className="p-2 lg:p-4">
             {socialInfo.map((item, index) => {
               return (
-                <div className={`p-2 lg:p-4 ${index % 2 === 1 ? 'mt-6' : ''}`}>
+                <div className={`p-2 lg:p-4 ${index % 2 === 1 ? 'mt-6' : ''}`} key={`${item.label}_${index}`}>
                   <p className="font-bold font-robotoSlab">{item.label}</p>
                   {item?.info && (
                     <p className="text-tertiary-300">{item.info}</p>
