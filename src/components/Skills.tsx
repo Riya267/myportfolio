@@ -37,51 +37,51 @@ const Skills: React.FC = () => {
       iconPath: '/css.png',
     },
     {
-      label: 'javascript',
+      label: 'JAVASCRIPT',
       iconPath: '/js.png',
     },
     {
-      label: 'typescript',
+      label: 'TYPESCRIPT',
       iconPath: '/typescript.png',
     },
     {
-      label: 'React',
+      label: 'REACT',
       iconPath: '/react.png',
     },
     {
-      label: 'git',
+      label: 'GIT',
       iconPath: '/git.png',
     },
     {
-      label: 'node',
+      label: 'NODE.JS',
       iconPath: '/nodejs.png',
     },
     {
-      label: 'express',
+      label: 'EXPRESS.JS',
       iconPath: '/expressjs.png',
     },
     {
-      label: 'nextjs',
+      label: 'NEXT.JS',
       iconPath: '/nextjs.png',
     },
     {
-      label: 'graphql',
+      label: 'GRAPHQL',
       iconPath: '/graphql.png',
     },
     {
-      label: 'redux',
+      label: 'REDUX',
       iconPath: '/redux.png',
     },
     {
-      label: 'jest',
+      label: 'JEST',
       iconPath: '/jest.png',
     },
     {
-      label: 'Vtex',
+      label: 'VTEX',
       iconPath: '/vtex.png',
     },
     {
-      label: 'react testing library',
+      label: 'REACT TESTING LIBRARY',
       iconPath: '/rtl.png',
     },
   ]
@@ -108,15 +108,17 @@ const Skills: React.FC = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
           {skillBadges.map((item,index) => {
             return (
-              <div className='flex justify-evenly w-24 h-24 mb-4 hover:border-2 rounded-full p-2 bg-white-200 hover:border-[var(--changeTextColor,black)]'
+              <div className='flex group relative justify-evenly w-24 h-24 mb-4 hover:border-2 rounded-full p-2 bg-white-200 hover:border-[var(--changeTextColor,black)]'
               onMouseOver={()=>{ handleColorChange('changeTextColor'); }}
               key={`${item.label}_${index}`}
               >
                 <img
                   src={item.iconPath}
                   alt={item.label}
-                  className="object-contain"
+                  className="object-contain group-hover:hidden"
                 />
+                
+                <p className='hidden text-sm text-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 transition-transform duration-500 ease-in-out group-hover:block text-[var(--changeTextColor,black)] font-bold'>{item.label}</p>
               </div>
             )
           })}
