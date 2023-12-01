@@ -43,7 +43,7 @@ const Footer: React.FC = () => {
       key={`${item.label}_${index}`}
       className={`lg:border-r p-2 lg:p-4 ${index % 2 === 1 ? 'mt-6' : ''}`}
     >
-      <p className="font-bold font-robotoSlab">{item.label}</p>
+      <p className="font-light font-robotoSlab">{item.label}</p>
       <p className="text-tertiary-300">{item.info}</p>
     </div>
   ))

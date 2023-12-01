@@ -5,6 +5,7 @@ import Contact from './components/Contact'
 import Projects from './components/Projects'
 import Skills from './components/Skills'
 import ScrollToTop from './components/scrollToTop'
+import Home from './components/Home'
 
 function App(): JSX.Element {
 
@@ -12,6 +13,7 @@ function App(): JSX.Element {
     <div className="App">
       <Header  />
       <main id="home">
+        <Home />
         <About />
         <Skills />
         <Projects  />

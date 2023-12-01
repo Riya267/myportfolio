@@ -1,12 +1,10 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import { HashLink } from 'react-router-hash-link'
-import { BsGithub, BsLinkedin, BsTwitter } from 'react-icons/bs'
 import { BiMenuAltLeft } from 'react-icons/bi'
 import { AiOutlineClose } from 'react-icons/ai'
 import { MdDarkMode, MdLightMode } from 'react-icons/md'
 import { useTheme } from '../contexts/themeProvider'
-import handleColorChange from '../utils/setRandomColor'
 
 interface NavItemProps {
   active: boolean
@@ -81,44 +79,6 @@ const Header: React.FC = () => {
     }
   }, [])
 
-    const socialLinks = useMemo(
-    () => [
-      {
-        name: 'LinkedIn',
-        icon: <BsLinkedin color="black" fontSize={20} />,
-        url: 'https://www.linkedin.com/in/riya-dhawan-592ab921a',
-      },
-      {
-        name: 'Twitter',
-        icon: <BsTwitter color="black" fontSize={20} />,
-        url: 'https://twitter.com/riyacec05',
-      },
-      {
-        name: 'GitHub',
-        icon: <BsGithub color="black" fontSize={20} />,
-        url: 'https://github.com/Riya267',
-      },
-    ],
-    []
-  );
-
-  const renderSocialLinks = useMemo(
-    () =>
-      socialLinks.map((link, index) => (
-        <li
-          key={`${link.url}_${index}`}
-          className={'mr-3 border-2 rounded-full p-2 bg-white-200 hover:border-3 hover:border-[var(--changeColor,black)] '}
-          onMouseOver={() => {
-            handleColorChange('changeColor');
-          }}
-        >
-          <a href={link.url} target="_blank">
-            {link.icon}
-          </a>
-        </li>
-      )),
-    [socialLinks]
-  );
 
   const darkModeStyles = 'bg-primary-600 text-white-100 shadow-white'
   const lightModeStyles = 'bg-white-200 text-black-200 shadow-black'
@@ -132,7 +92,7 @@ const Header: React.FC = () => {
     <header
       className={`${
         isDarkMode ? darkModeStyles : lightModeStyles
-      } font-montserrat shadow-lg fixed top-0 w-full z-10`}
+      } font-montserrat shadow-lg fixed top-0 w-full z-10 font-light`}
     >
       <div className={`container ${openMenu ? 'relative py-4' : 'py-2'}`}>
         <div className="lg:flex lg:justify-between">
@@ -203,11 +163,6 @@ const Header: React.FC = () => {
             >
               Contact
             </NavItem>
-            <div className="social-icons">
-              <ul className="flex text-white-200 m-4 mt-5">
-                {renderSocialLinks}
-              </ul>
-            </div>
             <div
               className={`relative m-4 mr-0 w-20 h-10 bg-white-200 border-2 ${
                 isDarkMode ? 'border-primary-200' : 'border-primary-500'

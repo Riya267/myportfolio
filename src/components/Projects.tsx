@@ -53,7 +53,7 @@ const ProjectsGrid: React.FC = () => {
   return projects?.length !== 0 ? (
     <section
       id="projects"
-      className={`${isDarkMode ? darkModeStyles : lightModeStyles}`}
+      className={`${isDarkMode ? darkModeStyles : lightModeStyles} font-light`}
     >
       <div className="container font-montserrat flex flex-col items-center lg:p-10">
         <p className="mb-6 text-xl border-b-2 border-primary-500">My <span className="text-primary-200">PROJECTS</span></p>

@@ -91,7 +91,7 @@ const Skills: React.FC = () => {
       id="skills"
       className={`${
         isDarkMode ? darkModeStyles : lightModeStyles
-      } font-montserrat py-40`}
+      } font-montserrat py-40 font-light`}
     >
       <div className="container font-montserrat flex flex-col items-center">
         <p className="mb-6 text-xl border-b-2 border-primary-500">MY <span className="text-primary-200">SKILLS</span></p>

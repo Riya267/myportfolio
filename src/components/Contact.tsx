@@ -10,21 +10,21 @@ const Contact: React.FC = () => {
   return (
     <section
       id="contact"
-      className={`${isDarkMode ? darkModeStyles : lightModeStyles} py-40`}
+      className={`${isDarkMode ? darkModeStyles : lightModeStyles} py-40 font-light`}
     >
       <div className="container font-montserrat flex flex-col items-center">
         <p className="mb-6 text-xl border-b-2 border-primary-500">CONTACT <span className="text-primary-200">ME</span></p>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
           <div className="p-4">
             <p
-              className={`text-2xl lg:text-3xl font-bold ${
+              className={`text-2xl lg:text-3xl font-light ${
                 isDarkMode ? 'text-tertiary-200' : 'text-primary-200'
               }`}
             >
               If Not Now, When? <br /> Lets Work Together!
             </p>
             <p
-              className={`font-bold lg:w-96 mt-8 ${
+              className={`font-light lg:w-96 mt-8 ${
                 isDarkMode ? 'text-white-300' : 'text-tertiary-400'
               }`}
             >
