@@ -4,7 +4,7 @@ import About from './components/About'
 import Contact from './components/Contact'
 import Projects from './components/Projects'
 import Skills from './components/Skills'
-import ScrollToTop from './components/scrollToTop'
+import ScrollToTop from './components/ScrollToTop'
 import Home from './components/Home'
 
 function App(): JSX.Element {
@@ -18,7 +18,7 @@ function App(): JSX.Element {
         <Skills />
         <Projects  />
         <Contact />
-      <ScrollToTop />
+        <ScrollToTop />
       </main>
       <Footer  />
     </div>

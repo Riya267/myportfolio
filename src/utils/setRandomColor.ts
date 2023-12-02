@@ -1,7 +1,10 @@
 const handleColorChange = (variableName: string): void => {
+  let r,g,b;
     const generateRandomColor = (): string => {
-      const randomColor = Math.floor(Math.random() * 16777215).toString(16);
-      return "#" + randomColor;
+      r = Math.floor(Math.random() * 256);
+      g = Math.floor(Math.random() * 256);
+      b = Math.floor(Math.random() * 256);
+      return `rgb(${r}, ${g}, ${b})`;
     };
   
     let randomColor = generateRandomColor();

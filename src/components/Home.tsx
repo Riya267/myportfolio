@@ -22,22 +22,22 @@ const Home: React.FC = () => {
     () => [
       {
         name: 'LinkedIn',
-        icon: <BsLinkedin color="black" className='text-[1rem] lg:text-[2rem] lg:text-[3rem]'/>,
+        icon: <BsLinkedin color="black" className='text-[1rem]'/>,
         url: 'https://www.linkedin.com/in/riya-dhawan-592ab921a',
       },
       {
         name: 'Twitter',
-        icon: <BsTwitter color="black" className='text-[1rem] lg:text-[2rem] lg:text-[3rem]' />,
+        icon: <BsTwitter color="black" className='text-[1rem]' />,
         url: 'https://twitter.com/riyacec05',
       },
       {
         name: 'GitHub',
-        icon: <BsGithub color="black" className='text-[1rem] lg:text-[2rem] lg:text-[3rem]' />,
+        icon: <BsGithub color="black" className='text-[1rem]' />,
         url: 'https://github.com/Riya267',
       },
       {
         name: 'Gmail',
-        icon: <IoMdMail color="black" className='text-[1rem] lg:text-[2rem] lg:text-[3rem]' />,
+        icon: <IoMdMail color="black" className='text-[1rem]' />,
         url: 'mailto:riyacec05@gmail.com',
       },
     ],
@@ -50,17 +50,28 @@ const Home: React.FC = () => {
       id="home"
       className={`${
         isDarkMode ? darkModeStyles : lightModeStyles
-      } font-montserrat py-30 pt-[12rem] font-light`}
+      } font-montserrat font-light py-[7rem]`}
     >
-      <div className="container flex flex-col justify-evenly items-center text-center lg:text-left lg:items-center">
-            <p className="text-[1rem] md:text-[1.5rem] lg:text-[2rem] ">
+      <div className="container flex flex-col justify-center items-center text-center lg:text-left lg:items-center">
+         <motion.div
+              className="max-w-[20rem] max-h-[20rem] lg:max-w-[10rem] lg:max-h-[10rem]"
+              animate={{ y: [0, 20, 0] }}
+              transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  repeatType: "reverse"
+              }}
+          >
+            <img src="about.png" />
+          </motion.div>
+            <p className="text-[1em] md:text-[1.5em] lg:text-[2em] ">
                 Hi there,
             </p>
-          <p className="text-[2rem] md:text-[3rem] lg:text-[5rem] font-regular_bold text-primary-200">
+          <p className="text-[2em] md:text-[3em] lg:text-[5em] font-regular_bold text-primary-200">
             I'm Riya <span className="text-primary-200">Dhawan</span>
           </p>
         <p
-          className={`text-[1.5rem] md:text-[2rem] lg:text-[3rem] ${isDarkMode ? 'text-white-200': 'text-black-300'}`}
+          className={`text-[1.5em] md:text-[2em] lg:text-[3em] ${isDarkMode ? 'text-white-200': 'text-black-300'}`}
         >
           Full Stack Developer
         </p> 
@@ -70,7 +81,7 @@ const Home: React.FC = () => {
                 handleColorChange(link.name)
                 return <li
                     key={`${link.url}_${index}`}
-                    className={`mr-3 rounded-full p-2 md:p-4 bg-white-200 border-4`}
+                    className={`mr-3 rounded-full p-2 bg-white-200 border-4`}
                     style={{ borderColor: `var(--${link.name})`}}
                 >
                     <a href={link.url} target="_blank">

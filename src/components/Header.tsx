@@ -69,6 +69,7 @@ const Header: React.FC = () => {
 
   useEffect(() => {
     const handleScroll = (): void => {
+
       setOpenMenu(false)
     }
 
@@ -95,10 +96,10 @@ const Header: React.FC = () => {
       } font-montserrat shadow-lg fixed top-0 w-full z-10 font-light`}
     >
       <div className={`container ${openMenu ? 'relative py-4' : 'py-2'}`}>
-        <div className="lg:flex lg:justify-between">
+        <div className="md:flex md:justify-between">
           <div className="flex justify-between items-center">
             <button
-              className="text-white text-xl cursor-pointer lg:hidden"
+              className="text-white text-xl cursor-pointer md:hidden"
               onClick={toggleMenu}
             >
               {!openMenu
@@ -109,14 +110,14 @@ const Header: React.FC = () => {
                 <AiOutlineClose fontSize={40} />
                   )}
             </button>
-            <a className="hidden lg:block" href="#home">
+            <a className="hidden md:block" href="#home">
               <img src="/logo.png" className="h-16 w-[7rem]" />
             </a>
           </div>
           <ul
             className={`${
               openMenu ? 'flex' : 'hidden'
-            } flex-col lg:flex-row lg:items-center lg:flex justify-end mt-6 lg:mt-0`}
+            } flex-col md:flex-row md:items-center md:flex justify-end mt-6 md:mt-0`}
           >
             <NavItem
               active={activeLink === 'home'}
