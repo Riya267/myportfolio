@@ -12,7 +12,7 @@ function App(): JSX.Element {
   return (
     <div className={`flex flex-row justify-end bg-slate-900 text-white`}>
       <Header />
-      <section className='w-[80%] h-full'>
+      <section className='w-[90%] lg:w-[80%] h-full lg:px-6'>
         <main id="home">
           <Home />
           <About />

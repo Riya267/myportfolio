@@ -60,8 +60,8 @@ const Work: React.FC = () => {
     <section id="work" className="font-montserrat py-5 font-light">
       <div className="container mx-auto">
         <div className="flex flex-col items-center">
-          <p className="mb-6 text-xl border-b-2 border-cyan-200 text-indigo-100">
-            My Work <span className="text-yellow-200">Experience</span>
+          <p className="mb-6 text-xl border-b-2 border-lime-200 text-orange-50">
+            My Work <span className="text-lime-200">Experience</span>
           </p>
         </div>
         <div className="my-10 flex flex-wrap gap-5 justify-center">

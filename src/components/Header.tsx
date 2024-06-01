@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { HashLink } from 'react-router-hash-link';
 import { BiMenuAltLeft } from 'react-icons/bi';
 import { AiOutlineClose } from 'react-icons/ai';
+import { useLocation } from 'react-router-dom';
 
 interface NavItemProps {
   active: boolean;
@@ -11,60 +12,51 @@ interface NavItemProps {
   onClick: () => void;
 }
 
-
 const Header: React.FC = () => {
-  const [activeLink, setActiveLink] = useState<string>('home');
+  const location = useLocation();
+  const [activeLink, setActiveLink] = useState<string>(`${location.hash}`);
   const [openMenu, setOpenMenu] = useState<boolean>(false);
-  const observer = useRef<IntersectionObserver | null>(null);
-
   const NavItem: React.FC<NavItemProps> = ({ active, to, children, onClick }) => (
     <li className={`nav-item ${active ? 'active' : ''} p-4`}>
       <HashLink
         to={`#${to}`}
         onClick={onClick}
         smooth
-        className={`nav-link ${active ? 'text-yellow-200 underline' : ''}`}
+        className={`nav-link ${active ? 'text-yellow-200 underline' : 'text-white'}`}
       >
         {children}
       </HashLink>
     </li>
   );
 
-  const handleScroll = (entries: IntersectionObserverEntry[]): void => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        setActiveLink(entry.target.id);
-      }
-    });
-  };
-
-  useEffect(() => {
-    observer.current = new IntersectionObserver(handleScroll, {
-      root: null,
-      rootMargin: '0px',
-      threshold: 0.5,
-    });
-
-    document.querySelectorAll('section').forEach((section) => {
-      observer.current?.observe(section);
-    });
-
-    return () => {
-      observer.current?.disconnect();
-    };
-  }, []);
-
   const onUpdateActiveLink = (value: string): void => {
     setActiveLink(value);
+    setOpenMenu(false); // Close menu on navigation click
   };
 
   const toggleMenu = (): void => {
     setOpenMenu(!openMenu);
   };
 
+  const handleActiveLinkOnScroll = (): void => {
+    const sections = document.querySelectorAll('section');
+    let currentActive = 'home';
+
+    sections.forEach((section) => {
+      const top = section.offsetTop;
+      const height = section.offsetHeight;
+      if (window.scrollY >= top && window.scrollY < top + height) {
+        currentActive = section.id;
+      }
+    });
+
+    setActiveLink(`#${currentActive}`);
+  };
+
   useEffect(() => {
     const handleScroll = (): void => {
       setOpenMenu(false);
+      handleActiveLinkOnScroll();
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -89,51 +81,51 @@ const Header: React.FC = () => {
         </div>
         <ul className={`flex flex-col justify-center items-center lg:block ${openMenu ? 'block' : 'hidden'}`}>
           <NavItem
-            active={activeLink === 'home'}
+            active={activeLink === `#home`}
             to="home"
-            onClick={() => onUpdateActiveLink('home')}
+            onClick={() => onUpdateActiveLink('#home')}
           >
             Home
           </NavItem>
           <NavItem
-            active={activeLink === 'about'}
+            active={activeLink === '#about'}
             to="about"
-            onClick={() => onUpdateActiveLink('about')}
+            onClick={() => onUpdateActiveLink('#about')}
           >
             About
           </NavItem>
           <NavItem
-            active={activeLink === 'services'}
+            active={activeLink === '#services'}
             to="services"
-            onClick={() => onUpdateActiveLink('services')}
+            onClick={() => onUpdateActiveLink('#services')}
           >
             Services
           </NavItem>
           <NavItem
-            active={activeLink === 'skills'}
+            active={activeLink === '#skills'}
             to="skills"
-            onClick={() => onUpdateActiveLink('skills')}
+            onClick={() => onUpdateActiveLink('#skills')}
           >
             Skills
           </NavItem>
           <NavItem
-            active={activeLink === 'work'}
+            active={activeLink === '#work'}
             to="work"
-            onClick={() => onUpdateActiveLink('work')}
+            onClick={() => onUpdateActiveLink('#work')}
           >
             Experience
           </NavItem>
           <NavItem
-            active={activeLink === 'projects'}
+            active={activeLink === '#projects'}
             to="projects"
-            onClick={() => onUpdateActiveLink('projects')}
+            onClick={() => onUpdateActiveLink('#projects')}
           >
             Projects
           </NavItem>
           <NavItem
-            active={activeLink === 'contact'}
+            active={activeLink === '#contact'}
             to="contact"
-            onClick={() => onUpdateActiveLink('contact')}
+            onClick={() => onUpdateActiveLink('#contact')}
           >
             Contact
           </NavItem>

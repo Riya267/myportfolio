@@ -17,7 +17,7 @@ const projects = [
           color: "pink-text-gradient",
         },
       ],
-      image: '/carrent.png',
+      image: '/projects/carrent.png',
       sourceCodeLink: "https://github.com/",
     },
     {
@@ -38,7 +38,7 @@ const projects = [
           color: "pink-text-gradient",
         },
       ],
-      image: '/jobit.png',
+      image: '/projects/jobit.png',
       sourceCodeLink: "https://github.com/",
     },
     {
@@ -59,7 +59,7 @@ const projects = [
           color: "pink-text-gradient",
         },
       ],
-      image: '/tripguide.png',
+      image: '/projects/tripguide.png',
       sourceCodeLink: "https://github.com/",
     },
   ];
@@ -67,15 +67,15 @@ const projects = [
   const services = [
     {
       title: "Web Developer",
-      icon: "/frontend.png"
+      icon: "/expertise/frontend.png"
     },
     {
       title: "React Native Developer",
-      icon: "/mobile.png"
+      icon: "/expertise/mobile.png"
     },
     {
       title: "Backend Developer",
-      icon: "/backend.png"
+      icon: "/expertise/backend.png"
     }
   ]; 
 

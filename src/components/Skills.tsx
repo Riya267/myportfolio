@@ -27,7 +27,7 @@ const Skills: React.FC = () => {
   return (
     <section
       id="skills"
-      className={`font-montserrat py-5 font-light lg:h-[100vh] flex items-center`}
+      className={`font-montserrat py-5 font-light flex items-center`}
     >
       <div className="container font-montserrat flex flex-col items-center">
         <p className="mb-6 text-xl border-b-2 border-rose-500 text-rose-200">MY <span className="text-rose-500">SKILLS</span></p>

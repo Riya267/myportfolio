@@ -5,7 +5,7 @@ const Contact: React.FC = () => {
   return (
     <section
       id="contact"
-      className="py-5 font-light flex items-center"
+      className="py-12 font-light flex items-center"
     >
       <div className="container font-montserrat">
         <p className="mb-6 text-xl border-b-2 border-orange-500 text-orange-200 w-fit">

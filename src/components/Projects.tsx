@@ -60,7 +60,7 @@ const ProjectsGrid: React.FC = () => {
   };
 
   return projects?.length !== 0 ? (
-    <section id="projects" className="font-light">
+    <section id="projects" className="font-light py-12">
       <div className="container font-montserrat flex flex-col items-center lg:p-10">
         <p className="mb-6 text-xl border-b-2 border-fuchsia-400 text-fuchsia-200">
           My <span className="text-fuchsia-400">PROJECTS</span>

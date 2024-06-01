@@ -11,7 +11,7 @@ const ServiceCard: React.FC<{ title: string, icon: string }> = ({ title, icon })
         scale: 1,
         speed: 450,
       }}
-      className="border-2 border-fuchsia-400 rounded-[20px] py-3 px-8 min-h-[180px] flex justify-evenly items-center flex-col"
+      className="border-2 border-fuchsia-400 rounded-[20px] py-3 px-7 min-h-[150px] flex justify-evenly items-center flex-col"
     >
       <img
         src={icon}
@@ -28,7 +28,7 @@ const ServiceCard: React.FC<{ title: string, icon: string }> = ({ title, icon })
 
 const Services: React.FC = () => {
   return (
-    <section id="services" className="font-montserrat py-5 lg:py-5 font-light">
+    <section id="services" className="container font-montserrat py-5 lg:py-5 font-light">
       <div className="flex flex-col items-center mt-10">
         <p className="mb-6 text-xl border-b-2 border-violet-500 text-violet-200">
           Services

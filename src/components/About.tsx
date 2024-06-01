@@ -5,7 +5,7 @@ const About: React.FC = () => {
   return (
     <section
       id="about"
-      className="font-montserrat py-5 lg:py-5 font-light"
+      className="font-montserrat py-12 font-light"
     >
       <div className='container'>
         <div className='flex flex-col items-center'>

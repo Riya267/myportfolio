@@ -44,7 +44,7 @@ const Home: React.FC = () => {
   return (
     <section
       id="home"
-      className={`font-montserrat font-light py-5 lg:h-[100vh]`}
+      className={`font-montserrat font-light py-12`}
     >
       <div className="container flex flex-col justify-center items-center text-center lg:text-left lg:items-center">
          <motion.div
