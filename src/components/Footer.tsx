@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/strict-boolean-expressions */
 import { motion } from 'framer-motion'
 import { BsGithub, BsLinkedin, BsTwitter } from 'react-icons/bs'
-import { useTheme } from '../contexts/themeProvider'
+
 
 const labels = {
   heading: "Let's explore the next big thing.",
@@ -33,9 +33,6 @@ const socialInfo = [
 ]
 
 const Footer: React.FC = () => {
-  const { isDarkMode } = useTheme()
-  const darkModeStyles = 'bg-primary-600 text-white-100'
-  const lightModeStyles = 'bg-white-200 text-black-200'
   const genericStyles = 'container flex justify-between flex-wrap p-4'
 
   const renderContactInfo = contactInfo.map((item, index) => (
@@ -58,17 +55,13 @@ const Footer: React.FC = () => {
 
   return (
     <footer
-      className={`${
-        isDarkMode ? darkModeStyles : lightModeStyles
-      } font-montserrat`}
+      className={`font-montserrat`}
     >
       <div className={`${genericStyles}`}>
         <div className='flex flex-col items-baseline'>
           <p className="text-2xl font-auto font-bold">{labels.heading}</p>
           <motion.a
-            className={`font-bold border-2 p-3 px-5 mt-6 ${
-              isDarkMode ? 'border-primary-200' : 'border-primary-500'
-            } rounded-[100px] font-openSans`}
+            className={`font-bold border-2 p-3 px-5 mt-6 rounded-[100px] font-openSans`}
             whileHover={{ scale: 1.2 }}
             whileTap={{ scale: 0.9 }}
             href="#contact"

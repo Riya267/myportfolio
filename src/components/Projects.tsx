@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import React, { useState } from 'react'
-import { useTheme } from '../contexts/themeProvider';
+;
 const projects: any[] = [
   {
     name: 'Project 1',
@@ -35,15 +35,13 @@ const projects: any[] = [
 ]
 
 const ProjectsGrid: React.FC = () => {
-  const { isDarkMode } = useTheme();
+  ;
   const [itemsToShow, setItemsToShow] = useState(6)
 
   const loadMore = (): void => {
     setItemsToShow(itemsToShow + 6)
   }
 
-  const darkModeStyles = 'bg-primary-600 text-white-100 shadow-white'
-  const lightModeStyles = 'bg-white-200 text-black-200 shadow-black'
   const gridClasses = `${
     projects.length < 3
       ? 'flex flex-col lg:flex-row justify-between'
@@ -53,7 +51,7 @@ const ProjectsGrid: React.FC = () => {
   return projects?.length !== 0 ? (
     <section
       id="projects"
-      className={`${isDarkMode ? darkModeStyles : lightModeStyles} font-light`}
+      className={`font-light`}
     >
       <div className="container font-montserrat flex flex-col items-center lg:p-10">
         <p className="mb-6 text-xl border-b-2 border-primary-500">My <span className="text-primary-200">PROJECTS</span></p>
@@ -90,9 +88,7 @@ const ProjectsGrid: React.FC = () => {
                     href={project.viewCodeButton.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`mr-4 p-3 px-5 mt-4 border-b-2 border-primary-500 font-bold ${
-                      isDarkMode ? 'text-white-200' : 'text-black-200'
-                    } rounded-[100px] font-openSans text-sm`}
+                    className={`mr-4 p-3 px-5 mt-4 border-b-2 border-primary-500 font-bold rounded-[100px] font-openSans text-sm`}
                     whileHover={{ scale: 1.2 }}
                     whileTap={{ scale: 0.9 }}
                   >
@@ -102,9 +98,7 @@ const ProjectsGrid: React.FC = () => {
                     href={project.viewProjectButton.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`mr-4 p-3 px-5 mt-4 border-b-2 border-primary-500 font-bold ${
-                      isDarkMode ? 'text-white-200' : 'text-black-200'
-                    } rounded-[100px] font-openSans text-sm`}
+                    className={`mr-4 p-3 px-5 mt-4 border-b-2 border-primary-500 font-bold rounded-[100px] font-openSans text-sm`}
                     whileHover={{ scale: 1.2 }}
                     whileTap={{ scale: 0.9 }}
                   >
@@ -118,9 +112,7 @@ const ProjectsGrid: React.FC = () => {
         {itemsToShow <= projects.length && (
           <motion.button
             onClick={loadMore}
-            className={`border-2 mr-4 p-3 px-5 my-8 ${
-              isDarkMode ? 'border-primary-200' : 'border-primary-500'
-            } rounded-[100px] font-openSans`}
+            className={`border-2 mr-4 p-3 px-5 my-8 rounded-[100px] font-openSans`}
             whileHover={{ scale: 1.2 }}
             whileTap={{ scale: 0.9 }}
           >
@@ -132,4 +124,4 @@ const ProjectsGrid: React.FC = () => {
   ) : null
 }
 
-export default ProjectsGrid
+export default ProjectsGrid;

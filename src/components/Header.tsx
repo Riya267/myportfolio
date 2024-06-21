@@ -1,38 +1,33 @@
-import React, { useEffect, useRef, useState } from 'react'
-import { motion } from 'framer-motion'
-import { HashLink } from 'react-router-hash-link'
-import { BiMenuAltLeft } from 'react-icons/bi'
-import { AiOutlineClose } from 'react-icons/ai'
-import { MdDarkMode, MdLightMode } from 'react-icons/md'
-import { useTheme } from '../contexts/themeProvider'
+/* eslint-disable */
+import React, { useEffect, useRef, useState } from 'react';
+import { HashLink } from 'react-router-hash-link';
+import { BiMenuAltLeft } from 'react-icons/bi';
+import { AiOutlineClose } from 'react-icons/ai';
 
 interface NavItemProps {
-  active: boolean
-  to: string
-  children: React.ReactNode
-  onClick: () => void
+  active: boolean;
+  to: string;
+  children: React.ReactNode;
+  onClick: () => void;
 }
 
-const NavItem: React.FC<NavItemProps> = ({ active, to, children, onClick }) => {
-  return (
+const Header: React.FC = () => {
+  const [activeLink, setActiveLink] = useState<string>('home');
+  const [openMenu, setOpenMenu] = useState<boolean>(false);
+  const observer = useRef<IntersectionObserver | null>(null);
+
+  const NavItem: React.FC<NavItemProps> = ({ active, to, children, onClick }) => (
     <li className={`nav-item ${active ? 'active' : ''} p-4`}>
       <HashLink
         to={`#${to}`}
         onClick={onClick}
         smooth
-        className={`nav-link ${active ? `text-pink-400` : ''}`}
+        className={`nav-link ${active ? 'text-yellow-200 underline' : ''}`}
       >
         {children}
       </HashLink>
     </li>
-  )
-}
-
-const Header: React.FC = () => {
-  const { isDarkMode, toggleDarkMode } = useTheme();
-  const [activeLink, setActiveLink] = useState('home')
-  const [openMenu, setOpenMenu] = useState(false)
-  const observer = useRef<IntersectionObserver | null>(null);
+  );
 
   const handleScroll = (entries: IntersectionObserverEntry[]): void => {
     entries.forEach((entry) => {
@@ -49,7 +44,6 @@ const Header: React.FC = () => {
       threshold: 0.5,
     });
 
-    // Observe sections
     document.querySelectorAll('section').forEach((section) => {
       observer.current?.observe(section);
     });
@@ -59,132 +53,89 @@ const Header: React.FC = () => {
     };
   }, []);
 
-  const onUpdateActiveLink = (value: any): void => {
-    setActiveLink(value)
-  }
+  const onUpdateActiveLink = (value: string): void => {
+    setActiveLink(value);
+  };
 
   const toggleMenu = (): void => {
-    setOpenMenu(!openMenu)
-  }
+    setOpenMenu(!openMenu);
+  };
 
   useEffect(() => {
     const handleScroll = (): void => {
+      setOpenMenu(false);
+    };
 
-      setOpenMenu(false)
-    }
-
-    window.addEventListener('scroll', handleScroll)
+    window.addEventListener('scroll', handleScroll);
 
     return () => {
-      window.removeEventListener('scroll', handleScroll)
-    }
-  }, [])
-
-
-  const darkModeStyles = 'bg-primary-600 text-white-100 shadow-white'
-  const lightModeStyles = 'bg-white-200 text-black-200 shadow-black'
-  const spring = {
-    type: 'spring',
-    stiffness: 700,
-    damping: 30
-  }
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   return (
-    <header
-      className={`${
-        isDarkMode ? darkModeStyles : lightModeStyles
-      } font-montserrat shadow-lg fixed top-0 w-full z-10 font-light`}
-    >
-      <div className={`container ${openMenu ? 'relative py-4' : 'py-2'}`}>
-        <div className="md:flex md:justify-between">
-          <div className="flex justify-between items-center">
-            <button
-              className="text-white text-xl cursor-pointer md:hidden"
-              onClick={toggleMenu}
-            >
-              {!openMenu
-                ? (
-                <BiMenuAltLeft fontSize={40} />
-                  )
-                : (
-                <AiOutlineClose fontSize={40} />
-                  )}
-            </button>
-            <a className="hidden md:block" href="#home">
-              <img src="/logo.png" className="h-16 w-[7rem]" />
-            </a>
-          </div>
-          <ul
-            className={`${
-              openMenu ? 'flex' : 'hidden'
-            } flex-col md:flex-row md:items-center md:flex justify-end mt-6 md:mt-0`}
-          >
-            <NavItem
-              active={activeLink === 'home'}
-              to="home"
-              onClick={() => {
-                onUpdateActiveLink('home')
-              }}
-            >
-              Home
-            </NavItem>
-            <NavItem
-              active={activeLink === 'about'}
-              to="about"
-              onClick={() => {
-                onUpdateActiveLink('about')
-              }}
-            >
-              About
-            </NavItem>
-            <NavItem
-              active={activeLink === 'skills'}
-              to="skills"
-              onClick={() => {
-                onUpdateActiveLink('skills')
-              }}
-            >
-              Skills
-            </NavItem>
-            <NavItem
-              active={activeLink === 'projects'}
-              to="projects"
-              onClick={() => {
-                onUpdateActiveLink('projects')
-              }}
-            >
-              Projects
-            </NavItem>
-            <NavItem
-              active={activeLink === 'contact'}
-              to="contact"
-              onClick={() => {
-                onUpdateActiveLink('contact')
-              }}
-            >
-              Contact
-            </NavItem>
-            <div
-              className={`relative m-4 mr-0 w-20 h-10 bg-white-200 border-2 ${
-                isDarkMode ? 'border-primary-200' : 'border-primary-500'
-              } flex items-center justify-between rounded-full cursor-pointer py-1 px-2`}
-              onClick={toggleDarkMode}
-            >
-              {!isDarkMode && <MdLightMode color="black" />}
-              <motion.div
-                className={`w-8 h-8 ${
-                  isDarkMode ? 'bg-primary-200' : 'bg-primary-500'
-                } bg-primary-500 rounded-full`}
-                layout
-                transition={spring}
-              />
-              {isDarkMode && <MdDarkMode color="black" />}
-            </div>
-          </ul>
+    <header className={`bg-slate-800 text-white font-montserrat shadow-lg shadow-slate-200 z-10 fixed left-0 top-0 h-full ${openMenu ? 'w-full' : 'w-12'} lg:w-[250px] transition-width duration-300`}>
+      <div className='hidden lg:flex h-[50px] w-[80px] justify-between m-2'>
+        <div className='h-5 w-5 bg-red-400 rounded-full'></div>
+        <div className='h-5 w-5 bg-yellow-400 rounded-full'></div>
+        <div className='h-5 w-5 bg-green-400 rounded-full'></div>
+      </div>
+      <div className='p-2 lg:container text-center lg:flex lg:flex-col lg:mt-8 h-full relative py-2'>
+        <div className='hidden lg:block h-30 w-30 mb-4'>
+          <img src="./developer-girl.png" alt="developer-girl" className='rounded-full h-full w-full'/>
         </div>
+        <div className="flex lg:justify-between lg:items-center lg:hidden lg:py-4">
+          <button className="text-white text-xl cursor-pointer" onClick={toggleMenu}>
+            {!openMenu ? <BiMenuAltLeft fontSize={40} /> : <AiOutlineClose fontSize={40} />}
+          </button>
+        </div>
+        <ul className={`flex flex-col justify-center items-center lg:block ${openMenu ? 'block' : 'hidden'}`}>
+          <NavItem
+            active={activeLink === 'home'}
+            to="home"
+            onClick={() => onUpdateActiveLink('home')}
+          >
+            Home
+          </NavItem>
+          <NavItem
+            active={activeLink === 'about'}
+            to="about"
+            onClick={() => onUpdateActiveLink('about')}
+          >
+            About
+          </NavItem>
+          <NavItem
+            active={activeLink === 'skills'}
+            to="skills"
+            onClick={() => onUpdateActiveLink('skills')}
+          >
+            Skills
+          </NavItem>
+          <NavItem
+            active={activeLink === 'education'}
+            to="education"
+            onClick={() => onUpdateActiveLink('education')}
+          >
+            Education
+          </NavItem>
+          <NavItem
+            active={activeLink === 'projects'}
+            to="projects"
+            onClick={() => onUpdateActiveLink('projects')}
+          >
+            Projects
+          </NavItem>
+          <NavItem
+            active={activeLink === 'contact'}
+            to="contact"
+            onClick={() => onUpdateActiveLink('contact')}
+          >
+            Contact
+          </NavItem>
+        </ul>
       </div>
     </header>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

@@ -1,10 +1,9 @@
 import { useEffect, useState } from 'react'
 import { BiArrowFromBottom } from 'react-icons/bi'
-import { useTheme } from '../contexts/themeProvider';
+;
 
 const ScrollToTop: React.FC = () => {
-  const [isVisible, setIsVisible] = useState(false)
-  const { isDarkMode } = useTheme();
+  const [isVisible, setIsVisible] = useState(false);
 
   const toggleVisibility = (): void => {
     if (window.scrollY > 300) {
@@ -36,7 +35,6 @@ const ScrollToTop: React.FC = () => {
         onClick={scrollToTop}
         className={
           `${isVisible ? 'opacity-100' : 'opacity-0'}
-          ${isDarkMode ? 'bg-primary-200': 'bg-primary-500'}
           inline-flex items-center rounded-full p-3 shadow-sm transition-opacity
       `}
       >

@@ -8,19 +8,20 @@ import ScrollToTop from './components/ScrollToTop'
 import Home from './components/Home'
 
 function App(): JSX.Element {
-
   return (
-    <div className="App">
-      <Header  />
-      <main id="home">
-        <Home />
-        <About />
-        <Skills />
-        <Projects  />
-        <Contact />
-        <ScrollToTop />
-      </main>
-      <Footer  />
+    <div className={`flex flex-row justify-end bg-slate-900`}>
+      <Header />
+      <section className='w-[80%] h-full'>
+        <main id="home">
+          <Home />
+          <About />
+          <Skills />
+          <Projects  />
+          <Contact />
+          <ScrollToTop />
+        </main>
+        <Footer  />
+      </section>
     </div>
   )
 }
