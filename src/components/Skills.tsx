@@ -2,14 +2,10 @@ import React from 'react'
 import { CgWebsite } from 'react-icons/cg'
 import { ImMobile2 } from 'react-icons/im'
 import { FaGraduationCap } from 'react-icons/fa'
-import { useTheme } from '../contexts/themeProvider'
+
 import handleColorChange from '../utils/setRandomColor'
 
 const Skills: React.FC = () => {
-  const { isDarkMode } = useTheme();
-  const darkModeStyles = 'bg-primary-600 text-white-100 shadow-white'
-  const lightModeStyles = 'bg-white-200 text-black-200 shadow-black'
-
   const skillsInfo: Array<{ label: string; icon: React.ReactNode }> = [
     {
       label:
@@ -89,9 +85,7 @@ const Skills: React.FC = () => {
   return (
     <section
       id="skills"
-      className={`${
-        isDarkMode ? darkModeStyles : lightModeStyles
-      } font-montserrat py-40 font-light`}
+      className={`font-montserrat py-40 font-light`}
     >
       <div className="container font-montserrat flex flex-col items-center">
         <p className="mb-6 text-xl border-b-2 border-primary-500">MY <span className="text-primary-200">SKILLS</span></p>
