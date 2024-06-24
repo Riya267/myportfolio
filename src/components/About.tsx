@@ -1,31 +1,29 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 
-
-
 const About: React.FC = () => {
   return (
     <section
       id="about"
-      className={`font-montserrat py-30 pt-[7rem] lg:pt-40 font-light`}
+      className={`font-montserrat py-5 lg:py-5 font-light`}
     >
       <div className='container'>
         <div className='flex flex-col items-center'>
-            <p className="mb-6 text-xl border-b-2 border-primary-500">ABOUT <span className="text-primary-200">ME</span></p>
+            <p className="mb-6 text-xl border-b-2 border-cyan-200 text-indigo-100">ABOUT <span className="text-yellow-200">ME</span></p>
         </div>
         <div className="flex flex-col-reverse lg:flex-row justify-center items-center">
           <div className="flex flex-col justify-center items-center text-center lg:text-left lg:items-start">
             <p
-              className={`w-[90%] lg:w-96 mt-2 font-light`}
+              className={`w-[90%] lg:w-96 mt-2 font-light text-indigo-100`}
             >
-             I have 3+ years of experience in full stack development. With a passion for pixels and a knack for turning ideas into interactive realities, I bring websites and applications to life.
-             <br /> <br />From pixel-perfect front-end design to the invisible magic of back-end development, I'm your go-to architect for digital brilliance. My mission? To create user experiences that not only catch the eye but also leave a lasting digital impression.
-             <br /> <br /> Fuelled by curiosity and a commitment to staying ahead in the tech game, I'm all about turning challenges into opportunities. Ready to embark on a digital adventure together? Let's make your ideas click, tap, and swipe with style! 🚀✨
+             I'm a full stack developer with over 4+ years of experience. I love creating websites and applications that look great and work seamlessly. My goal is to build user-friendly experiences that make a difference.
+             <br /> <br />Whether it's crafting intuitive front-end designs or ensuring smooth back-end functionality, I'm passionate about every step of the process. I'm always eager to learn and tackle new challenges in the tech world.
+             <br /> <br /> Let's bring your ideas to life and create something amazing together! 🚀✨
             </p>
             <div className="flex justify-between">
               <motion.a
                 href="https://github.com/Riya267"
-                className={`font-bold border-2 mr-4 p-3 px-5 mt-4 rounded-[100px] font-openSans`}
+                className={`font-bold border-2 mr-4 p-3 px-5 mt-4 rounded-[100px] font-openSans text-white`}
                 whileHover={{ scale: 1.2 }}
                 whileTap={{ scale: 0.9 }}
               >

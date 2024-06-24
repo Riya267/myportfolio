@@ -2,8 +2,7 @@ import React from 'react'
 import { CgWebsite } from 'react-icons/cg'
 import { ImMobile2 } from 'react-icons/im'
 import { FaGraduationCap } from 'react-icons/fa'
-
-import handleColorChange from '../utils/setRandomColor'
+import BallCanvas from '../utils/skillBox'
 
 const Skills: React.FC = () => {
   const skillsInfo: Array<{ label: string; icon: React.ReactNode }> = [
@@ -23,61 +22,62 @@ const Skills: React.FC = () => {
       icon: <FaGraduationCap size={20} />,
     },
   ]
+
   const skillBadges: Array<{ label: string; iconPath: string }> = [
     {
-      label: 'HTML5',
+      label: 'Html',
       iconPath: '/html.png',
     },
     {
-      label: 'CSS3',
+      label: 'Css',
       iconPath: '/css.png',
     },
     {
-      label: 'JAVASCRIPT',
+      label: 'Javascript',
       iconPath: '/js.png',
     },
     {
-      label: 'TYPESCRIPT',
+      label: 'Typescript',
       iconPath: '/typescript.png',
     },
     {
-      label: 'REACT',
+      label: 'React',
       iconPath: '/react.png',
     },
     {
-      label: 'GIT',
+      label: 'Git',
       iconPath: '/git.png',
     },
     {
-      label: 'NODE.JS',
+      label: 'Node.js',
       iconPath: '/nodejs.png',
     },
     {
-      label: 'EXPRESS.JS',
+      label: 'Express.js',
       iconPath: '/expressjs.png',
     },
     {
-      label: 'NEXT.JS',
+      label: 'Mext.js',
       iconPath: '/nextjs.png',
     },
     {
-      label: 'GRAPHQL',
+      label: 'Graphql',
       iconPath: '/graphql.png',
     },
     {
-      label: 'REDUX',
+      label: 'Redux',
       iconPath: '/redux.png',
     },
     {
-      label: 'JEST',
+      label: 'Jest',
       iconPath: '/jest.png',
     },
     {
-      label: 'VTEX',
+      label: 'Vtex',
       iconPath: '/vtex.png',
     },
     {
-      label: 'REACT TESTING LIBRARY',
+      label: 'React Testing Library',
       iconPath: '/rtl.png',
     },
   ]
@@ -85,10 +85,10 @@ const Skills: React.FC = () => {
   return (
     <section
       id="skills"
-      className={`font-montserrat py-40 font-light`}
+      className={`font-montserrat py-5 font-light lg:h-[100vh] flex items-center`}
     >
       <div className="container font-montserrat flex flex-col items-center">
-        <p className="mb-6 text-xl border-b-2 border-primary-500">MY <span className="text-primary-200">SKILLS</span></p>
+        <p className="mb-6 text-xl border-b-2 border-rose-500 text-rose-200">MY <span className="text-rose-500">SKILLS</span></p>
         <div className="flex flex-col lg:flex-row justify-evenly">
           {skillsInfo.map((item,index) => {
             return (
@@ -99,22 +99,14 @@ const Skills: React.FC = () => {
             )
           })}
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
-          {skillBadges.map((item,index) => {
-            return (
-              <div className='flex group relative justify-evenly w-24 h-24 mb-4 hover:border-2 rounded-full p-2 bg-white-200 hover:border-[var(--changeTextColor,black)]'
-              onMouseOver={()=>{ handleColorChange('changeTextColor'); }}
-              key={`${item.label}_${index}`}
-              >
-                <img
-                  src={item.iconPath}
-                  alt={item.label}
-                  className="object-contain group-hover:hidden"
-                />
-                
-                <p className='hidden text-sm text-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 transition-transform duration-500 ease-in-out group-hover:block text-[var(--changeTextColor,black)] font-bold'>{item.label}</p>
-              </div>
-            )
+        <div className='grid grid-cols-2 lg:grid-cols-7 gap-2'>
+          {skillBadges.map((item, index) => {
+               return (
+                  <div className='w-28 h-28 flex flex-col items-center' key={index}>
+                    <p className='text-[10px]'>{item.label}</p>
+                    <BallCanvas icon={item.iconPath} />
+                  </div>
+               )
           })}
         </div>
       </div>
