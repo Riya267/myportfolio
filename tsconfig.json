@@ -13,9 +13,9 @@
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "isolatedModules": false, // Set this to false if your project isn't isolated
-    "noEmit": true, // You may set this to true for a pure TypeScript project, but false if you have other files (e.g., JavaScript)
-    "jsx": "react-jsx", // Use "react" for React projects
+    "isolatedModules": false,
+    "noEmit": true,
+    "jsx": "react-jsx",
   },
   "include": [
     "src/**/*.ts",
