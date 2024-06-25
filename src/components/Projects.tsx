@@ -1,112 +1,89 @@
+/* eslint-disable */
 import { motion } from 'framer-motion'
-import React, { useState } from 'react'
-;
-const projects: any[] = [
-  {
-    name: 'Project 1',
-    githubLink: 'https://github.com/project1',
-    image:
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeXApycX_aO8gvsIAtPimv5q59XlCLTqo974u2LF8adFSs7IVSYQp5mof7zxSOAAwARbo&usqp=CAU',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac metus eget nunc. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac metus eget nunc.',
-    techStack: ['HTML', 'CSS', 'JavaScript'],
-    viewCodeButton: {
-      url: 'https://github.com/project1',
-    },
-    viewProjectButton: {
-      url: 'https://project1.com',
-    },
-  },
-  {
-    name: 'Project 1',
-    githubLink: 'https://github.com/project1',
-    image:
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeXApycX_aO8gvsIAtPimv5q59XlCLTqo974u2LF8adFSs7IVSYQp5mof7zxSOAAwARbo&usqp=CAU',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac metus eget nunc. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac metus eget nunc.',
-    techStack: ['HTML', 'CSS', 'JavaScript'],
-    viewCodeButton: {
-      url: 'https://github.com/project1',
-    },
-    viewProjectButton: {
-      url: 'https://project1.com',
-    },
-  },
-]
+import React, { useState } from 'react';
+import { projects } from '../constants';
+import { Tilt } from 'react-tilt';
+import { BsGithub } from 'react-icons/bs';
+
+interface Project {
+  index: number;
+  name: string;
+  description: string;
+  tags: { name: string; color: string }[];
+  image: string;
+  source_code_link: string;
+}
+
+const ProjectCard: React.FC<Project> = ({
+  name,
+  description,
+  tags,
+  image,
+  source_code_link,
+}) => {
+  return (
+    <motion.div>
+      <Tilt
+        options={{
+          max: 45,
+          scale: 1,
+          speed: 450,
+        }}
+        className='bg-gray-50 p-5 text-slate-500 rounded-2xl sm:w-[360px] w-full'
+      >
+        <div className='relative w-full h-[230px]'>
+          <img
+            src={image}
+            alt='project_image'
+            className='w-full h-full object-cover rounded-2xl'
+          />
+
+          <div className='absolute inset-0 flex justify-end m-3 card-img_hover'>
+            <div
+              onClick={() => window.open(source_code_link, "_blank")}
+              className='black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer'
+            >
+              <BsGithub color="black" className='text-[1rem]' />
+            </div>
+          </div>
+        </div>
+
+        <div className='mt-5'>
+          <h3 className='text-zinc-900 font-bold text-[24px]'>{name}</h3>
+          <p className='mt-2 text-secondary text-[14px]'>{description}</p>
+        </div>
+
+        <div className='mt-4 flex flex-wrap gap-2 text-pink-500'>
+          {tags.map((tag) => (
+            <p
+              key={`${name}-${tag.name}`}
+              className={`text-[14px] ${tag.color}`}
+            >
+              #{tag.name}
+            </p>
+          ))}
+        </div>
+      </Tilt>
+    </motion.div>
+  );
+};
 
 const ProjectsGrid: React.FC = () => {
-  ;
-  const [itemsToShow, setItemsToShow] = useState(6)
+  const [itemsToShow, setItemsToShow] = useState<number>(6);
 
   const loadMore = (): void => {
-    setItemsToShow(itemsToShow + 6)
-  }
-
-  const gridClasses = `${
-    projects.length < 3
-      ? 'flex flex-col lg:flex-row justify-between'
-      : 'grid grid-cols-1 lg:grid-cols-3 gap-4'
-  }`
+    setItemsToShow(itemsToShow + 6);
+  };
 
   return projects?.length !== 0 ? (
-    <section
-      id="projects"
-      className={`font-light`}
-    >
+    <section id="projects" className={`font-light`}>
       <div className="container font-montserrat flex flex-col items-center lg:p-10">
-        <p className="mb-6 text-xl border-b-2 border-primary-500">My <span className="text-primary-200">PROJECTS</span></p>
-        <div className={`${gridClasses}`}>
+        <p className="mb-6 text-xl border-b-2 border-fuchsia-400 text-fuchsia-200">
+          My <span className="text-fuchsia-400">PROJECTS</span>
+        </p>
+        <div className='mt-20 flex flex-wrap gap-7 justify-center w-full'>
           {projects.slice(0, itemsToShow).map((project, index) => (
-            <div
-              key={`${project.name}_${index}`}
-              className={`p-4 border rounded shadow-md ${
-                projects.length < 3 ? 'my-5 lg:mx-5' : ''
-              } group relative h-[350px] w-[350px]`}
-            >
-              <img
-                src={project.image}
-                alt={project.name}
-                className="w-full h-full object-cover group-hover:hidden"
-              />
-              <div className='hidden h-full w-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 transition-transform duration-500 ease-in-out group-hover:block'>
-                <h3 className="text-xl font-semibold mt-2">{project.name}</h3>
-                <p className="text-gray-600 text-sm">{project.description}</p>
-                <ul className="mt-2 flex">
-                  {project.techStack.map((tech: string, techIndex: number) => (
-                    <li
-                      key={`${tech}_${techIndex}`}
-                      className={
-                        'bg-primary-200 text-white-200 rounded-full p-1 text-xs mr-2'
-                      }
-                    >
-                      {tech}
-                    </li>
-                  ))}
-                </ul>
-                <div className="mt-4 flex flex-col justify-start items-start">
-                  <motion.a
-                    href={project.viewCodeButton.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`mr-4 p-3 px-5 mt-4 border-b-2 border-primary-500 font-bold rounded-[100px] font-openSans text-sm`}
-                    whileHover={{ scale: 1.2 }}
-                    whileTap={{ scale: 0.9 }}
-                  >
-                    View Code
-                  </motion.a>
-                  <motion.a
-                    href={project.viewProjectButton.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`mr-4 p-3 px-5 mt-4 border-b-2 border-primary-500 font-bold rounded-[100px] font-openSans text-sm`}
-                    whileHover={{ scale: 1.2 }}
-                    whileTap={{ scale: 0.9 }}
-                  >
-                    View Project
-                  </motion.a>
-                </div>
-              </div>
-            </div>
+            <ProjectCard key={`project-${index}`} index={index} {...project} />
           ))}
         </div>
         {itemsToShow <= projects.length && (
@@ -121,7 +98,7 @@ const ProjectsGrid: React.FC = () => {
         )}
       </div>
     </section>
-  ) : null
-}
+  ) : null;
+};
 
 export default ProjectsGrid;

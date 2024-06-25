@@ -31,7 +31,7 @@ const About: React.FC = () => {
               </motion.a>
             </div>
           </div>
-          <img src="developerGirl.png" className="max-w-[50%] max-h-[50%]"/>
+          <img src="heroGirl.png" className="max-w-[50%] max-h-[50%]"/>
         </div>
       </div>
     </section>
