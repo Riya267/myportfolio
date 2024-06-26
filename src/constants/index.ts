@@ -64,5 +64,20 @@ const projects = [
     },
   ];
   
-  export { projects };
+  const services = [
+    {
+      title: "Web Developer",
+      icon: "/frontend.png"
+    },
+    {
+      title: "React Native Developer",
+      icon: "/backend.png"
+    },
+    {
+      title: "Backend Developer",
+      icon: "/mobile.png"
+    }
+  ]; 
+
+  export { projects, services };
   

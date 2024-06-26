@@ -6,6 +6,7 @@ import Skills from './components/Skills'
 import ScrollToTop from './components/ScrollToTop'
 import Home from './components/Home'
 import StarsCanvas from '././utils/star'
+import Services from './components/Services'
 
 function App(): JSX.Element {
   return (
@@ -16,10 +17,11 @@ function App(): JSX.Element {
          <div className='relative z-0'>
           <Home />
           <About />
+          <Services />
           <Skills />
           <Projects  />
-            <Contact />
-            <StarsCanvas />
+          <Contact />
+          <StarsCanvas />
           </div>
           <ScrollToTop />
         </main>

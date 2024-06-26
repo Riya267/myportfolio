@@ -57,7 +57,7 @@ const Skills: React.FC = () => {
       iconPath: '/expressjs.png',
     },
     {
-      label: 'Mext.js',
+      label: 'Next.js',
       iconPath: '/nextjs.png',
     },
     {
@@ -99,7 +99,7 @@ const Skills: React.FC = () => {
             )
           })}
         </div>
-        <div className='grid grid-cols-2 lg:grid-cols-7 gap-2'>
+        <div className='my-4 flex flex-row flex-wrap justify-center gap-10'>
           {skillBadges.map((item, index) => {
                return (
                   <div className='w-28 h-28 flex flex-col items-center' key={index}>

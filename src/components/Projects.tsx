@@ -41,7 +41,7 @@ const ProjectCard: React.FC<Project> = ({
           <div className='absolute inset-0 flex justify-end m-3 card-img_hover'>
             <div
               onClick={() => window.open(source_code_link, "_blank")}
-              className='black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer'
+              className='bg-slate-200 w-10 h-10 rounded-full flex justify-center items-center cursor-pointer'
             >
               <BsGithub color="black" className='text-[1rem]' />
             </div>
@@ -80,6 +80,11 @@ const ProjectsGrid: React.FC = () => {
       <div className="container font-montserrat flex flex-col items-center lg:p-10">
         <p className="mb-6 text-xl border-b-2 border-fuchsia-400 text-fuchsia-200">
           My <span className="text-fuchsia-400">PROJECTS</span>
+        </p>
+        <p
+          className='mt-3 text-secondary text-[17px] max-w-3xl leading-[30px]'
+        >
+          These projects demonstrate my skills and experience through real-world examples. Each project includes a brief description, links to code repositories, and live demos. They showcase my problem-solving abilities, technological expertise, and project management skills.
         </p>
         <div className='mt-20 flex flex-wrap gap-7 justify-center w-full'>
           {projects.slice(0, itemsToShow).map((project, index) => (

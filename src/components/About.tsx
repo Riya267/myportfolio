@@ -14,12 +14,10 @@ const About: React.FC = () => {
         <div className="flex flex-col-reverse lg:flex-row justify-center items-center">
           <div className="flex flex-col justify-center items-center text-center lg:text-left lg:items-start">
             <p
-              className={`w-[90%] lg:w-96 mt-2 font-light text-indigo-100`}
+              className={`mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]'`}
             >
              I'm a full stack developer with over 4+ years of experience. I love creating websites and applications that look great and work seamlessly. My goal is to build user-friendly experiences that make a difference.
-             <br /> <br />Whether it's crafting intuitive front-end designs or ensuring smooth back-end functionality, I'm passionate about every step of the process. I'm always eager to learn and tackle new challenges in the tech world.
-             <br /> <br /> Let's bring your ideas to life and create something amazing together! 🚀✨
-            </p>
+             </p>
             <div className="flex justify-between">
               <motion.a
                 href="https://github.com/Riya267"

@@ -61,13 +61,14 @@ const Home: React.FC = () => {
             <p className="text-[1em] md:text-[1.2em] lg:text-[1.5em] text-white">
                 Hi there,
             </p>
-          <p className="text-[2em] md:text-[3em] lg:text-[5em] font-regular_bold text-white">
+          <p className="text-[2em] md:text-[3em] lg:text-[4em] font-regular_bold text-white">
             I'm <span className="text-rose-800">Riya</span> Dhawan
           </p>
         <p
-          className={`text-[1.5em] md:text-[2em] lg:text-[3em] text-indigo-200`}
+          className={`text-[1em] text-indigo-200 text-center`}
         >
-          Full Stack Developer
+           I develop web applications<br className='sm:block hidden' />
+            and mobile applications
         </p> 
         <div className='social-links'>
             <ul className="flex text-white-200 m-4 mt-5">

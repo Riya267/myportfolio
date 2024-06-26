@@ -106,18 +106,18 @@ const Header: React.FC = () => {
             About
           </NavItem>
           <NavItem
+            active={activeLink === 'services'}
+            to="services"
+            onClick={() => onUpdateActiveLink('services')}
+          >
+            Services
+          </NavItem>
+          <NavItem
             active={activeLink === 'skills'}
             to="skills"
             onClick={() => onUpdateActiveLink('skills')}
           >
             Skills
-          </NavItem>
-          <NavItem
-            active={activeLink === 'education'}
-            to="education"
-            onClick={() => onUpdateActiveLink('education')}
-          >
-            Education
           </NavItem>
           <NavItem
             active={activeLink === 'projects'}
