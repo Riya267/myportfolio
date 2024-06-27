@@ -71,11 +71,11 @@ const projects = [
     },
     {
       title: "React Native Developer",
-      icon: "/backend.png"
+      icon: "/mobile.png"
     },
     {
       title: "Backend Developer",
-      icon: "/mobile.png"
+      icon: "/backend.png"
     }
   ]; 
 
