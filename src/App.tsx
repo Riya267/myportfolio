@@ -5,8 +5,8 @@ import Projects from './components/Projects'
 import Skills from './components/Skills'
 import ScrollToTop from './components/ScrollToTop'
 import Home from './components/Home'
-import StarsCanvas from '././utils/star'
 import Services from './components/Services'
+import Work from './components/Work'
 
 function App(): JSX.Element {
   return (
@@ -14,15 +14,13 @@ function App(): JSX.Element {
       <Header />
       <section className='w-[80%] h-full'>
         <main id="home">
-         <div className='relative z-0'>
           <Home />
           <About />
           <Services />
           <Skills />
+          <Work />
           <Projects  />
           <Contact />
-          <StarsCanvas />
-          </div>
           <ScrollToTop />
         </main>
       </section>

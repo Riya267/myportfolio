@@ -82,9 +82,6 @@ const Header: React.FC = () => {
         <div className='h-5 w-5 bg-green-400 rounded-full'></div>
       </div>
       <div className='p-2 lg:container text-center lg:flex lg:flex-col lg:mt-8 h-full relative py-2'>
-        <div className='hidden lg:block h-30 w-30 mb-4'>
-          <img src="./developer-girl.png" alt="developer-girl" className='rounded-full h-full w-full'/>
-        </div>
         <div className="flex lg:justify-between lg:items-center lg:hidden lg:py-4">
           <button className="text-white text-xl cursor-pointer" onClick={toggleMenu}>
             {!openMenu ? <BiMenuAltLeft fontSize={40} /> : <AiOutlineClose fontSize={40} />}
@@ -118,6 +115,13 @@ const Header: React.FC = () => {
             onClick={() => onUpdateActiveLink('skills')}
           >
             Skills
+          </NavItem>
+          <NavItem
+            active={activeLink === 'work'}
+            to="work"
+            onClick={() => onUpdateActiveLink('work')}
+          >
+            Experience
           </NavItem>
           <NavItem
             active={activeLink === 'projects'}

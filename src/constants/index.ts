@@ -79,5 +79,32 @@ const projects = [
     }
   ]; 
 
-  export { projects, services };
+  const experience = [
+    {
+      title: "Software Engineer",
+      company: "Tech Solutions Inc.",
+      description: "Developed and maintained web applications using modern JavaScript frameworks and libraries.",
+      tags: ["JavaScript", "React", "Node.js"],
+      start: "January 2020",
+      end: "June 2022"
+    },
+    {
+      title: "Frontend Developer",
+      company: "Creative Minds Ltd.",
+      description: "Designed and implemented user interfaces for various web projects, focusing on responsive design and user experience.",
+      tags: ["HTML", "CSS", "JavaScript", "Vue.js"],
+      start: "July 2018",
+      end: "December 2019"
+    },
+    {
+      title: "Backend Developer",
+      company: "Innovatech Corp.",
+      description: "Worked on server-side applications and APIs, ensuring efficient data processing and integration with frontend components.",
+      tags: ["Node.js", "Express", "MongoDB"],
+      start: "March 2016",
+      end: "May 2018"
+    }
+  ];
+  
+  export { projects, services, experience };
   
