@@ -3,6 +3,7 @@ import { CgWebsite } from 'react-icons/cg'
 import { ImMobile2 } from 'react-icons/im'
 import { FaGraduationCap } from 'react-icons/fa'
 import BallCanvas from '../utils/skillBox'
+import { skillBadges } from '../constants'
 
 const Skills: React.FC = () => {
   const skillsInfo: Array<{ label: string; icon: React.ReactNode }> = [
@@ -20,65 +21,6 @@ const Skills: React.FC = () => {
       label:
         'Constantly continues to learn new technologies and keeping up-to-date with the freshest trends.',
       icon: <FaGraduationCap size={20} />,
-    },
-  ]
-
-  const skillBadges: Array<{ label: string; iconPath: string }> = [
-    {
-      label: 'Html',
-      iconPath: '/html.png',
-    },
-    {
-      label: 'Css',
-      iconPath: '/css.png',
-    },
-    {
-      label: 'Javascript',
-      iconPath: '/js.png',
-    },
-    {
-      label: 'Typescript',
-      iconPath: '/typescript.png',
-    },
-    {
-      label: 'React',
-      iconPath: '/react.png',
-    },
-    {
-      label: 'Git',
-      iconPath: '/git.png',
-    },
-    {
-      label: 'Node.js',
-      iconPath: '/nodejs.png',
-    },
-    {
-      label: 'Express.js',
-      iconPath: '/expressjs.png',
-    },
-    {
-      label: 'Next.js',
-      iconPath: '/nextjs.png',
-    },
-    {
-      label: 'Graphql',
-      iconPath: '/graphql.png',
-    },
-    {
-      label: 'Redux',
-      iconPath: '/redux.png',
-    },
-    {
-      label: 'Jest',
-      iconPath: '/jest.png',
-    },
-    {
-      label: 'Vtex',
-      iconPath: '/vtex.png',
-    },
-    {
-      label: 'React Testing Library',
-      iconPath: '/rtl.png',
     },
   ]
 

@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react'
-import { BiArrowFromBottom } from 'react-icons/bi'
-;
+import { useEffect, useState } from 'react';
+import { BiArrowFromBottom } from 'react-icons/bi';
+import { motion } from 'framer-motion';
 
 const ScrollToTop: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -29,7 +29,7 @@ const ScrollToTop: React.FC = () => {
   }, [])
 
   return (
-    <div className="fixed bottom-2 right-2">
+    <motion.div className="fixed bottom-2 right-2">
       <button
         type="button"
         onClick={scrollToTop}
@@ -40,7 +40,7 @@ const ScrollToTop: React.FC = () => {
       >
         <BiArrowFromBottom className={`h-6 w-6 text-white-200`} aria-hidden="true" />
       </button>
-    </div>
+    </motion.div>
   )
 }
 

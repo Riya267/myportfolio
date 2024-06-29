@@ -22,7 +22,7 @@ const Ball = (props: { imgUrl: any; }) => {
       onPointerOver={(event) => setHover(true)}
       onPointerOut={(event) => setHover(false)}>
       <boxGeometry args={[2, 2, 2]} />
-      <meshStandardMaterial map={image}/>
+      <meshStandardMaterial map={image} color={"white"}/>
     </mesh>
   );
 };

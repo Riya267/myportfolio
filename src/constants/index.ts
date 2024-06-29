@@ -18,7 +18,7 @@ const projects = [
         },
       ],
       image: '/carrent.png',
-      source_code_link: "https://github.com/",
+      sourceCodeLink: "https://github.com/",
     },
     {
       name: "Job IT",
@@ -39,7 +39,7 @@ const projects = [
         },
       ],
       image: '/jobit.png',
-      source_code_link: "https://github.com/",
+      sourceCodeLink: "https://github.com/",
     },
     {
       name: "Trip Guide",
@@ -60,7 +60,7 @@ const projects = [
         },
       ],
       image: '/tripguide.png',
-      source_code_link: "https://github.com/",
+      sourceCodeLink: "https://github.com/",
     },
   ];
   
@@ -106,5 +106,68 @@ const projects = [
     }
   ];
   
-  export { projects, services, experience };
+  const skillBadges: Array<{ label: string; iconPath: string }> = [
+    {
+      label: 'Html',
+      iconPath: '/tech/html.png',
+    },
+    {
+      label: 'Css',
+      iconPath: '/tech/css.png',
+    },
+    {
+      label: 'Javascript',
+      iconPath: '/tech/javascript.png',
+    },
+    {
+      label: 'Typescript',
+      iconPath: '/tech/typescript.png',
+    },
+    {
+      label: 'React',
+      iconPath: '/tech/reactjs.png',
+    },
+    {
+      label: 'Git',
+      iconPath: '/tech/git.png',
+    },
+    {
+      label: 'Node.js',
+      iconPath: '/tech/nodejs.png',
+    },
+    {
+      label: 'Express.js',
+      iconPath: '/tech/expressjs.png',
+    },
+    {
+      label: 'Next.js',
+      iconPath: '/tech/nextjs.svg',
+    },
+    {
+      label: 'Graphql',
+      iconPath: '/tech/graphql.png',
+    },
+    {
+      label: 'Redux',
+      iconPath: '/tech/redux.png',
+    },
+    {
+      label: 'Jest',
+      iconPath: '/tech/jest.png',
+    },
+    {
+      label: 'Docker',
+      iconPath: '/tech/docker.png',
+    },
+    {
+      label: 'MongoDB',
+      iconPath: '/tech/mongodb.png',
+    },
+    {
+      label: 'Tailwind',
+      iconPath: '/tech/tailwind.png',
+    },
+  ]
+
+  export { projects, services, experience, skillBadges };
   

@@ -57,7 +57,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({ title, company, descrip
 
 const Work: React.FC = () => {
   return (
-    <section id="work" className="font-montserrat py-5 lg:py-5 font-light">
+    <section id="work" className="font-montserrat py-5 font-light">
       <div className="container mx-auto">
         <div className="flex flex-col items-center">
           <p className="mb-6 text-xl border-b-2 border-cyan-200 text-indigo-100">
