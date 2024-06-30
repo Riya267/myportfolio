@@ -11,6 +11,7 @@ interface NavItemProps {
   onClick: () => void;
 }
 
+
 const Header: React.FC = () => {
   const [activeLink, setActiveLink] = useState<string>('home');
   const [openMenu, setOpenMenu] = useState<boolean>(false);

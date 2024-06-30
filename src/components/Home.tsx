@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React, { useMemo } from 'react'
 import { motion } from 'framer-motion'
 
@@ -45,7 +44,7 @@ const Home: React.FC = () => {
   return (
     <section
       id="home"
-      className={`font-montserrat font-light pt-4`}
+      className={`font-montserrat font-light py-5 lg:h-[100vh]`}
     >
       <div className="container flex flex-col justify-center items-center text-center lg:text-left lg:items-center">
          <motion.div
@@ -59,7 +58,7 @@ const Home: React.FC = () => {
           >
             <img src="about.png" />
           </motion.div>
-            <p className="text-[1em] md:text-[1.5em] lg:text-[2em] text-white">
+            <p className="text-[1em] md:text-[1.2em] lg:text-[1.5em] text-white">
                 Hi there,
             </p>
           <p className="text-[2em] md:text-[3em] lg:text-[5em] font-regular_bold text-white">
