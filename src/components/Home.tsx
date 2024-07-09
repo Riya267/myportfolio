@@ -79,7 +79,7 @@ const Home: React.FC = () => {
                     className={`mr-3 rounded-full p-2 bg-transparent border-4`}
                     style={{ borderColor: `var(--${link.name})`}}
                 >
-                    <a href={link.url} target="_blank">
+                    <a href={link.url} target="_blank" rel="noreferrer">
                     {link.icon}
                     </a>
                 </li>

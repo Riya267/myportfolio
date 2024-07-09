@@ -1,8 +1,7 @@
-/* eslint-disable */
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { HashLink } from 'react-router-hash-link';
-import { BiMenuAltLeft } from 'react-icons/bi';
-import { AiOutlineClose } from 'react-icons/ai';
+import { BiMenuAltLeft, BiHomeAlt, BiUser, BiBriefcase, BiBook, BiCog, BiEnvelope } from 'react-icons/bi';
+import { AiOutlineClose, AiOutlineAppstore } from 'react-icons/ai';
 import { useLocation } from 'react-router-dom';
 
 interface NavItemProps {
@@ -10,32 +9,30 @@ interface NavItemProps {
   to: string;
   children: React.ReactNode;
   onClick: () => void;
+  icon: React.ReactNode;
 }
 
 const Header: React.FC = () => {
   const location = useLocation();
   const [activeLink, setActiveLink] = useState<string>(`${location.hash}`);
-  const [openMenu, setOpenMenu] = useState<boolean>(false);
-  const NavItem: React.FC<NavItemProps> = ({ active, to, children, onClick }) => (
-    <li className={`nav-item ${active ? 'active' : ''} p-4`}>
+  const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth < 768);
+
+  const NavItem: React.FC<NavItemProps> = ({ active, to, children, onClick, icon }) => (
+    <li className={`nav-item ${active ? 'active' : ''} px-4 py-2`}>
       <HashLink
         to={`#${to}`}
         onClick={onClick}
         smooth
-        className={`nav-link ${active ? 'text-yellow-200 underline' : 'text-white'}`}
+        className={`nav-link ${active ? 'text-fuchsia-400 underline' : 'text-white'} flex hover:text-fuchsia-400`}
       >
-        {children}
+        {icon}
+        <span className={`ml-2 hidden lg:inline`}>{children}</span>
       </HashLink>
     </li>
   );
 
   const onUpdateActiveLink = (value: string): void => {
     setActiveLink(value);
-    setOpenMenu(false); // Close menu on navigation click
-  };
-
-  const toggleMenu = (): void => {
-    setOpenMenu(!openMenu);
   };
 
   const handleActiveLinkOnScroll = (): void => {
@@ -55,35 +52,31 @@ const Header: React.FC = () => {
 
   useEffect(() => {
     const handleScroll = (): void => {
-      setOpenMenu(false);
       handleActiveLinkOnScroll();
     };
 
+    const handleResize = (): void => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
     window.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleResize);
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleResize);
     };
   }, []);
 
   return (
-    <header className={`bg-slate-800 text-white font-montserrat shadow-lg shadow-slate-200 z-10 fixed left-0 top-0 h-full ${openMenu ? 'w-full' : 'w-12'} lg:w-[250px] transition-width duration-300`}>
-      <div className='hidden lg:flex h-[50px] w-[80px] justify-between m-2'>
-        <div className='h-5 w-5 bg-red-400 rounded-full'></div>
-        <div className='h-5 w-5 bg-yellow-400 rounded-full'></div>
-        <div className='h-5 w-5 bg-green-400 rounded-full'></div>
-      </div>
-      <div className='p-2 lg:container text-center lg:flex lg:flex-col lg:mt-8 h-full relative py-2'>
-        <div className="flex lg:justify-between lg:items-center lg:hidden lg:py-4">
-          <button className="text-white text-xl cursor-pointer" onClick={toggleMenu}>
-            {!openMenu ? <BiMenuAltLeft fontSize={40} /> : <AiOutlineClose fontSize={40} />}
-          </button>
-        </div>
-        <ul className={`flex flex-col justify-center items-center lg:block ${openMenu ? 'block' : 'hidden'}`}>
+    <header className={`border-2 border-gray-900 backdrop-blur-lg bg-opacity-15 text-white font-jetBrains z-10 fixed bottom-0 left-1/2 transform -translate-x-1/2 w-full lg:w-[70%] transition-width duration-300`}>
+      <div className='p-2 lg:container text-center flex justify-center h-full relative py-2 '>
+        <ul className={`flex flex-row justify-center items-center flex-wrap lg:flex-nowrap`}>
           <NavItem
             active={activeLink === `#home`}
             to="home"
             onClick={() => onUpdateActiveLink('#home')}
+            icon={<BiHomeAlt size={24} />}
           >
             Home
           </NavItem>
@@ -91,6 +84,7 @@ const Header: React.FC = () => {
             active={activeLink === '#about'}
             to="about"
             onClick={() => onUpdateActiveLink('#about')}
+            icon={<BiUser size={24} />}
           >
             About
           </NavItem>
@@ -98,6 +92,7 @@ const Header: React.FC = () => {
             active={activeLink === '#services'}
             to="services"
             onClick={() => onUpdateActiveLink('#services')}
+            icon={<BiCog size={24} />}
           >
             Services
           </NavItem>
@@ -105,6 +100,7 @@ const Header: React.FC = () => {
             active={activeLink === '#skills'}
             to="skills"
             onClick={() => onUpdateActiveLink('#skills')}
+            icon={<BiBook size={24} />}
           >
             Skills
           </NavItem>
@@ -112,6 +108,7 @@ const Header: React.FC = () => {
             active={activeLink === '#work'}
             to="work"
             onClick={() => onUpdateActiveLink('#work')}
+            icon={<BiBriefcase size={24} />}
           >
             Experience
           </NavItem>
@@ -119,6 +116,7 @@ const Header: React.FC = () => {
             active={activeLink === '#projects'}
             to="projects"
             onClick={() => onUpdateActiveLink('#projects')}
+            icon={<AiOutlineAppstore size={24} />}
           >
             Projects
           </NavItem>
@@ -126,6 +124,7 @@ const Header: React.FC = () => {
             active={activeLink === '#contact'}
             to="contact"
             onClick={() => onUpdateActiveLink('#contact')}
+            icon={<BiEnvelope size={24} />}
           >
             Contact
           </NavItem>

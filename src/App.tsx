@@ -10,9 +10,9 @@ import Work from './components/Work'
 
 function App(): JSX.Element {
   return (
-    <div className={`flex flex-row justify-end bg-slate-900 text-white`}>
+    <div className={`flex flex-row justify-end bg-fuchsia-950 text-white`}>
       <Header />
-      <section className='w-[90%] lg:w-[80%] h-full lg:px-6'>
+      <section className='w-full h-full lg:px-6'>
         <main id="home">
           <Home />
           <About />

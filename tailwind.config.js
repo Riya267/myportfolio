@@ -19,6 +19,7 @@ module.exports = {
                 montserrat: ["Montserrat"],
                 robotoSlab: ["Roboto Slab"],
                 openSans: ["Open Sans"],
+                jetBrains: ["JetBrains Mono"],
             },
             fontWeight: {
                 light: 300,
