@@ -11,8 +11,8 @@ const Home: React.FC = () => {
   }
 
   return (
-    <section id="home" className="font-jetBrains pt-48 lg:py-20">
-      <div className="container lg:p-10 flex flex-col justify-center items-center text-center lg:text-left lg:items-center">
+    <section id="home" className="font-jetBrains pt-[8rem] pb-[10rem] lg:py-20">
+      <div className="container lg:p-10 flex flex-col justify-center items-center text-center">
         <p className="text-lg md:text-xl lg:text-2xl text-indigo-200">
           Hello, I'm <span className="text-rose-500">Riya Dhawan</span>,
         </p>
