@@ -3,7 +3,7 @@ import ContactForm from './ContactForm'
 
 const Contact: React.FC = () => {
   return (
-    <section id="contact" className="py-20 font-light flex items-center">
+    <section id="contact" className="font-light py-52 lg:py-20">
       <div className="container font-jetBrains lg:p-10">
         <p className="mb-6 text-xl border-b-2 border-cyan-200 text-indigo-100 w-fit">
           CONTACT <span className="text-orange-200">ME</span>

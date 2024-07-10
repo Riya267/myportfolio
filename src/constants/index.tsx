@@ -1,4 +1,5 @@
-import { BiCodeAlt, BiLogoGmail, BiMobileAlt, BiServer } from 'react-icons/bi'
+import { AiOutlineMail } from 'react-icons/ai'
+import { BiCodeAlt, BiMobileAlt, BiServer } from 'react-icons/bi'
 import { BsGithub, BsLinkedin, BsTwitterX } from 'react-icons/bs'
 
 type ProjectTag = {
@@ -244,26 +245,22 @@ const skillBadges: SkillBadgeType[] = [
 const socialLinks: SocialLinkType[] = [
   {
     name: 'LinkedIn',
-    icon: <BsLinkedin className="text-[#0077b5] bg-white text-[1.6rem]" />,
+    icon: <BsLinkedin className="text-white text-[1.6rem]" />,
     url: 'https://www.linkedin.com/in/riya-dhawan-592ab921a',
   },
   {
     name: 'Twitter',
-    icon: <BsTwitterX className="text-white bg-black p-1 text-[1.6rem]" />,
+    icon: <BsTwitterX className="text-white p-1 text-[1.6rem]" />,
     url: 'https://twitter.com/riyacec05',
   },
   {
     name: 'GitHub',
-    icon: (
-      <BsGithub className="text-black text-[1.7rem] bg-white rounded-full" />
-    ),
+    icon: <BsGithub className="text-white text-[1.7rem] rounded-full" />,
     url: 'https://github.com/Riya267',
   },
   {
     name: 'Gmail',
-    icon: (
-      <BiLogoGmail className="text-[#ea4335] text-[1.6rem] bg-white rounded-sm" />
-    ),
+    icon: <AiOutlineMail className="text-white text-[1.6rem] rounded-sm" />,
     url: 'mailto:riyacec05@gmail.com',
   },
 ]
