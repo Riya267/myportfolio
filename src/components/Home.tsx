@@ -11,15 +11,15 @@ const Home: React.FC = () => {
   }
 
   return (
-    <section id="home" className="font-jetBrains py-20">
+    <section id="home" className="font-jetBrains pt-48 lg:py-20">
       <div className="container lg:p-10 flex flex-col justify-center items-center text-center lg:text-left lg:items-center">
         <p className="text-lg md:text-xl lg:text-2xl text-indigo-200">
           Hello, I'm <span className="text-rose-500">Riya Dhawan</span>,
         </p>
-        <p className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mt-2">
+        <p className="text-4xl md:text-5xl lg:text-5xl font-bold text-white mt-2">
           Web & Mobile Developer
         </p>
-        <p className="text-lg text-indigo-200 mt-4">
+        <p className="text-lg text-indigo-600 mt-4 text-center">
           Welcome to my portfolio! I am specialized in building robust web and
           mobile applications
           <br className="sm:block hidden" />
@@ -36,7 +36,7 @@ const Home: React.FC = () => {
         </motion.button>
       </div>
 
-      <div className="mt-4 text-center text-indigo-200">
+      <div className="mt-4 text-center text-pink-600">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

@@ -47,7 +47,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
         className="border-2 border-cyan-600 rounded-[20px] py-3 px-8 min-h-[180px] flex justify-evenly items-center flex-col bg-transparent"
       >
         <div className="text-center">
-          <h3 className="text-yellow-100 text-[24px] font-bold">{company}</h3>
+          <h3 className="text-cyan-50 text-[24px] font-bold">{company}</h3>
           <p className="text-rose-400 text-[20px]">{title}</p>
           <p className="text-pink-300 text-[14px]">
             {start} - {end}
@@ -57,7 +57,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
             {tags.map((tag, index) => (
               <span
                 key={index}
-                className="bg-emerald-700 rounded-full px-3 py-1 text-[12px] mr-2 mb-2"
+                className="bg-purple-700 rounded-full px-3 py-1 text-[12px] mr-2 mb-2"
               >
                 {tag}
               </span>
@@ -71,11 +71,11 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
 
 const Work: React.FC = () => {
   return (
-    <section id="work" className="font-jetBrains py-20 font-light">
+    <section id="work" className="font-jetBrains pt-48 lg:py-20 font-light">
       <div className="container mx-auto lg:p-10">
         <div className="flex flex-col items-center">
-          <p className="mb-6 text-xl border-b-2 border-lime-200 text-orange-50">
-            My Work <span className="text-lime-200">Experience</span>
+          <p className="mb-6 text-xl border-b-2 border-cyan-200 text-indigo-100">
+            My Work <span className="text-pink-200">Experience</span>
           </p>
         </div>
         <div className="my-10 flex flex-wrap gap-5 justify-center">

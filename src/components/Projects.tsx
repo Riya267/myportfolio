@@ -82,10 +82,10 @@ const ProjectsGrid: React.FC = () => {
   }
 
   return projects?.length !== 0 ? (
-    <section id="projects" className="font-light py-20">
+    <section id="projects" className="font-light pt-48 lg:py-20">
       <div className="container font-jetBrains flex flex-col items-center lg:p-10">
-        <p className="mb-6 text-xl border-b-2 border-fuchsia-400 text-fuchsia-200">
-          My <span className="text-fuchsia-400">PROJECTS</span>
+        <p className="mb-6 text-xl border-b-2 border-cyan-200 text-indigo-100">
+          My <span className="text-fuchsia-200">PROJECTS</span>
         </p>
         <p className="mt-3 text-slate-200 text-[17px] max-w-3xl leading-[30px]">
           These projects demonstrate my skills and experience through real-world

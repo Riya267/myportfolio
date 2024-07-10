@@ -1,8 +1,8 @@
 import React, { useRef } from 'react'
 import { useForm, Controller } from 'react-hook-form'
-import sendEmail from '../utils/SendEmail'
+import sendEmail from '../utils/sendEmail'
 import { ToastContainer } from 'react-toastify'
-import notify from '../utils/ToastMessage'
+import notify from '../utils/toastMessage'
 import { motion } from 'framer-motion'
 
 export interface FormData {

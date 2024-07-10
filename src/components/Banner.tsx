@@ -24,7 +24,7 @@ const Banner: React.FC<BannerProps> = ({ link, message }) => {
 
   return (
     <motion.div
-      className="text-white font-jetBrains rounded-b-md shadow-lg z-10"
+      className="text-white font-jetBrains rounded-b-md shadow-lg z-10 text-center"
       animate={controls}
     >
       <a

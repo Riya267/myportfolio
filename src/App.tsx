@@ -16,7 +16,7 @@ function App(): JSX.Element {
     <div
       className={`flex flex-row justify-end bg-gradient-to-r from-[#150f1e] via-[#240307] to-[#1f020a] text-white relative overflow-hidden text-white`}
     >
-      <div className="top-banner flex flex-col justify-center items-center fixed top-5 left-1/2 transform -translate-x-1/2 backdrop-blur-lg bg-opacity-15 py-2 w-full lg:rounded-full lg:rounded-tr-none z-10">
+      <div className="top-banner flex flex-col justify-center items-center fixed top-0 lg:top-5 left-1/2 transform -translate-x-1/2 backdrop-blur-lg bg-opacity-15 py-2 w-full lg:rounded-full lg:rounded-tr-none z-10">
         {BannerInfo.map((banner) => (
           <Banner link={banner.link} message={banner.message} />
         ))}

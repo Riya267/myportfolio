@@ -1,4 +1,4 @@
-import { BiLogoGmail } from 'react-icons/bi'
+import { BiCodeAlt, BiLogoGmail, BiMobileAlt, BiServer } from 'react-icons/bi'
 import { BsGithub, BsLinkedin, BsTwitterX } from 'react-icons/bs'
 
 type ProjectTag = {
@@ -6,7 +6,7 @@ type ProjectTag = {
   color: string
 }
 
-type Project = {
+type ProjectType = {
   name: string
   description: string
   tags: ProjectTag[]
@@ -14,12 +14,13 @@ type Project = {
   sourceCodeLink: string
 }
 
-type Service = {
+export type ServiceType = {
   title: string
-  icon: string
+  description: string
+  icon: React.ReactNode
 }
 
-type Experience = {
+type ExperienceType = {
   title: string
   company: string
   description: string
@@ -28,23 +29,24 @@ type Experience = {
   end: string
 }
 
-type SkillBadge = {
+type SkillBadgeType = {
   label: string
   iconPath: string
+  bgColor: string
 }
 
-type SocialLink = {
+type SocialLinkType = {
   name: string
   icon: React.ReactNode
   url: string
 }
 
-type BannerInfoItem = {
+type BannerInfoItemType = {
   link: string
   message: string
 }
 
-const projects: Project[] = [
+const projects: ProjectType[] = [
   {
     name: 'Car Rent',
     description:
@@ -110,22 +112,28 @@ const projects: Project[] = [
   },
 ]
 
-const services: Service[] = [
+const services: ServiceType[] = [
   {
     title: 'Web Developer',
-    icon: '/expertise/frontend.png',
+    description:
+      'Expertise in building responsive and scalable web applications using modern technologies like React, Angular, or Vue.js.',
+    icon: <BiCodeAlt size={50} className="text-blue-500" />,
   },
   {
     title: 'React Native Developer',
-    icon: '/expertise/mobile.png',
+    description:
+      'Specialized in developing cross-platform mobile applications using React Native, ensuring native performance and user experience.',
+    icon: <BiMobileAlt size={50} className="text-green-500" />,
   },
   {
     title: 'Backend Developer',
-    icon: '/expertise/backend.png',
+    description:
+      'Proficient in designing and implementing robust server-side architectures, APIs, and databases for seamless integration with front-end applications.',
+    icon: <BiServer size={50} className="text-purple-500" />,
   },
 ]
 
-const experience: Experience[] = [
+const experience: ExperienceType[] = [
   {
     title: 'Software Engineer',
     company: 'Tech Solutions Inc.',
@@ -155,70 +163,85 @@ const experience: Experience[] = [
   },
 ]
 
-const skillBadges: SkillBadge[] = [
+const skillBadges: SkillBadgeType[] = [
   {
     label: 'Html',
     iconPath: '/tech/html.png',
+    bgColor: 'border-orange-500',
   },
   {
     label: 'Css',
     iconPath: '/tech/css.png',
+    bgColor: 'border-blue-500',
   },
   {
     label: 'Javascript',
     iconPath: '/tech/javascript.png',
+    bgColor: 'border-yellow-500',
   },
   {
     label: 'Typescript',
     iconPath: '/tech/typescript.png',
+    bgColor: 'border-blue-600',
   },
   {
     label: 'React',
     iconPath: '/tech/reactjs.png',
+    bgColor: 'border-cyan-500',
   },
   {
     label: 'Git',
     iconPath: '/tech/git.png',
+    bgColor: 'border-red-600',
   },
   {
     label: 'Node.js',
     iconPath: '/tech/nodejs.png',
+    bgColor: 'border-green-600',
   },
   {
     label: 'Express.js',
     iconPath: '/tech/expressjs.png',
+    bgColor: 'border-gray-800',
   },
   {
     label: 'Next.js',
     iconPath: '/tech/nextjs.svg',
+    bgColor: 'border-black',
   },
   {
     label: 'Graphql',
     iconPath: '/tech/graphql.png',
+    bgColor: 'border-pink-500',
   },
   {
     label: 'Redux',
     iconPath: '/tech/redux.png',
+    bgColor: 'border-purple-600',
   },
   {
     label: 'Jest',
     iconPath: '/tech/jest.png',
+    bgColor: 'border-red-500',
   },
   {
     label: 'Docker',
     iconPath: '/tech/docker.png',
+    bgColor: 'border-blue-400',
   },
   {
     label: 'MongoDB',
     iconPath: '/tech/mongodb.png',
+    bgColor: 'border-green-500',
   },
   {
     label: 'Tailwind',
     iconPath: '/tech/tailwind.png',
+    bgColor: 'border-teal-400',
   },
 ]
 
-const socialLinks: SocialLink[] = [
+const socialLinks: SocialLinkType[] = [
   {
     name: 'LinkedIn',
     icon: <BsLinkedin className="text-[#0077b5] bg-white text-[1.6rem]" />,
@@ -245,7 +268,7 @@ const socialLinks: SocialLink[] = [
   },
 ]
 
-const BannerInfo: BannerInfoItem[] = [
+const BannerInfo: BannerInfoItemType[] = [
   {
     link: 'https://www.freecodecamp.org/news/top-open-source-contributors-2023/',
     message: `I'm listed as a top contributor in freecodecamp opensource - check it out!`,
