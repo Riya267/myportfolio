@@ -32,9 +32,9 @@ const Services: React.FC = () => {
   return (
     <section
       id="services"
-      className="container font-jetBrains pt-48 lg:py-20 font-light"
+      className="container font-jetBrains pt-40 lg:py-20 font-light"
     >
-      <div className="flex flex-col items-center mt-10 ">
+      <div className="flex flex-col items-center">
         <p className="mb-6 text-2xl font-bold border-b border-cyan-200 text-red-100">
           Services
         </p>

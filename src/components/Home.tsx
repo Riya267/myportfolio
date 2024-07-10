@@ -11,7 +11,7 @@ const Home: React.FC = () => {
   }
 
   return (
-    <section id="home" className="font-jetBrains pt-[8rem] pb-[10rem] lg:py-20">
+    <section id="home" className="font-jetBrains pt-40 lg:py-20">
       <div className="container lg:p-10 flex flex-col justify-center items-center text-center">
         <p className="text-lg md:text-xl lg:text-2xl text-indigo-200">
           Hello, I'm <span className="text-rose-500">Riya Dhawan</span>,
@@ -19,7 +19,7 @@ const Home: React.FC = () => {
         <p className="text-4xl md:text-5xl lg:text-5xl font-bold text-white mt-2">
           Web & Mobile Developer
         </p>
-        <p className="text-lg text-indigo-600 mt-4 text-center">
+        <p className="text-lg text-cyan-300 mt-4 text-center">
           Welcome to my portfolio! I am specialized in building robust web and
           mobile applications
           <br className="sm:block hidden" />
@@ -36,7 +36,7 @@ const Home: React.FC = () => {
         </motion.button>
       </div>
 
-      <div className="mt-4 text-center text-pink-600">
+      <div className="mt-4 text-center text-[#da5d94]">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

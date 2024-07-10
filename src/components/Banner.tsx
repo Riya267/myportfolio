@@ -31,7 +31,7 @@ const Banner: React.FC<BannerProps> = ({ link, message }) => {
         href={link}
         target="_blank"
         rel="noopener noreferrer"
-        className="text-lg font-bold"
+        className="text-lg font-bold text-[#8f87de]"
       >
         {message}
       </a>

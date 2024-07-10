@@ -3,7 +3,7 @@ import { skillBadges } from '../constants/index'
 
 const Skills: React.FC = () => {
   return (
-    <section id="skills" className="font-jetBrains pt-48 lg:py-20 font-light">
+    <section id="skills" className="font-jetBrains pt-40 lg:py-20 font-light">
       <div className="container flex flex-col justify-center items-center lg:p-10">
         <p className="mb-6 text-xl border-b-2 border-cyan-200 text-indigo-100 text-center w-fit ">
           MY <span className="text-rose-200">SKILLS</span>
