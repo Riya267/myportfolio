@@ -1,64 +1,78 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { experience } from '../constants';
-import { Tilt } from 'react-tilt';
+import React from 'react'
+import { motion } from 'framer-motion'
+import { experience } from '../constants/index'
+import { Tilt } from 'react-tilt'
+import { useInView } from 'react-intersection-observer'
 
 interface ExperienceCardProps {
-  title: string;
-  company: string;
-  description: string;
-  tags: string[];
-  start: string;
-  end: string;
+  title: string
+  company: string
+  description: string
+  tags: string[]
+  start: string
+  end: string
 }
 
 const cardVariants = {
   rest: { scale: 1 },
   hover: { scale: 1.1 },
   pressed: { scale: 0.95 },
-};
+}
 
-const ExperienceCard: React.FC<ExperienceCardProps> = ({ title, company, description, tags, start, end }) => (
-  <motion.div
-    variants={cardVariants}
-    initial="rest"
-    whileHover="hover"
-    whileTap="pressed"
-    className="p-1 rounded-[20px] shadow-card w-[500px]"
-  >
-    <Tilt
-      options={{ max: 45, scale: 1, speed: 450 }}
-      className="border-2 border-cyan-600 rounded-[20px] py-3 px-8 min-h-[180px] flex justify-evenly items-center flex-col bg-transparent"
+const ExperienceCard: React.FC<ExperienceCardProps> = ({
+  title,
+  company,
+  description,
+  tags,
+  start,
+  end,
+}) => {
+  const { ref, inView } = useInView({
+    triggerOnce: false,
+    threshold: 0.2,
+  })
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ y: 50, opacity: 0 }}
+      animate={inView ? { y: 0, opacity: 1 } : {}}
+      transition={{ duration: 0.6, ease: 'easeOut' }}
+      variants={cardVariants}
+      whileHover="hover"
+      whileTap="pressed"
+      className="p-1 rounded-[20px] shadow-card w-[500px]"
     >
-      <div className="text-center">
-        <h3 className="text-yellow-100 text-[24px] font-bold">
-          {company}
-        </h3>
-        <p className="text-rose-400 text-[20px]">
-          {title}
-        </p>
-        <p className="text-pink-300 text-[14px]">
-          {start} - {end}
-        </p>
-        <p className="text-[16px] mt-4">
-          {description}
-        </p>
-        <div className="flex flex-wrap justify-center mt-4">
-          {tags.map((tag, index) => (
-            <span key={index} className="bg-emerald-700 rounded-full px-3 py-1 text-[12px] mr-2 mb-2">
-              {tag}
-            </span>
-          ))}
+      <Tilt
+        options={{ max: 45, scale: 1, speed: 450 }}
+        className="border-2 border-cyan-600 rounded-[20px] py-3 px-8 min-h-[180px] flex justify-evenly items-center flex-col bg-transparent"
+      >
+        <div className="text-center">
+          <h3 className="text-yellow-100 text-[24px] font-bold">{company}</h3>
+          <p className="text-rose-400 text-[20px]">{title}</p>
+          <p className="text-pink-300 text-[14px]">
+            {start} - {end}
+          </p>
+          <p className="text-[16px] mt-4">{description}</p>
+          <div className="flex flex-wrap justify-center mt-4">
+            {tags.map((tag, index) => (
+              <span
+                key={index}
+                className="bg-emerald-700 rounded-full px-3 py-1 text-[12px] mr-2 mb-2"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
         </div>
-      </div>
-    </Tilt>
-  </motion.div>
-);
+      </Tilt>
+    </motion.div>
+  )
+}
 
 const Work: React.FC = () => {
   return (
-    <section id="work" className="font-montserrat py-5 font-light">
-      <div className="container mx-auto">
+    <section id="work" className="font-jetBrains py-20 font-light">
+      <div className="container mx-auto lg:p-10">
         <div className="flex flex-col items-center">
           <p className="mb-6 text-xl border-b-2 border-lime-200 text-orange-50">
             My Work <span className="text-lime-200">Experience</span>
@@ -71,7 +85,7 @@ const Work: React.FC = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Work;
+export default Work

@@ -3,33 +3,38 @@ import { motion } from 'framer-motion'
 
 const About: React.FC = () => {
   return (
-    <section
-      id="about"
-      className="font-montserrat py-12 font-light"
-    >
-      <div className='container'>
-        <div className='flex flex-col items-center'>
+    <section id="about" className="font-jetBrains py-20 font-light">
+      <div className="container lg:p-10">
+        <div className="flex flex-col items-center">
           <p className="mb-6 text-xl border-b-2 border-cyan-200 text-indigo-100">
             ABOUT <span className="text-yellow-200">ME</span>
           </p>
         </div>
-        <div className="flex flex-col-reverse lg:flex-row justify-center items-center">
-          <div className="flex flex-col justify-center items-center text-center lg:text-left lg:items-start">
-            <p className="mt-4 text-indigo-100 text-[17px] max-w-3xl leading-[30px]">
-              I'm a full stack developer with over 4+ years of experience. I love creating websites and applications that look great and work seamlessly. My goal is to build user-friendly experiences that make a difference.
+        <div className="flex flex-col lg:flex-row justify-center items-start">
+          <div className="flex flex-col justify-center items-center text-center lg:text-left lg:items-start lg:w-1/2">
+            <p className="mt-4 text-indigo-100 text-lg lg:text-xl max-w-3xl leading-[30px]">
+              I'm a passionate full stack developer with over 4 years of
+              experience. I specialize in creating websites and applications
+              that not only look great but also provide seamless user
+              experiences. My goal is to build innovative solutions that make a
+              positive impact.
             </p>
-            <div className="flex justify-between">
-              <motion.a
-                href="https://github.com/Riya267"
-                className="font-bold border-2 mr-4 p-3 px-5 mt-4 rounded-[100px] font-openSans text-white"
-                whileHover={{ scale: 1.2 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                Visit my work
-              </motion.a>
-            </div>
+            <motion.a
+              href="https://github.com/rahulSainisomething"
+              className="font-bold border-2 p-3 px-5 mt-4 rounded-[100px] font-jetBrains text-white inline-block"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              Visit my work
+            </motion.a>
           </div>
-          <img src="heroGirl.png" alt="Hero Girl" className="max-w-[50%] max-h-[50%]" />
+          <div className="lg:w-1/2 mt-6 lg:mt-0">
+            <img
+              src="girlSitting.svg"
+              alt="Hero Girl"
+              className="max-w-full h-auto"
+            />
+          </div>
         </div>
       </div>
     </section>

@@ -1,77 +1,99 @@
-import React, { useEffect, useState } from 'react';
-import { HashLink } from 'react-router-hash-link';
-import { BiMenuAltLeft, BiHomeAlt, BiUser, BiBriefcase, BiBook, BiCog, BiEnvelope } from 'react-icons/bi';
-import { AiOutlineClose, AiOutlineAppstore } from 'react-icons/ai';
-import { useLocation } from 'react-router-dom';
+import React, { useEffect, useState } from 'react'
+import { HashLink } from 'react-router-hash-link'
+import {
+  BiHomeAlt,
+  BiUser,
+  BiBriefcase,
+  BiBook,
+  BiCog,
+  BiEnvelope,
+} from 'react-icons/bi'
+import { AiOutlineAppstore } from 'react-icons/ai'
 
 interface NavItemProps {
-  active: boolean;
-  to: string;
-  children: React.ReactNode;
-  onClick: () => void;
-  icon: React.ReactNode;
+  active: boolean
+  to: string
+  children: React.ReactNode
+  onClick: () => void
+  icon: React.ReactNode
 }
 
 const Header: React.FC = () => {
-  const location = useLocation();
-  const [activeLink, setActiveLink] = useState<string>(`${location.hash}`);
-  const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth < 768);
+  const [activeLink, setActiveLink] = useState<string>(window.location.hash)
+  const [clicked, setClicked] = useState<boolean>(false)
 
-  const NavItem: React.FC<NavItemProps> = ({ active, to, children, onClick, icon }) => (
+  const NavItem: React.FC<NavItemProps> = ({
+    active,
+    to,
+    children,
+    onClick,
+    icon,
+  }) => (
     <li className={`nav-item ${active ? 'active' : ''} px-4 py-2`}>
       <HashLink
         to={`#${to}`}
         onClick={onClick}
         smooth
-        className={`nav-link ${active ? 'text-fuchsia-400 underline' : 'text-white'} flex hover:text-fuchsia-400`}
+        className={`nav-link ${
+          active ? 'text-fuchsia-400 underline' : 'text-white'
+        } flex hover:text-fuchsia-400`}
       >
         {icon}
         <span className={`ml-2 hidden lg:inline`}>{children}</span>
       </HashLink>
     </li>
-  );
+  )
 
   const onUpdateActiveLink = (value: string): void => {
-    setActiveLink(value);
-  };
+    setClicked(true)
+    setActiveLink(value)
+  }
 
   const handleActiveLinkOnScroll = (): void => {
-    const sections = document.querySelectorAll('section');
-    let currentActive = 'home';
+    const sections = document.querySelectorAll('section')
+    let currentActive = activeLink ? activeLink : ''
 
     sections.forEach((section) => {
-      const top = section.offsetTop;
-      const height = section.offsetHeight;
+      const top = section.offsetTop
+      const height = section.offsetHeight
       if (window.scrollY >= top && window.scrollY < top + height) {
-        currentActive = section.id;
+        currentActive = `#${section.id}`
       }
-    });
+    })
 
-    setActiveLink(`#${currentActive}`);
-  };
+    setActiveLink(currentActive)
+  }
 
   useEffect(() => {
     const handleScroll = (): void => {
-      handleActiveLinkOnScroll();
-    };
+      if (!clicked) {
+        handleActiveLinkOnScroll()
+      }
+    }
 
-    const handleResize = (): void => {
-      setIsMobile(window.innerWidth < 768);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    window.addEventListener('resize', handleResize);
-
+    window.addEventListener('scroll', handleScroll)
     return () => {
-      window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [clicked])
+
+  useEffect(() => {
+    if (clicked) {
+      const timer = setTimeout(() => {
+        setClicked(false)
+      }, 1000)
+      return () => clearTimeout(timer)
+    }
+  }, [clicked])
 
   return (
-    <header className={`border-2 border-gray-900 backdrop-blur-lg bg-opacity-15 text-white font-jetBrains z-10 fixed bottom-0 left-1/2 transform -translate-x-1/2 w-full lg:w-[70%] transition-width duration-300`}>
-      <div className='p-2 lg:container text-center flex justify-center h-full relative py-2 '>
-        <ul className={`flex flex-row justify-center items-center flex-wrap lg:flex-nowrap`}>
+    <header
+      className={`border-2 border-gray-900 backdrop-blur-lg bg-opacity-15 text-white font-jetBrains z-10 fixed bottom-0 left-1/2 transform -translate-x-1/2 w-full lg:w-fit transition-width duration-300`}
+    >
+      <div className="p-2 lg:container text-center flex justify-center h-full relative py-2 ">
+        <ul
+          className={`flex flex-row justify-center items-center flex-wrap lg:flex-nowrap`}
+        >
           <NavItem
             active={activeLink === `#home`}
             to="home"
@@ -131,7 +153,7 @@ const Header: React.FC = () => {
         </ul>
       </div>
     </header>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

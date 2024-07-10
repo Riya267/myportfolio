@@ -16,9 +16,9 @@ module.exports = {
                 lg: '1024px'
             },
             fontFamily: {
-                montserrat: ["Montserrat"],
                 robotoSlab: ["Roboto Slab"],
                 openSans: ["Open Sans"],
+                lato: ["Lato:ital"],
                 jetBrains: ["JetBrains Mono"],
             },
             fontWeight: {

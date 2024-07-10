@@ -2,54 +2,55 @@ import React from 'react'
 import { CgWebsite } from 'react-icons/cg'
 import { ImMobile2 } from 'react-icons/im'
 import { FaGraduationCap } from 'react-icons/fa'
-import BallCanvas from '../utils/skillBox'
-import { skillBadges } from '../constants'
+import BallCanvas from '../utils/SkillBox'
+import { skillBadges } from '../constants/index'
 
 const Skills: React.FC = () => {
   const skillsInfo: Array<{ label: string; icon: React.ReactNode }> = [
     {
       label:
-        'Developing blazing fast web applications for seamless user interaction.',
-      icon: <CgWebsite size={20} />,
+        'I specialize in developing blazing fast web applications with a focus on seamless user interaction.',
+      icon: <CgWebsite size={24} />,
     },
     {
       label:
-        'Mobile-first, responsive design layout for all devices is a top priority.',
-      icon: <ImMobile2 size={20} />,
+        'I prioritize mobile-first, responsive design layouts to ensure optimal viewing and navigation across all devices.',
+      icon: <ImMobile2 size={24} />,
     },
     {
       label:
-        'Constantly continues to learn new technologies and keeping up-to-date with the freshest trends.',
-      icon: <FaGraduationCap size={20} />,
+        'I am committed to continuous learning, staying updated with the latest technologies and trends in web development.',
+      icon: <FaGraduationCap size={24} />,
     },
   ]
 
   return (
-    <section
-      id="skills"
-      className={`font-montserrat py-5 font-light flex items-center`}
-    >
-      <div className="container font-montserrat flex flex-col items-center">
-        <p className="mb-6 text-xl border-b-2 border-rose-500 text-rose-200">MY <span className="text-rose-500">SKILLS</span></p>
-        <div className="flex flex-col lg:flex-row justify-evenly">
-          {skillsInfo.map((item,index) => {
-            return (
-              <div className="flex justify-evenly lg:w-[35%] mb-4" key={`${item.label}_${index}`}>
-                <span>{item.icon}</span>
-                <span className="w-[80%]">{item.label}</span>
-              </div>
-            )
-          })}
+    <section id="skills" className="font-jetBrains py-20 font-light">
+      <div className="container flex flex-col justify-center items-center lg:p-10">
+        <p className="mb-6 text-xl border-b-2 border-rose-500 text-rose-200 text-center w-fit ">
+          MY <span className="text-rose-500">SKILLS</span>
+        </p>
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {skillsInfo.map((item, index) => (
+            <div
+              className="flex items-center space-x-3"
+              key={`${item.label}_${index}`}
+            >
+              <span className="text-rose-500">{item.icon}</span>
+              <span className="text-sm md:text-base">{item.label}</span>
+            </div>
+          ))}
         </div>
-        <div className='my-4 flex flex-row flex-wrap justify-center gap-10'>
-          {skillBadges.map((item, index) => {
-               return (
-                  <div className='w-28 h-28 flex flex-col items-center' key={index}>
-                    <p className='text-[10px]'>{item.label}</p>
-                    <BallCanvas icon={item.iconPath} />
-                  </div>
-               )
-          })}
+        <div className="my-8 grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-8">
+          {skillBadges.map((item, index) => (
+            <div
+              className="flex flex-col items-center justify-between mx-6"
+              key={index}
+            >
+              <BallCanvas icon={item.iconPath} />
+              <p className="mt-2 text-xs">{item.label}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
