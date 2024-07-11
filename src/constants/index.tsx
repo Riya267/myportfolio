@@ -4,15 +4,15 @@ import { BsGithub, BsLinkedin, BsTwitterX } from 'react-icons/bs'
 
 type ProjectTag = {
   name: string
-  color: string
 }
 
-type ProjectType = {
+export type ProjectType = {
   name: string
   description: string
   tags: ProjectTag[]
   image: string
   sourceCodeLink: string
+  projectLink?: string
 }
 
 export type ServiceType = {
@@ -49,67 +49,90 @@ type BannerInfoItemType = {
 
 const projects: ProjectType[] = [
   {
-    name: 'Car Rent',
+    name: 'NoteTube',
     description:
-      'Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.',
+      'Web-based platform that generates summarized notes based on YouTube video URLs provided by users, utilizing the ChatGPT API for generating these notes.',
     tags: [
       {
-        name: 'react',
-        color: 'blue-text-gradient',
+        name: 'React',
       },
       {
-        name: 'mongodb',
-        color: 'green-text-gradient',
+        name: 'Tailwind',
       },
       {
-        name: 'tailwind',
-        color: 'pink-text-gradient',
+        name: 'Monorepo',
+      },
+      {
+        name: 'ChatGptAPI',
+      },
+      {
+        name: 'ServerSentEvents',
+      },
+      {
+        name: 'Express.js',
+      },
+      {
+        name: 'REST',
+      },
+      {
+        name: 'CICD-gitHubAction',
       },
     ],
-    image: '/projects/carrent.png',
-    sourceCodeLink: 'https://github.com/',
+    image: '/projects/notetube.png',
+    sourceCodeLink: 'https://github.com/Riya267/NoteTUBE',
+    projectLink: 'https://notetube-ai.vercel.app',
   },
   {
-    name: 'Job IT',
+    name: 'pixelGinie',
     description:
-      'Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.',
+      'React Native app using the Pixabay API that shows wallpapers, filters, and other features. Users can search, view, and save wallpapers as favorites, with a login feature for accessing saved wallpapers.',
     tags: [
       {
-        name: 'react',
-        color: 'blue-text-gradient',
+        name: 'ReactNative',
       },
       {
-        name: 'restapi',
-        color: 'green-text-gradient',
+        name: 'Expo',
       },
       {
-        name: 'scss',
-        color: 'pink-text-gradient',
+        name: 'PixabayApi',
+      },
+      {
+        name: 'Firebase',
+      },
+      {
+        name: 'ReactContext',
       },
     ],
-    image: '/projects/jobit.png',
-    sourceCodeLink: 'https://github.com/',
+    image: '/projects/wallpaper-app.png',
+    sourceCodeLink: 'https://github.com/Riya267/wallpaper-app',
   },
   {
-    name: 'Trip Guide',
+    name: 'My Portfolio',
     description:
-      'A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.',
+      'A personal portfolio website showcasing my skills, projects, and contributions to open source. Built with React, Tailwind CSS, and TypeScript to provide a seamless and engaging user experience.',
     tags: [
       {
-        name: 'nextjs',
-        color: 'blue-text-gradient',
+        name: 'React',
       },
       {
-        name: 'supabase',
-        color: 'green-text-gradient',
+        name: 'Typescript',
       },
       {
-        name: 'css',
-        color: 'pink-text-gradient',
+        name: 'Tailwind',
+      },
+      {
+        name: 'FramerMotion',
+      },
+      {
+        name: 'ReactHookForm',
+      },
+      {
+        name: 'CICD-gitHubAction',
       },
     ],
-    image: '/projects/tripguide.png',
-    sourceCodeLink: 'https://github.com/',
+    image: '/projects/myportfolio.png',
+    sourceCodeLink: 'https://github.com/Riya267/myportfolio',
+    projectLink: 'https://riyadhawan.vercel.app',
   },
 ]
 
@@ -117,7 +140,7 @@ const services: ServiceType[] = [
   {
     title: 'Web Developer',
     description:
-      'Expertise in building responsive and scalable web applications using modern technologies like React, Angular, or Vue.js.',
+      'Expertise in building responsive and scalable web applications using modern technologies like React, Next.js, tailwind',
     icon: <BiCodeAlt size={50} className="text-blue-500" />,
   },
   {
@@ -191,7 +214,7 @@ const skillBadges: SkillBadgeType[] = [
     bgColor: 'border-cyan-500',
   },
   {
-    label: 'Git',
+    label: 'Git/Github',
     iconPath: '/tech/git.png',
     bgColor: 'border-red-600',
   },
@@ -238,6 +261,16 @@ const skillBadges: SkillBadgeType[] = [
   {
     label: 'Tailwind',
     iconPath: '/tech/tailwind.png',
+    bgColor: 'border-teal-400',
+  },
+  {
+    label: 'Vtex',
+    iconPath: '/tech/vtex.svg',
+    bgColor: 'border-rose-400',
+  },
+  {
+    label: 'React Testing Library',
+    iconPath: '/tech/react-testing-library.png',
     bgColor: 'border-teal-400',
   },
 ]

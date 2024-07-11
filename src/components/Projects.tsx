@@ -1,17 +1,13 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
-import { projects } from '../constants/index'
+import { ProjectType, projects } from '../constants/index'
 import { Tilt } from 'react-tilt'
 import { BsGithub } from 'react-icons/bs'
 import { useInView } from 'react-intersection-observer'
+import { BiLink } from 'react-icons/bi'
 
-interface Project {
+interface Project extends ProjectType {
   index?: number
-  name: string
-  description: string
-  tags: Array<{ name: string; color: string }>
-  image: string
-  sourceCodeLink: string
 }
 
 const ProjectCard: React.FC<Project> = ({
@@ -20,6 +16,7 @@ const ProjectCard: React.FC<Project> = ({
   tags,
   image,
   sourceCodeLink,
+  projectLink,
 }) => {
   const { ref, inView } = useInView({
     triggerOnce: false,
@@ -38,11 +35,13 @@ const ProjectCard: React.FC<Project> = ({
         className="bg-transparent border-2 border-rose-50 border-dashed p-5 text-slate-500 rounded-2xl sm:w-[360px] w-full"
       >
         <div className="relative w-full h-[230px]">
-          <img
-            src={image}
-            alt={name}
-            className="w-full h-full object-cover rounded-2xl"
-          />
+          <div className="w-full h-64 overflow-hidden rounded-lg">
+            <img
+              src={image}
+              alt={name}
+              className="w-full h-full object-contain rounded-2xl"
+            />
+          </div>
 
           <div className="absolute inset-0 flex justify-end m-3 card-img_hover">
             <div
@@ -53,18 +52,24 @@ const ProjectCard: React.FC<Project> = ({
             </div>
           </div>
         </div>
-
-        <div className="mt-5">
+        <div className="relative">
+          {projectLink && (
+            <div
+              onClick={() => window.open(projectLink, '_blank')}
+              className="bg-cyan-50 w-10 h-10 rounded-full flex justify-center items-center cursor-pointer absolute right-10"
+            >
+              <BiLink className="text-[1.5rem] text-[#00c1f7]" />
+            </div>
+          )}
+        </div>
+        <div className="mt-10">
           <h3 className="text-white font-bold text-[24px]">{name}</h3>
           <p className="mt-2 text-slate-50 text-[14px]">{description}</p>
         </div>
 
         <div className="mt-4 flex flex-wrap gap-2 text-blue-300">
           {tags.map((tag) => (
-            <p
-              key={`${name}-${tag.name}`}
-              className={`text-[14px] ${tag.color}`}
-            >
+            <p key={`${name}-${tag.name}`} className={`text-md`}>
               #{tag.name}
             </p>
           ))}
