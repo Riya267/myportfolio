@@ -1,7 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { ExperienceType, experience } from '../constants/index'
-import { Tilt } from 'react-tilt'
 import { useInView } from 'react-intersection-observer'
 import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry'
 
@@ -27,17 +26,14 @@ const ExperienceCard: React.FC<ExperienceType> = ({
     <motion.div
       ref={ref}
       initial={{ y: 50, opacity: 0 }}
-      animate={inView ? { y: 0, opacity: 1 } : {}}
+      animate={inView ? { y: 30, opacity: 1 } : {}}
       transition={{ duration: 0.6, ease: 'easeOut' }}
       variants={cardVariants}
       whileHover="hover"
       whileTap="pressed"
-      className="p-1 rounded-[20px] shadow-card h-auto min-h-[180px] mb-5 mx-10"
+      className="p-1 rounded-[20px] shadow-card h-auto min-h-[180px] mb-5 mx-2 lg:mx-10"
     >
-      <Tilt
-        options={{ max: 45, scale: 1, speed: 450 }}
-        className="border-2 border-cyan-600 rounded-[20px] py-3 px-8 flex justify-evenly items-center flex-col bg-transparent"
-      >
+      <div className="border-2 border-cyan-600 rounded-[20px] py-3 px-8 flex justify-evenly items-center flex-col bg-transparent">
         <div className="text-center">
           <h3 className="text-cyan-50 text-[24px] font-bold">{company}</h3>
           <p className="text-rose-400 text-[20px]">{title}</p>
@@ -56,7 +52,7 @@ const ExperienceCard: React.FC<ExperienceType> = ({
             ))}
           </div>
         </div>
-      </Tilt>
+      </div>
     </motion.div>
   )
 }

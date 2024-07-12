@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import { ProjectType, projects } from '../constants/index'
-import { Tilt } from 'react-tilt'
 import { BsGithub } from 'react-icons/bs'
 import { useInView } from 'react-intersection-observer'
 import { BiLink } from 'react-icons/bi'
@@ -26,14 +25,11 @@ const ProjectCard: React.FC<Project> = ({
     <motion.div
       ref={ref}
       initial={{ y: 50, opacity: 0 }}
-      animate={inView ? { y: 0, opacity: 1 } : {}}
+      animate={inView ? { y: 30, opacity: 1 } : {}}
       transition={{ duration: 0.6, ease: 'easeOut' }}
       className="p-[1px] rounded-[20px] shadow-card"
     >
-      <Tilt
-        options={{ max: 45, scale: 1, speed: 450 }}
-        className="bg-transparent border-2 border-rose-50 border-dashed p-5 text-slate-500 rounded-2xl sm:w-[360px] w-full"
-      >
+      <div className="bg-transparent border-2 border-rose-50 border-dashed p-5 text-slate-500 rounded-2xl sm:w-[360px] w-full">
         <div className="relative w-full h-[230px]">
           <div className="w-full h-64 overflow-hidden rounded-lg">
             <img
@@ -75,7 +71,7 @@ const ProjectCard: React.FC<Project> = ({
             </p>
           ))}
         </div>
-      </Tilt>
+      </div>
     </motion.div>
   )
 }
