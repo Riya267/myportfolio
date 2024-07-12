@@ -2,14 +2,6 @@ import React from 'react'
 import { motion } from 'framer-motion'
 
 const Home: React.FC = () => {
-  const handleCVDownload = (): void => {
-    console.log('clicked')
-    const link = document.createElement('a')
-    link.href = '/RiyaCV.pdf'
-    link.download = 'RiyaCV.pdf'
-    link.click()
-  }
-
   return (
     <section id="home" className="font-jetBrains pt-40 lg:py-20">
       <div className="container lg:p-10 flex flex-col justify-center items-center text-center">
@@ -25,15 +17,16 @@ const Home: React.FC = () => {
           <br className="sm:block hidden" />
           with a focus on creating seamless user experiences.
         </p>
-        <motion.button
-          onClick={handleCVDownload}
+        <motion.a
+          href="https://drive.google.com/file/d/10cCUFdffvifbFITaoOja7OUfeV-B7ePi/view?usp=drive_link"
+          target="_blank"
           className="font-bold border-2 p-3 px-5 mt-6 text-white border-indigo-200"
           whileHover={{ scale: 1.2, borderColor: '#b32241', color: '#FFFFFF' }}
           whileTap={{ scale: 0.9 }}
           transition={{ duration: 0.3 }}
         >
           Download CV
-        </motion.button>
+        </motion.a>
       </div>
 
       <div className="mt-4 text-center text-[#da5d94]">
