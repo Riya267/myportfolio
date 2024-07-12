@@ -41,6 +41,7 @@ const ProjectCard: React.FC<Project> = ({
               alt={name}
               className="w-full h-full object-contain rounded-2xl"
             />
+            ̦
           </div>
 
           <div className="absolute inset-0 flex justify-end m-3 card-img_hover">
@@ -56,7 +57,7 @@ const ProjectCard: React.FC<Project> = ({
           {projectLink && (
             <div
               onClick={() => window.open(projectLink, '_blank')}
-              className="bg-cyan-50 w-10 h-10 rounded-full flex justify-center items-center cursor-pointer absolute right-10"
+              className="bg-cyan-50 w-10 h-10 rounded-full flex justify-center items-center cursor-pointer absolute right-0 m-3"
             >
               <BiLink className="text-[1.5rem] text-[#00c1f7]" />
             </div>

@@ -21,13 +21,13 @@ export type ServiceType = {
   icon: React.ReactNode
 }
 
-type ExperienceType = {
+export type ExperienceType = {
   title: string
   company: string
   description: string
   tags: string[]
   start: string
-  end: string
+  end?: string
 }
 
 type SkillBadgeType = {
@@ -159,31 +159,45 @@ const services: ServiceType[] = [
 
 const experience: ExperienceType[] = [
   {
-    title: 'Software Engineer',
-    company: 'Tech Solutions Inc.',
+    title: 'Open Source Contributor - Hacktoberfest 2023',
+    company: 'Hacktoberfest',
     description:
-      'Developed and maintained web applications using modern JavaScript frameworks and libraries.',
-    tags: ['JavaScript', 'React', 'Node.js'],
-    start: 'January 2020',
-    end: 'June 2022',
+      'Successfully completed all four levels of Hacktoberfest 2023 by making significant contributions to freeCodeCamp’s open-source codebase. Demonstrated proficiency in version control (Git), issue tracking, and collaborative coding practices.',
+    tags: ['Git', 'Open Source', 'Collaboration', 'freeCodeCamp'],
+    start: 'October 2023',
   },
   {
-    title: 'Frontend Developer',
-    company: 'Creative Minds Ltd.',
+    title: 'Contributor to freeCodeCamp Codebase',
+    company: 'freeCodeCamp',
     description:
-      'Designed and implemented user interfaces for various web projects, focusing on responsive design and user experience.',
-    tags: ['HTML', 'CSS', 'JavaScript', 'Vue.js'],
-    start: 'July 2018',
-    end: 'December 2019',
+      'Recognized as one of the top contributor in the GitHub codebase of freeCodeCamp, a renowned open-source learning platform. Actively contributed by implementing new features, fixing bugs, and enhancing documentation, positively impacting the learning experience of millions of users. Wrote numerous test cases, including unit tests and end-to-end (E2E) tests using Playwright, ensuring high code quality and reliability. Worked closely with the freeCodeCamp community, following best practices in software development and open-source contribution.',
+    tags: ['freeCodeCamp', 'GitHub', 'Playwright', 'Unit Tests', 'E2E Tests'],
+    start: 'Various contributions since 2023',
   },
   {
-    title: 'Backend Developer',
-    company: 'Innovatech Corp.',
+    title: 'Experience Engineer L2',
+    company: 'Publicis Sapient',
     description:
-      'Worked on server-side applications and APIs, ensuring efficient data processing and integration with frontend components.',
-    tags: ['Node.js', 'Express', 'MongoDB'],
-    start: 'March 2016',
-    end: 'May 2018',
+      'Specialized in developing microservices and micro-frontend architectures, I have designed cost-efficient cloud e-commerce solutions using the VTEX platform, executed a modular B2B e-commerce site with technologies like NX monorepo, Next.js, React, Tailwind CSS, and the Atomic design pattern. I integrated session management with Gigya and VTEX, optimized search functionality, created user-friendly order history pages, and ensured accessibility. Additionally, I built a web app for B2B customers to track invoices, orders, and shipments using the facade design pattern, developing session and Gigya validation microservices with Node.js and Express.js, and integrating Docker containers and unit tests. I also created a store locator page and integrated a tracking API with the Ninjavan portal.',
+    tags: [
+      'JavaScript',
+      'React',
+      'Node.js',
+      'VTEX',
+      'Microservices',
+      'Micro-frontend',
+    ],
+    start: 'November 2022',
+    end: 'Present',
+  },
+  {
+    title: 'Associate Engineer',
+    company: 'Goharness',
+    description:
+      'Developed mobile applications using React Native while managing state through Redux. Designed and implemented an integrated database using Firebase/Firestore, leveraging React architecture to provide on-demand data access.',
+    tags: ['React Native', 'Redux', 'Firebase'],
+    start: 'July 2020',
+    end: 'November 2022',
   },
 ]
 

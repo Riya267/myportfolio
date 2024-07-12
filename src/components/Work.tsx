@@ -1,17 +1,9 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { experience } from '../constants/index'
+import { ExperienceType, experience } from '../constants/index'
 import { Tilt } from 'react-tilt'
 import { useInView } from 'react-intersection-observer'
-
-interface ExperienceCardProps {
-  title: string
-  company: string
-  description: string
-  tags: string[]
-  start: string
-  end: string
-}
+import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry'
 
 const cardVariants = {
   rest: { scale: 1 },
@@ -19,7 +11,7 @@ const cardVariants = {
   pressed: { scale: 0.95 },
 }
 
-const ExperienceCard: React.FC<ExperienceCardProps> = ({
+const ExperienceCard: React.FC<ExperienceType> = ({
   title,
   company,
   description,
@@ -40,11 +32,11 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
       variants={cardVariants}
       whileHover="hover"
       whileTap="pressed"
-      className="p-1 rounded-[20px] shadow-card w-[500px]"
+      className="p-1 rounded-[20px] shadow-card h-auto min-h-[180px] mb-5 mx-10"
     >
       <Tilt
         options={{ max: 45, scale: 1, speed: 450 }}
-        className="border-2 border-cyan-600 rounded-[20px] py-3 px-8 min-h-[180px] flex justify-evenly items-center flex-col bg-transparent"
+        className="border-2 border-cyan-600 rounded-[20px] py-3 px-8 flex justify-evenly items-center flex-col bg-transparent"
       >
         <div className="text-center">
           <h3 className="text-cyan-50 text-[24px] font-bold">{company}</h3>
@@ -78,10 +70,17 @@ const Work: React.FC = () => {
             My Work <span className="text-pink-200">Experience</span>
           </p>
         </div>
-        <div className="my-10 flex flex-wrap gap-5 justify-center">
-          {experience.map((work) => (
-            <ExperienceCard key={work.title} {...work} />
-          ))}
+        <div className="flex justify-between flex-col">
+          <ResponsiveMasonry
+            columnsCountBreakPoints={{ 375: 1, 768: 2, 1024: 2 }}
+            gutter="10px"
+          >
+            <Masonry>
+              {experience.map((work) => (
+                <ExperienceCard key={work.title} {...work} />
+              ))}
+            </Masonry>
+          </ResponsiveMasonry>
         </div>
       </div>
     </section>
