@@ -29,7 +29,7 @@ const ProjectCard: React.FC<Project> = ({
       transition={{ duration: 0.6, ease: 'easeOut' }}
       className="p-[1px] rounded-[20px] shadow-card"
     >
-      <div className="bg-transparent border-2 border-rose-50 border-dashed p-5 text-slate-500 rounded-2xl sm:w-[360px] w-full">
+      <div className="bg-transparent border-2 border-rose-50 border-dashed p-5 text-slate-500 rounded-2xl lg:w-[360px] w-full">
         <div className="relative w-full h-[230px]">
           <div className="w-full h-64 overflow-hidden rounded-lg">
             <img

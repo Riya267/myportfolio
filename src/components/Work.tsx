@@ -4,12 +4,6 @@ import { ExperienceType, experience } from '../constants/index'
 import { useInView } from 'react-intersection-observer'
 import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry'
 
-const cardVariants = {
-  rest: { scale: 1 },
-  hover: { scale: 1.1 },
-  pressed: { scale: 0.95 },
-}
-
 const ExperienceCard: React.FC<ExperienceType> = ({
   title,
   company,
@@ -28,7 +22,6 @@ const ExperienceCard: React.FC<ExperienceType> = ({
       initial={{ y: 50, opacity: 0 }}
       animate={inView ? { y: 30, opacity: 1 } : {}}
       transition={{ duration: 0.6, ease: 'easeOut' }}
-      variants={cardVariants}
       whileHover="hover"
       whileTap="pressed"
       className="p-1 rounded-[20px] shadow-card h-auto min-h-[180px] my-5 lg:my-2  mx-2 lg:mx-10"
