@@ -285,7 +285,7 @@ const skillBadges: SkillBadgeType[] = [
   {
     label: 'React Testing Library',
     iconPath: '/tech/react-testing-library.png',
-    bgColor: 'border-teal-400',
+    bgColor: 'border-orange-800',
   },
 ]
 
