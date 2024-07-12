@@ -315,7 +315,7 @@ const socialLinks: SocialLinkType[] = [
 const BannerInfo: BannerInfoItemType[] = [
   {
     link: 'https://www.freecodecamp.org/news/top-open-source-contributors-2023/',
-    message: `I'm listed as a top contributor in freecodecamp opensource - check it out!`,
+    message: `I'm listed as one of the top contributor in freecodecamp opensource - check it out!`,
   },
 ]
 

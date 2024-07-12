@@ -16,9 +16,6 @@ module.exports = {
                 lg: '1024px'
             },
             fontFamily: {
-                robotoSlab: ["Roboto Slab"],
-                openSans: ["Open Sans"],
-                lato: ["Lato:ital"],
                 jetBrains: ["JetBrains Mono"],
             },
             fontWeight: {
@@ -30,17 +27,6 @@ module.exports = {
             gap: {
                 desktop: '2rem',
                 mobile: '1rem',
-            },
-            margin: {
-                xs: '1.625rem',
-                small: '3.625rem',
-                medium: '5rem',
-                large: '6rem',
-                XL: '7.5rem',
-            },
-            letterSpacing: {
-                regular: '0.019rem',
-                small: '0.00625rem',
             },
         },
     },
