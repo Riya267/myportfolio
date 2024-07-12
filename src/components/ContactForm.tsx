@@ -85,7 +85,7 @@ const ContactForm: React.FC = () => {
               id="message"
               placeholder="Your Message"
               rows={5}
-              className="w-full p-4 rounded-lg border-2 border-gray-300 focus:outline-none focus:border-primary-500"
+              className="w-full p-4 rounded-lg text-gray-600 border-2 border-gray-300 focus:outline-none focus:border-primary-500"
             />
           )}
         />
