@@ -31,7 +31,7 @@ const ExperienceCard: React.FC<ExperienceType> = ({
       variants={cardVariants}
       whileHover="hover"
       whileTap="pressed"
-      className="p-1 rounded-[20px] shadow-card h-auto min-h-[180px] mb-5 mx-2 lg:mx-10"
+      className="p-1 rounded-[20px] shadow-card h-auto min-h-[180px] my-5 lg:my-2  mx-2 lg:mx-10"
     >
       <div className="border-2 border-cyan-600 rounded-[20px] py-3 px-8 flex justify-evenly items-center flex-col bg-transparent">
         <div className="text-center">
@@ -71,7 +71,7 @@ const Work: React.FC = () => {
             columnsCountBreakPoints={{ 375: 1, 768: 2, 1024: 2 }}
             gutter="10px"
           >
-            <Masonry>
+            <Masonry gutter="10px">
               {experience.map((work) => (
                 <ExperienceCard key={work.title} {...work} />
               ))}
