@@ -47,6 +47,8 @@ type BannerInfoItemType = {
   message: string
 }
 
+const resumeLink =
+  'https://drive.google.com/file/d/1wlvQbjyEAtonCi1lomuXRKDwwyczs03t/view?usp=sharing'
 const projects: ProjectType[] = [
   {
     name: 'NoteTube',
@@ -312,11 +314,19 @@ const socialLinks: SocialLinkType[] = [
   },
 ]
 
-const BannerInfo: BannerInfoItemType[] = [
+const bannerInfo: BannerInfoItemType[] = [
   {
     link: 'https://www.freecodecamp.org/news/top-open-source-contributors-2023/',
     message: `I'm listed as one of the top contributor in freecodecamp opensource - check it out!`,
   },
 ]
 
-export { projects, services, experience, skillBadges, socialLinks, BannerInfo }
+export {
+  projects,
+  services,
+  experience,
+  skillBadges,
+  socialLinks,
+  bannerInfo,
+  resumeLink,
+}

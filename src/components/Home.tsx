@@ -1,5 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
+import { resumeLink } from '../constants'
 
 const Home: React.FC = () => {
   return (
@@ -18,7 +19,7 @@ const Home: React.FC = () => {
           with a focus on creating seamless user experiences.
         </p>
         <motion.a
-          href="https://drive.google.com/file/d/10cCUFdffvifbFITaoOja7OUfeV-B7ePi/view?usp=drive_link"
+          href={resumeLink}
           target="_blank"
           className="font-bold border-2 p-3 px-5 mt-6 text-white border-indigo-200"
           whileHover={{ scale: 1.2, borderColor: '#b32241', color: '#FFFFFF' }}
